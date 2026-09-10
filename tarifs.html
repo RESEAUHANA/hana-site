@@ -8,7 +8,7 @@
 <meta property="og:title" content="Tarifs HANA 2026"><meta property="og:locale" content="fr_FR">
 <link rel="icon" href="assets/glider.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..750;1,14..32,300..750&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..750;1,14..32,300..750&family=Fraunces:ital,opsz,wght@0,9..144,380..600;1,9..144,380..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -22,7 +22,7 @@
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="index.html" aria-label="HANA, accueil">
-      <svg viewBox="0 0 5 5" aria-hidden="true"><rect x="2" y="1" width="1" height="1" fill="#A8C4B0"/><rect x="3" y="2" width="1" height="1" fill="#7A9986"/><rect x="1" y="3" width="1" height="1" fill="#A8C4B0"/><rect x="2" y="3" width="1" height="1" fill="#1F2D4F"/><rect x="3" y="3" width="1" height="1" fill="#7A9986"/></svg>
+      <canvas class="logo-life" width="56" height="56" aria-hidden="true"></canvas>
       <span><b>HANA</b><small>Réseau · Autorité · Médicale</small></span>
     </a>
     <nav aria-label="Navigation principale">
@@ -40,6 +40,14 @@
     <p class="kicker">Tarifs publics 2026</p>
     <h1>Une grille. <span class="it">Aucun devis caché.</span></h1>
     <p class="lead">Les prix affichés sont les prix payés, identiques pour tous les praticiens du réseau. Hors taxes, pour un cabinet avec 1 site web et 1 fiche Google.</p>
+    <div class="mt2">
+      <div class="seg" id="pay-toggle" role="group" aria-label="Rythme de paiement">
+        <button data-mode="m" aria-pressed="true">Chaque mois</button>
+        <button data-mode="t" aria-pressed="false">Chaque trimestre −5&#8239;%</button>
+        <button data-mode="a" aria-pressed="false">L'année d'avance −7&#8239;%</button>
+      </div>
+      <p id="pay-note">Paiement chaque mois · engagement 6 mois.</p>
+    </div>
   </div>
 </section>
 
@@ -47,7 +55,7 @@
   <div class="wrap">
     <div class="plans">
       <div class="plan"><span class="tag">Essentiel</span><h3>Formule A</h3>
-        <div class="price">2&nbsp;050&nbsp;€</div><div class="per">par mois HT</div>
+        <div class="price" data-base="2050">2&#8239;050&nbsp;€</div><div class="per">par mois HT</div>
         <ul>
           <li><b>Référencement Google</b> : pages soins rédigées par une experte santé, optimisation technique, suivi des positions</li>
           <li><b>Visibilité dans les IA</b> : structuration du site pour ChatGPT, Claude, Perplexity et Gemini, tests chaque mois</li>
@@ -56,7 +64,7 @@
         </ul>
         <a class="btn ghost mt2" href="contact.html">Choisir la formule A</a></div>
       <div class="plan hl"><span class="tag">La plus choisie</span><h3>Formule B</h3>
-        <div class="price">2&nbsp;240&nbsp;€</div><div class="per">par mois HT</div>
+        <div class="price" data-base="2240">2&#8239;240&nbsp;€</div><div class="per">par mois HT</div>
         <ul>
           <li><b>Tout le contenu de la formule A</b></li>
           <li><b>Fiche Google entièrement gérée</b> : optimisation, publications chaque semaine, réponse aux avis sous 24&nbsp;h</li>
@@ -65,7 +73,7 @@
         </ul>
         <a class="btn inv mt2" href="contact.html">Choisir la formule B</a></div>
       <div class="plan"><span class="tag">Expert</span><h3>Formule C</h3>
-        <div class="price">3&nbsp;150&nbsp;€</div><div class="per">par mois HT</div>
+        <div class="price" data-base="3150">3&#8239;150&nbsp;€</div><div class="per">par mois HT</div>
         <ul>
           <li><b>Tout le contenu de la formule B</b></li>
           <li><b>Refonte complète du site</b> : design, identité visuelle médicale, parcours patient</li>
@@ -81,7 +89,7 @@
 
 <section class="navy">
   <div class="wrap">
-    <h2>Deux façons de <span class="it">commencer.</span></h2>
+    <h2 class="rv">Deux façons de <span class="it">commencer.</span></h2>
     <div class="grid2 mt2">
       <div>
         <h3>Tarif de lancement · 5 places</h3>
@@ -106,7 +114,7 @@
 
 <section>
   <div class="wrap">
-    <h2>À la carte et <span class="it">modes de paiement.</span></h2>
+    <h2 class="rv">À la carte et <span class="it">modes de paiement.</span></h2>
     <div class="grid2 mt2">
       <div>
         <table>
@@ -137,7 +145,7 @@
 
 <section class="tight" style="padding-top:0;">
   <div class="wrap">
-    <h2>Questions <span class="it">fréquentes.</span></h2>
+    <h2 class="rv">Questions <span class="it">fréquentes.</span></h2>
     <div class="mt2">
       <details><summary>Pourquoi les prix sont-ils hors taxes, sans TVA&nbsp;?</summary><p>HANA démarre sous le régime de la franchise de TVA (article 293 B du CGI) : aucune TVA ne vous est facturée. Quand le seuil légal sera dépassé, la TVA de 20&nbsp;% s'ajoutera, comme chez tout prestataire.</p></details>
       <details><summary>Garantissez-vous la première position sur Google&nbsp;?</summary><p>Non, et méfiez-vous de qui le promet : personne ne contrôle Google. Nous nous engageons sur des livrables datés et sur la mesure transparente des résultats, chaque mois. C'est aussi ce que le cadre déontologique médical attend d'une communication sérieuse.</p></details>
@@ -167,5 +175,6 @@
   </div>
 </footer>
 
+<script src="assets/site.js" defer></script>
 </body>
 </html>

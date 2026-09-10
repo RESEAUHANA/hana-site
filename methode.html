@@ -8,14 +8,14 @@
 <meta property="og:title" content="La méthode HANA"><meta property="og:locale" content="fr_FR">
 <link rel="icon" href="assets/glider.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..750;1,14..32,300..750&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..750;1,14..32,300..750&family=Fraunces:ital,opsz,wght@0,9..144,380..600;1,9..144,380..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="index.html" aria-label="HANA, accueil">
-      <svg viewBox="0 0 5 5" aria-hidden="true"><rect x="2" y="1" width="1" height="1" fill="#A8C4B0"/><rect x="3" y="2" width="1" height="1" fill="#7A9986"/><rect x="1" y="3" width="1" height="1" fill="#A8C4B0"/><rect x="2" y="3" width="1" height="1" fill="#1F2D4F"/><rect x="3" y="3" width="1" height="1" fill="#7A9986"/></svg>
+      <canvas class="logo-life" width="56" height="56" aria-hidden="true"></canvas>
       <span><b>HANA</b><small>Réseau · Autorité · Médicale</small></span>
     </a>
     <nav aria-label="Navigation principale">
@@ -28,26 +28,44 @@
 </header>
 
 
-<section class="navy hero" style="padding-bottom:80px;">
+<section class="hero-live navy" style="min-height:64vh;">
+  <canvas id="life-hero" aria-hidden="true"></canvas>
   <div class="wrap">
-    <div>
+    <div style="max-width:760px;">
       <p class="kicker">La méthode</p>
       <h1>Conway pour comprendre. <span class="it">La science des réseaux pour exécuter.</span></h1>
       <p class="lead">En 1970, John Conway invente le jeu de la vie : une grille, quatre règles. Aucune cellule ne survit seule, c'est son voisinage qui décide. Cinquante ans plus tard, c'est exactement ainsi que Google et les IA génératives classent les pages. Nous traduisons ces règles en métriques mesurables, pilotées chaque mois.</p>
     </div>
-    <div class="hero-grid" aria-hidden="true">
-      <svg viewBox="0 0 9 9">
-        <g stroke="rgba(240,232,224,.14)" stroke-width=".03"><path d="M0 1h9M0 2h9M0 3h9M0 4h9M0 5h9M0 6h9M0 7h9M0 8h9M1 0v9M2 0v9M3 0v9M4 0v9M5 0v9M6 0v9M7 0v9M8 0v9"/></g>
-        <rect x="4" y="2" width="1" height="1" fill="#A8C4B0"/><rect x="5" y="3" width="1" height="1" fill="#7A9986"/>
-        <rect x="3" y="4" width="1" height="1" fill="#A8C4B0"/><rect x="4" y="4" width="1" height="1" fill="#F0E8E0"/><rect x="5" y="4" width="1" height="1" fill="#7A9986"/>
-      </svg>
+    
+  </div>
+</section>
+
+
+<section class="navy tight">
+  <div class="wrap">
+    <p class="kicker">Les quatre règles, en direct</p>
+    <h2 class="rv">Regardez les règles <span class="it">décider.</span></h2>
+    <p class="lead" style="font-size:17px;">Chaque simulation ci-dessous applique les vraies règles de Conway, en boucle. Chacune correspond à un état mesurable d'une page web, que nous pilotons chaque mois.</p>
+    <div class="rules mt2">
+      <div class="rule"><canvas class="rule-demo" data-rule="r1" width="200" height="200"></canvas>
+        <span class="rn">Règle 01 · Sous-population</span><h3>L'isolement tue.</h3>
+        <p>Une page sans liens entrants pertinents, sans maillage interne, sans citations IA, meurt. Google la désindexe progressivement.</p></div>
+      <div class="rule"><canvas class="rule-demo" data-rule="r2" width="200" height="200"></canvas>
+        <span class="rn">Règle 02 · Stabilité</span><h3>Le voisinage juste.</h3>
+        <p>Une page bien entourée, conforme E-E-A-T, avec un balisage correct, tient ses positions. Deux à trois signaux d'autorité cohérents suffisent.</p></div>
+      <div class="rule"><canvas class="rule-demo" data-rule="r3" width="200" height="200"></canvas>
+        <span class="rn">Règle 03 · Surpopulation</span><h3>Trop, c'est trop.</h3>
+        <p>Suroptimisation, liens artificiels, maillage redondant : Google détecte la surchauffe, et l'édifice s'effondre.</p></div>
+      <div class="rule"><canvas class="rule-demo" data-rule="r4" width="200" height="200"></canvas>
+        <span class="rn">Règle 04 · Reproduction</span><h3>Naître au bon endroit.</h3>
+        <p>Volume de recherche, intention claire, espace concurrentiel : trois signaux convergents font émerger une page. Elle naît parce que ses voisines la portent.</p></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <h2>Un maillage <span class="it">à deux échelles.</span></h2>
+    <h2 class="rv">Un maillage <span class="it">à deux échelles.</span></h2>
     <div class="grid2 mt2">
       <div class="block"><h3>À l'intérieur : six expertises qui se parlent</h3>
         <p>Stratégie SEO/GEO, design, fiches Google, maintenance, acquisition, coordination : chaque expertise échange en continu avec les cinq autres. Pas de chaîne hiérarchique, pas de turn-over. Un voisinage, où les décisions circulent et où le contexte ne se perd pas.</p></div>
@@ -62,7 +80,7 @@
 <section class="navy">
   <div class="wrap">
     <p class="kicker">Concret, daté, livré</p>
-    <h2>Vos 90 premiers jours. <span class="it">Aucune zone d'ombre.</span></h2>
+    <h2 class="rv">Vos 90 premiers jours. <span class="it">Aucune zone d'ombre.</span></h2>
     <div class="steps mt2">
       <div class="step"><b class="n">M1</b><h3>Diagnostic et fondations</h3>
         <p>Audit complet livré sous 7 jours. Mise à niveau technique, optimisation pour les IA, refonte complète de la fiche Google, quatre premières pages soins en ligne.</p></div>
@@ -77,7 +95,7 @@
 
 <section>
   <div class="wrap">
-    <h2>D'abord les fondations, puis les signaux, <span class="it">puis les patients.</span></h2>
+    <h2 class="rv">D'abord les fondations, puis les signaux, <span class="it">puis les patients.</span></h2>
     <div class="grid3 mt2">
       <div class="block"><h3>Mois 1 à 3 · Les fondations</h3><p>Site remis à niveau, pages écrites, fiche refaite. Vous jugez sur les livrables : ce qui a été promis est-il en ligne, à la date prévue&nbsp;?</p></div>
       <div class="block"><h3>Mois 2 à 6 · Les signaux</h3><p>Vos pages gagnent des positions, les affichages augmentent, votre fiche apparaît sur Maps, les IA commencent à vous citer. Chaque reporting montre ces courbes.</p></div>
@@ -107,5 +125,6 @@
   </div>
 </footer>
 
+<script src="assets/site.js" defer></script>
 </body>
 </html>
