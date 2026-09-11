@@ -6,7 +6,7 @@ const SAUGE="#A8C4B0", EUCA="#7A9986";
 
 /* Classes de révélation : en tête, pour qu'aucune erreur plus bas ne bloque l'affichage du contenu */
 document.documentElement.classList.add("js");
-const markLoaded=()=>requestAnimationFrame(()=>document.body.classList.add("loaded"));
+const markLoaded=()=>{ const go=()=>document.body.classList.add("loaded"); requestAnimationFrame(go); setTimeout(go,400); };
 if(document.readyState==="loading") addEventListener("DOMContentLoaded",markLoaded); else markLoaded();
 const safe=(fn)=>{ try{ return fn(); }catch(err){ console.warn("HANA: animation ignorée", err); } };
 
