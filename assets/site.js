@@ -4,6 +4,12 @@
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const SAUGE="#A8C4B0", EUCA="#7A9986";
 
+/* Classes de révélation : en tête, pour qu'aucune erreur plus bas ne bloque l'affichage du contenu */
+document.documentElement.classList.add("js");
+const markLoaded=()=>requestAnimationFrame(()=>document.body.classList.add("loaded"));
+if(document.readyState==="loading") addEventListener("DOMContentLoaded",markLoaded); else markLoaded();
+const safe=(fn)=>{ try{ return fn(); }catch(err){ console.warn("HANA: animation ignorée", err); } };
+
 /* ---------- Jeu de la vie, avec naissance/mort en fondu ---------- */
 function Life(canvas, o){
   const ctx = canvas.getContext("2d");
@@ -11,9 +17,12 @@ function Life(canvas, o){
   const blank=v=>Array.from({length:rows},()=>new Array(cols).fill(v||0));
   function resize(){
     const r = canvas.getBoundingClientRect();
-    canvas.width=r.width*devicePixelRatio; canvas.height=r.height*devicePixelRatio;
-    if(o.fit==="width"){ cell=canvas.width/cols; rows=Math.ceil(canvas.height/cell)+1; }
+    const w = r.width>1 ? r.width : (canvas.clientWidth||innerWidth||300);
+    const h = r.height>1 ? r.height : (canvas.clientHeight||Math.round(innerHeight*.88)||150);
+    canvas.width=Math.max(1,Math.round(w*devicePixelRatio)); canvas.height=Math.max(1,Math.round(h*devicePixelRatio));
+    if(o.fit==="width"){ cell=canvas.width/cols; rows=Math.min(600, Math.max(1, Math.ceil(canvas.height/cell)+1)); }
     else cell=Math.min(canvas.width/cols, canvas.height/rows);
+    if(!isFinite(cell)||cell<=0) cell=1;
     seed();
   }
   function seed(){ grid=blank(); age=blank(); alpha=blank(); steps=0; (o.seed||(()=>{}))(set, cols, rows); }
@@ -48,8 +57,9 @@ function Life(canvas, o){
   }
   function loop(){ draw(); raf=requestAnimationFrame(loop); }
   new IntersectionObserver(e=>{visible=e[0].isIntersecting;}).observe(canvas);
-  addEventListener("resize",()=>{ if(o.fit==="width")resize(); });
+  addEventListener("resize",()=>{ if(o.fit==="width")safe(resize); });
   resize();
+  if(o.fit==="width" && canvas.getBoundingClientRect().width<=1) addEventListener("load",()=>safe(resize),{once:true});
   if(reduced){ for(let i=0;i<3;i++)step(); draw(); }
   else { timer=setInterval(()=>{if(visible)step();}, o.interval||430); loop(); }
   return {set, get cols(){return cols}};
@@ -58,7 +68,7 @@ const glider=(set,x,y)=>[[1,0],[2,1],[0,2],[1,2],[2,2]].forEach(([dx,dy])=>set(x
 
 /* Hero */
 const heroC=document.getElementById("life-hero");
-if(heroC){
+if(heroC) safe(()=>{
   const L=Life(heroC,{cols:Math.max(30,Math.round(innerWidth/30)),rows:1,fit:"width",wrap:true,interval:430,dim:1,
     seed(set,cols,rows){ for(let i=0;i<cols*rows*0.07;i++)set(Math.floor(Math.random()*cols),Math.floor(Math.random()*rows)); glider(set,2,2); glider(set,cols-8,3); },
     every(s,set,reseed){ if(s%16===0)glider(set,Math.floor(Math.random()*8),Math.floor(Math.random()*5)); if(s%220===0)reseed(); }});
@@ -70,14 +80,14 @@ if(heroC){
     heroC.parentElement.addEventListener("pointermove",e=>{const t=Date.now(); if(t-last>80){last=t;sow(e);}},{passive:true});
     heroC.parentElement.addEventListener("pointerdown",sow);
   }
-}
+});
 /* Logo vivant */
-document.querySelectorAll("canvas.logo-life").forEach(c=>Life(c,{cols:8,rows:8,wrap:true,interval:640,seed(set){glider(set,1,1);}}));
+document.querySelectorAll("canvas.logo-life").forEach(c=>safe(()=>Life(c,{cols:8,rows:8,wrap:true,interval:640,seed(set){glider(set,1,1);}})));
 /* Démos des règles */
 const RULES={r1:{seed(set){set(2,2);set(4,4);},reset:2}, r2:{seed(set){set(2,3);set(3,3);set(4,3);},reset:8},
   r3:{seed(set){for(let y=2;y<5;y++)for(let x=2;x<5;x++)set(x,y);},reset:5}, r4:{seed(set){set(3,3);set(4,3);set(3,4);},reset:3}};
-document.querySelectorAll("canvas.rule-demo").forEach(c=>{ const r=RULES[c.dataset.rule];
-  Life(c,{cols:7,rows:7,interval:700,seed:r.seed,every(s,set,reseed){if(s>=r.reset)reseed();}}); });
+document.querySelectorAll("canvas.rule-demo").forEach(c=>safe(()=>{ const r=RULES[c.dataset.rule]; if(!r)return;
+  Life(c,{cols:7,rows:7,interval:700,seed:r.seed,every(s,set,reseed){if(s>=r.reset)reseed();}}); }));
 
 /* ---------- Révélations au scroll ---------- */
 const rv=document.querySelectorAll(".rv");
@@ -88,8 +98,6 @@ if(rv.length){
     rv.forEach(el=>io.observe(el));
   }
 }
-document.documentElement.classList.add("js");
-addEventListener("DOMContentLoaded",()=>{ requestAnimationFrame(()=>document.body.classList.add("loaded")); });
 
 /* ---------- Compteurs ---------- */
 const counters=document.querySelectorAll("[data-count]");
