@@ -139,3 +139,16 @@ if(seg){
     note.textContent=m.label; });
 }
 })();
+(function(){
+  const cap=document.getElementById("net-caption");
+  if(!cap)return;
+  const msgs=["Un praticien par ville, tous connectés entre eux.",
+    "Votre confrère de Lyon publie un article expert : il vous cite à Marseille.",
+    "Google et les IA voient des recommandations croisées, signées, visibles.",
+    "L'autorité de chacun nourrit celle de tous. Jamais celle d'un concurrent."];
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  let i=0;
+  setInterval(()=>{ cap.classList.add("fade");
+    setTimeout(()=>{ i=(i+1)%msgs.length; cap.textContent=msgs[i]; cap.classList.remove("fade"); },500);
+  },5200);
+})();

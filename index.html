@@ -10,8 +10,8 @@
 <meta property="og:description" content="Un écosystème digital complet, lu et cité par Google et les IA. Un seul praticien par spécialité et par ville.">
 <meta property="og:type" content="website"><meta property="og:url" content="https://hanahealth.fr/"><meta property="og:locale" content="fr_FR">
 <link rel="icon" href="assets/glider.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://api.fontshare.com">
-<link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600&f[]=satoshi@400,500,700,401&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService",
@@ -46,6 +46,7 @@
       <h1><span class="hl"><span>La visibilité médicale</span></span><span class="hl"><span style="--d:.12s;">ne s'achète plus.</span></span><span class="hl"><span class="it" style="--d:.24s;">Elle se tisse.</span></span></h1>
       <p class="lead">HANA construit l'écosystème digital complet des chirurgiens et médecins esthétiques d'excellence : un ensemble cohérent que Google et les IA lisent, comprennent et citent. Résultat : plus de prises de RDV qualifiées.</p>
       <p class="mt2"><a class="btn inv" href="contact.html">Réserver une visio de 45 minutes</a> <a class="btn ghost" href="tarifs.html">Voir les tarifs publics</a></p>
+      <p class="proof">15 chirurgiens accompagnés · Réponse sous 24 h ouvrées · Premier échange sans engagement</p>
     </div>
   </div>
   <p class="hero-hint">La grille est vivante : déplacez votre doigt ou votre curseur, semez des cellules.</p>
@@ -79,27 +80,40 @@
         <p class="mt2 rv" style="--d:.18s;"><a class="btn inv" href="contact.html">Vérifier si ma ville est libre</a></p>
       </div>
       <div class="rv" style="--d:.15s;">
-        <svg class="citynet" viewBox="0 0 300 220" aria-hidden="true">
-          <g stroke="#7A9986" stroke-width=".7" opacity=".5">
-            <line x1="150" y1="30" x2="70" y2="70"/><line x1="150" y1="30" x2="240" y2="60"/><line x1="70" y1="70" x2="240" y2="60"/>
-            <line x1="70" y1="70" x2="55" y2="130"/><line x1="70" y1="70" x2="180" y2="120"/><line x1="240" y1="60" x2="180" y2="120"/>
-            <line x1="55" y1="130" x2="180" y2="120"/><line x1="55" y1="130" x2="90" y2="180"/><line x1="180" y1="120" x2="150" y2="190"/>
-            <line x1="180" y1="120" x2="250" y2="180"/><line x1="90" y1="180" x2="150" y2="190"/><line x1="150" y1="190" x2="250" y2="180"/>
-            <line x1="150" y1="30" x2="180" y2="120"/><line x1="90" y1="180" x2="180" y2="120"/><line x1="55" y1="130" x2="150" y2="190"/>
+        <svg class="citynet" viewBox="0 0 300 230" aria-label="Le réseau HANA : un praticien par ville, tous connectés">
+          <g class="edges" stroke="#7A9986" stroke-width=".8" fill="none" opacity=".55">
+            <path d="M150 30 L70 70"/><path d="M150 30 L240 60"/><path d="M70 70 L240 60"/>
+            <path d="M70 70 L55 130"/><path d="M70 70 L180 120"/><path d="M240 60 L180 120"/>
+            <path d="M55 130 L180 120"/><path d="M55 130 L90 180"/><path d="M180 120 L150 190"/>
+            <path d="M180 120 L250 180"/><path d="M90 180 L150 190"/><path d="M150 190 L250 180"/>
+            <path d="M150 30 L180 120"/><path d="M55 130 L150 190"/><path d="M240 60 L250 180"/>
+          </g>
+          <g fill="#F0E8E0">
+            <circle r="2.6" opacity=".95"><animateMotion dur="3.2s" repeatCount="indefinite" path="M150 30 L180 120"/></circle>
+            <circle r="2.6" opacity=".95"><animateMotion dur="4.1s" begin="0.9s" repeatCount="indefinite" path="M180 120 L55 130"/></circle>
+            <circle r="2.6" opacity=".95"><animateMotion dur="3.6s" begin="1.7s" repeatCount="indefinite" path="M55 130 L90 180"/></circle>
+            <circle r="2.6" opacity=".95"><animateMotion dur="4.4s" begin="0.4s" repeatCount="indefinite" path="M240 60 L180 120"/></circle>
+            <circle r="2.6" opacity=".95"><animateMotion dur="3.9s" begin="2.3s" repeatCount="indefinite" path="M150 190 L250 180"/></circle>
+            <circle r="2.6" opacity=".95"><animateMotion dur="4.8s" begin="1.2s" repeatCount="indefinite" path="M70 70 L150 30"/></circle>
           </g>
           <g fill="#A8C4B0">
-            <circle class="dot" cx="150" cy="30" r="5"/><circle class="dot" style="--d:.4s" cx="70" cy="70" r="5"/><circle class="dot" style="--d:.9s" cx="240" cy="60" r="5"/>
-            <circle class="dot" style="--d:1.3s" cx="55" cy="130" r="5"/><circle class="dot" style="--d:.6s" cx="180" cy="120" r="5"/><circle class="dot" style="--d:1.7s" cx="90" cy="180" r="5"/>
-            <circle class="dot" style="--d:2.1s" cx="150" cy="190" r="5"/><circle class="dot" style="--d:1s" cx="250" cy="180" r="5"/>
+            <g class="halo" style="--d:0s"><circle cx="150" cy="30" r="5"/></g>
+            <g class="halo" style="--d:.5s"><circle cx="70" cy="70" r="5"/></g>
+            <g class="halo" style="--d:1s"><circle cx="240" cy="60" r="5"/></g>
+            <g class="halo" style="--d:1.5s"><circle cx="55" cy="130" r="5"/></g>
+            <g class="halo" style="--d:2s"><circle cx="180" cy="120" r="5"/></g>
+            <g class="halo" style="--d:2.5s"><circle cx="90" cy="180" r="5"/></g>
+            <g class="halo" style="--d:3s"><circle cx="150" cy="190" r="5"/></g>
+            <g class="halo" style="--d:3.5s"><circle cx="250" cy="180" r="5"/></g>
           </g>
-          <g font-family="Inter" font-size="9.5" fill="#F0E8E0" opacity=".9">
+          <g font-family="Instrument Sans,Inter,sans-serif" font-size="9.5" fill="#F0E8E0" opacity=".92">
             <text x="158" y="27">Lille</text><text x="40" y="62">Paris</text><text x="248" y="55">Strasbourg</text>
             <text x="20" y="128">Nantes</text><text x="188" y="114">Lyon</text><text x="55" y="194">Bordeaux</text>
             <text x="126" y="205">Marseille</text><text x="256" y="192">Nice</text>
           </g>
         </svg>
-        <p style="font-size:13px;font-style:italic;color:var(--sauge);text-align:center;margin-top:8px;">Un praticien par ville, tous connectés entre eux.</p>
-      </div>
+        <p id="net-caption" style="font-size:14px;font-style:italic;color:var(--sauge);text-align:center;margin-top:12px;min-height:2.6em;">Un praticien par ville, tous connectés entre eux.</p>
+              </div>
     </div>
   </div>
 </section>
@@ -221,6 +235,7 @@
     <div class="fsig"><span>Dans Google comme dans la vie, le voisinage décide.</span><span>© 2026 HANA · Marseille</span></div>
   </div>
 </footer>
+<a class="cta-bar" href="contact.html">Réserver une visio · 45 min offertes</a>
 <script src="assets/site.js" defer></script>
 </body>
 </html>
