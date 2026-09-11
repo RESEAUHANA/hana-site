@@ -9,9 +9,11 @@
 <meta property="og:title" content="HANA · Réseau d'autorité médicale digitale">
 <meta property="og:description" content="Un écosystème digital complet, lu et cité par Google et les IA. Un seul praticien par spécialité et par ville.">
 <meta property="og:type" content="website"><meta property="og:url" content="https://hanahealth.fr/"><meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://hanahealth.fr/assets/img/hero.jpg">
+<meta name="theme-color" content="#1F2D4F">
 <link rel="icon" href="assets/glider.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService",
@@ -23,13 +25,14 @@
 </script>
 </head>
 <body>
-<header class="nav">
+<header class="nav" id="nav">
   <div class="wrap">
     <a class="brand" href="index.html" aria-label="HANA, accueil">
       <canvas class="logo-life" width="56" height="56" aria-hidden="true"></canvas>
       <span><b>HANA</b><small>Réseau · Autorité · Médicale</small></span>
     </a>
-    <nav aria-label="Navigation principale">
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu">Menu</button>
+    <nav id="menu" aria-label="Navigation principale">
       <a href="methode.html">La méthode</a>
       <a href="tarifs.html">Tarifs</a>
       <a href="contact.html">Contact</a>
@@ -38,30 +41,40 @@
   </div>
 </header>
 
-<section class="hero-live">
+<section class="hero">
+  <div class="media"><img src="assets/img/hero.jpg" alt="" fetchpriority="high"></div>
   <canvas id="life-hero" aria-hidden="true"></canvas>
   <div class="wrap">
-    <div style="max-width:780px;">
-      <p class="kicker">Réseau d'autorité médicale digitale · un praticien par ville</p>
-      <h1><span class="hl"><span>La visibilité médicale</span></span><span class="hl"><span style="--d:.12s;">ne s'achète plus.</span></span><span class="hl"><span class="it" style="--d:.24s;">Elle se tisse.</span></span></h1>
-      <p class="lead">HANA construit l'écosystème digital complet des chirurgiens et médecins esthétiques d'excellence : un ensemble cohérent que Google et les IA lisent, comprennent et citent. Résultat : plus de prises de RDV qualifiées.</p>
-      <p class="mt2"><a class="btn inv" href="contact.html">Réserver une visio de 45 minutes</a> <a class="btn ghost" href="tarifs.html">Voir les tarifs publics</a></p>
-      <p class="proof">15 chirurgiens accompagnés · Réponse sous 24 h ouvrées · Premier échange sans engagement</p>
+    <p class="kicker">Réseau d'autorité médicale digitale · un praticien par ville</p>
+    <h1><span class="hl"><span>La visibilité médicale</span></span><span class="hl"><span style="--d:.12s;">ne s'achète plus.</span></span><span class="hl"><span class="it" style="--d:.24s;">Elle se tisse.</span></span></h1>
+    <p class="lead">HANA construit l'écosystème digital complet des chirurgiens et médecins esthétiques d'excellence : un ensemble cohérent que Google et les IA lisent, comprennent et citent. Résultat : plus de prises de RDV qualifiées.</p>
+    <div class="actions">
+      <a class="btn inv" href="contact.html">Réserver une visio de 45 minutes</a>
+      <a class="btn" href="tarifs.html">Voir les tarifs publics</a>
     </div>
+    <p class="proof">15 chirurgiens accompagnés · Réponse sous 24 h ouvrées · Premier échange sans engagement</p>
   </div>
-  <p class="hero-hint">La grille est vivante : déplacez votre doigt ou votre curseur, semez des cellules.</p>
+  <p class="hero-hint">La grille est vivante : aucune cellule ne survit seule.</p>
+  <p class="scroll-cue">Découvrir</p>
 </section>
 
 <div class="ticker" aria-hidden="true"><div class="ticker-track"><span>Lu et cité par ChatGPT — Claude — Perplexity — Gemini — Google AI Overviews — </span><span>Lu et cité par ChatGPT — Claude — Perplexity — Gemini — Google AI Overviews — </span></div></div>
 
 <section>
-  <div class="wrap">
-    <p class="kicker rv">Pas une agence. Une experte.</p>
-    <p class="pull rv" style="--d:.08s;">« Une agence généraliste apprend votre métier sur votre budget. Moi, j'en viens. »</p>
-    <div class="grid2 mt2">
-      <p class="rv" style="font-size:18px;line-height:1.65;">Dix ans dans la chirurgie et la médecine esthétiques, aux côtés des praticiens, dans les cliniques, au contact des patientes. Les protocoles, les suites opératoires, le Code de déontologie, les mots exacts que tapent vos futures patientes : c'est mon quotidien depuis 2016, pas un nouveau marché à explorer.</p>
-      <p class="rv" style="--d:.1s;font-size:18px;line-height:1.65;">HANA n'accepte que des praticiens de l'esthétique. Pas de restaurant, pas d'hôtel, pas de « nouveau secteur ». Une seule verticale, connue de l'intérieur, et un contenu qui passe les filtres d'expertise de Google et des IA parce qu'il est écrit par quelqu'un qui sait de quoi il parle.</p>
+  <div class="wrap split">
+    <div class="framed bw">
+      <div class="img-rv rv"><img src="assets/img/bloc.jpg" alt="Chirurgien au bloc opératoire, loupes chirurgicales" loading="lazy"></div>
+      <div class="frame"></div>
+      <div class="cap">Dix ans dans les blocs.</div>
     </div>
+    <div>
+      <p class="kicker rv">Pas une agence. Une experte.</p>
+      <p class="pull rv" style="--d:.08s;">« Une agence généraliste apprend votre métier sur votre budget. Moi, j'en viens. »</p>
+      <p class="rv mt2" style="--d:.14s;font-size:17px;line-height:1.7;color:var(--ink2);">Dix ans dans la chirurgie et la médecine esthétiques, aux côtés des praticiens, dans les cliniques, au contact des patientes. Les protocoles, les suites opératoires, le Code de déontologie, les mots exacts que tapent vos futures patientes : c'est mon quotidien depuis 2016, pas un nouveau marché à explorer.</p>
+      <p class="rv" style="--d:.2s;font-size:17px;line-height:1.7;color:var(--ink2);">HANA n'accepte que des praticiens de l'esthétique. Pas de restaurant, pas d'hôtel, pas de « nouveau secteur ». Une seule verticale, connue de l'intérieur, et un contenu qui passe les filtres d'expertise de Google et des IA parce qu'il est écrit par quelqu'un qui sait de quoi il parle.</p>
+    </div>
+  </div>
+  <div class="wrap">
     <div class="grid3 mt3">
       <div class="stat rv"><b data-count="10" data-suffix="&#8239;ans">0&#8239;ans</b><span>dans la chirurgie et la médecine esthétiques, en clinique et en libéral.</span></div>
       <div class="stat rv" style="--d:.1s;"><b data-count="15">0</b><span>chirurgiens accompagnés en France, DOM-TOM et Suisse. Références sur demande.</span></div>
@@ -71,58 +84,81 @@
 </section>
 
 <section class="navy">
-  <div class="wrap">
-    <div class="grid2" style="align-items:center;">
-      <div>
-        <p class="kicker rv">L'exclusivité</p>
-        <h2 class="rv" style="--d:.06s;">Un praticien par ville. <span class="it">Pas deux.</span></h2>
-        <p class="rv mt1" style="--d:.12s;font-size:17.5px;line-height:1.65;">Ce n'est pas une promesse marketing, c'est une condition technique : on ne peut pas faire monter deux concurrents sur les mêmes requêtes. Votre signature ferme votre ville et votre spécialité à vos confrères directs, pour toute la durée de la collaboration. Le travail produit pour vous ne servira qu'à vous.</p>
-        <p class="mt2 rv" style="--d:.18s;"><a class="btn inv" href="contact.html">Vérifier si ma ville est libre</a></p>
+  <div class="wrap showcase">
+    <div>
+      <p class="kicker rv">Ce que vos patientes verront</p>
+      <h2 class="rv" style="--d:.06s;">Un site HANA ressemble <span class="it">à ceci.</span></h2>
+      <p class="lead rv" style="--d:.12s;">Les codes des plus grands cabinets : photographie, silence, typographie, précision. Et sous la surface, une architecture pensée pour être lue, comprise et citée par Google et les IA.</p>
+      <ul class="checks rv" style="--d:.18s;">
+        <li>Pages soins rédigées par une experte santé, jamais par un rédacteur généraliste</li>
+        <li>Données structurées, réponses citables, fourchettes de prix assumées</li>
+        <li>Parcours patient sans friction, prise de RDV intégrée</li>
+      </ul>
+      <div class="actions rv" style="--d:.24s;"><a class="btn" href="demo/" target="_blank" rel="noopener">Ouvrir le site témoin</a></div>
+    </div>
+    <div class="device rv" style="--d:.1s;">
+      <div class="bar"><i></i><i></i><i></i><span>aveline-demo.fr · site témoin conçu par HANA</span></div>
+      <div class="screen">
+        <iframe src="demo/index.html" title="Aperçu du site témoin AVELINE" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+        <a class="cover" href="demo/" target="_blank" rel="noopener" aria-label="Ouvrir le site témoin"><span>Visiter le site témoin</span></a>
       </div>
-      <div class="rv" style="--d:.15s;">
-        <svg class="citynet" viewBox="0 0 300 230" aria-label="Le réseau HANA : un praticien par ville, tous connectés">
-          <g class="edges" stroke="#7A9986" stroke-width=".8" fill="none" opacity=".55">
-            <path d="M150 30 L70 70"/><path d="M150 30 L240 60"/><path d="M70 70 L240 60"/>
-            <path d="M70 70 L55 130"/><path d="M70 70 L180 120"/><path d="M240 60 L180 120"/>
-            <path d="M55 130 L180 120"/><path d="M55 130 L90 180"/><path d="M180 120 L150 190"/>
-            <path d="M180 120 L250 180"/><path d="M90 180 L150 190"/><path d="M150 190 L250 180"/>
-            <path d="M150 30 L180 120"/><path d="M55 130 L150 190"/><path d="M240 60 L250 180"/>
-          </g>
-          <g fill="#F0E8E0">
-            <circle r="2.6" opacity=".95"><animateMotion dur="3.2s" repeatCount="indefinite" path="M150 30 L180 120"/></circle>
-            <circle r="2.6" opacity=".95"><animateMotion dur="4.1s" begin="0.9s" repeatCount="indefinite" path="M180 120 L55 130"/></circle>
-            <circle r="2.6" opacity=".95"><animateMotion dur="3.6s" begin="1.7s" repeatCount="indefinite" path="M55 130 L90 180"/></circle>
-            <circle r="2.6" opacity=".95"><animateMotion dur="4.4s" begin="0.4s" repeatCount="indefinite" path="M240 60 L180 120"/></circle>
-            <circle r="2.6" opacity=".95"><animateMotion dur="3.9s" begin="2.3s" repeatCount="indefinite" path="M150 190 L250 180"/></circle>
-            <circle r="2.6" opacity=".95"><animateMotion dur="4.8s" begin="1.2s" repeatCount="indefinite" path="M70 70 L150 30"/></circle>
-          </g>
-          <g fill="#A8C4B0">
-            <g class="halo" style="--d:0s"><circle cx="150" cy="30" r="5"/></g>
-            <g class="halo" style="--d:.5s"><circle cx="70" cy="70" r="5"/></g>
-            <g class="halo" style="--d:1s"><circle cx="240" cy="60" r="5"/></g>
-            <g class="halo" style="--d:1.5s"><circle cx="55" cy="130" r="5"/></g>
-            <g class="halo" style="--d:2s"><circle cx="180" cy="120" r="5"/></g>
-            <g class="halo" style="--d:2.5s"><circle cx="90" cy="180" r="5"/></g>
-            <g class="halo" style="--d:3s"><circle cx="150" cy="190" r="5"/></g>
-            <g class="halo" style="--d:3.5s"><circle cx="250" cy="180" r="5"/></g>
-          </g>
-          <g font-family="Instrument Sans,Inter,sans-serif" font-size="9.5" fill="#F0E8E0" opacity=".92">
-            <text x="158" y="27">Lille</text><text x="40" y="62">Paris</text><text x="248" y="55">Strasbourg</text>
-            <text x="20" y="128">Nantes</text><text x="188" y="114">Lyon</text><text x="55" y="194">Bordeaux</text>
-            <text x="126" y="205">Marseille</text><text x="256" y="192">Nice</text>
-          </g>
-        </svg>
-        <p id="net-caption" style="font-size:14px;font-style:italic;color:var(--sauge);text-align:center;margin-top:12px;min-height:2.6em;">Un praticien par ville, tous connectés entre eux.</p>
-              </div>
+    </div>
+  </div>
+</section>
+
+<section class="ivory2">
+  <div class="wrap grid2" style="align-items:center;">
+    <div>
+      <p class="kicker rv">L'exclusivité</p>
+      <h2 class="rv" style="--d:.06s;">Un praticien par ville. <span class="it">Pas deux.</span></h2>
+      <p class="lead rv" style="--d:.12s;">Ce n'est pas une promesse marketing, c'est une condition technique : on ne peut pas faire monter deux concurrents sur les mêmes requêtes. Votre signature ferme votre ville et votre spécialité à vos confrères directs, pour toute la durée de la collaboration. Le travail produit pour vous ne servira qu'à vous.</p>
+      <div class="actions rv" style="--d:.18s;"><a class="btn inv" href="contact.html">Vérifier si ma ville est libre</a></div>
+    </div>
+    <div class="rv navy" style="--d:.15s;padding:44px 34px;">
+      <svg class="citynet" viewBox="0 0 300 230" aria-label="Le réseau HANA : un praticien par ville, tous connectés">
+        <g class="edges" stroke="#7A9986" stroke-width=".8" fill="none" opacity=".55">
+          <path d="M150 30 L70 70"/><path d="M150 30 L240 60"/><path d="M70 70 L240 60"/>
+          <path d="M70 70 L55 130"/><path d="M70 70 L180 120"/><path d="M240 60 L180 120"/>
+          <path d="M55 130 L180 120"/><path d="M55 130 L90 180"/><path d="M180 120 L150 190"/>
+          <path d="M180 120 L250 180"/><path d="M90 180 L150 190"/><path d="M150 190 L250 180"/>
+          <path d="M150 30 L180 120"/><path d="M55 130 L150 190"/><path d="M240 60 L250 180"/>
+        </g>
+        <g fill="#F0E8E0">
+          <circle r="2.6" opacity=".95"><animateMotion dur="3.2s" repeatCount="indefinite" path="M150 30 L180 120"/></circle>
+          <circle r="2.6" opacity=".95"><animateMotion dur="4.1s" begin="0.9s" repeatCount="indefinite" path="M180 120 L55 130"/></circle>
+          <circle r="2.6" opacity=".95"><animateMotion dur="3.6s" begin="1.7s" repeatCount="indefinite" path="M55 130 L90 180"/></circle>
+          <circle r="2.6" opacity=".95"><animateMotion dur="4.4s" begin="0.4s" repeatCount="indefinite" path="M240 60 L180 120"/></circle>
+          <circle r="2.6" opacity=".95"><animateMotion dur="3.9s" begin="2.3s" repeatCount="indefinite" path="M150 190 L250 180"/></circle>
+          <circle r="2.6" opacity=".95"><animateMotion dur="4.8s" begin="1.2s" repeatCount="indefinite" path="M70 70 L150 30"/></circle>
+        </g>
+        <g fill="#A8C4B0">
+          <g class="halo" style="--d:0s"><circle cx="150" cy="30" r="5"/></g>
+          <g class="halo" style="--d:.5s"><circle cx="70" cy="70" r="5"/></g>
+          <g class="halo" style="--d:1s"><circle cx="240" cy="60" r="5"/></g>
+          <g class="halo" style="--d:1.5s"><circle cx="55" cy="130" r="5"/></g>
+          <g class="halo" style="--d:2s"><circle cx="180" cy="120" r="5"/></g>
+          <g class="halo" style="--d:2.5s"><circle cx="90" cy="180" r="5"/></g>
+          <g class="halo" style="--d:3s"><circle cx="150" cy="190" r="5"/></g>
+          <g class="halo" style="--d:3.5s"><circle cx="250" cy="180" r="5"/></g>
+        </g>
+        <g font-family="Manrope,Inter,sans-serif" font-size="9.5" fill="#F0E8E0" opacity=".92">
+          <text x="158" y="27">Lille</text><text x="40" y="62">Paris</text><text x="248" y="55">Strasbourg</text>
+          <text x="20" y="128">Nantes</text><text x="188" y="114">Lyon</text><text x="55" y="194">Bordeaux</text>
+          <text x="126" y="205">Marseille</text><text x="256" y="192">Nice</text>
+        </g>
+      </svg>
+      <p id="net-caption">Un praticien par ville, tous connectés entre eux.</p>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <p class="kicker rv">La bascule IA · données 2026</p>
-    <h2 class="rv" style="--d:.06s;">Vos patientes ont déjà <span class="it">changé de moteur.</span></h2>
-    <div class="grid3 mt2">
+    <div class="head">
+      <p class="kicker rv">La bascule IA · données 2026</p>
+      <h2 class="rv" style="--d:.06s;">Vos patientes ont déjà <span class="it">changé de moteur.</span></h2>
+    </div>
+    <div class="grid3 mt3">
       <div class="stat rv"><b data-count="27" data-suffix="&#8239;%">0&#8239;%</b><span>des patients français ont utilisé un assistant IA (ChatGPT, Mistral, Perplexity, AI Overviews) pour une recherche médicale dans les 90 derniers jours. Ils étaient 8&nbsp;% en 2024.</span><small>Baromètre santé numérique JDN, 2026</small></div>
       <div class="stat rv" style="--d:.1s;"><b data-count="230" data-suffix="&#8239;M">0&#8239;M</b><span>de personnes posent chaque semaine des questions de santé à ChatGPT. OpenAI a lancé ChatGPT Santé en janvier 2026.</span><small>OpenAI, janvier 2026</small></div>
       <div class="stat rv" style="--d:.2s;"><b data-count="9" data-prefix="&lt;&#8239;" data-suffix="&#8239;%">&lt;&#8239;0&#8239;%</b><span>des réponses santé de ChatGPT citent des sources traçables. Être parmi les rares cités n'est pas un bonus : c'est toute la visibilité.</span><small>SE Ranking, France, mars 2026</small></div>
@@ -130,53 +166,53 @@
   </div>
 </section>
 
-<section class="tight" style="padding-top:0;">
+<section class="paper" style="padding-top:0;">
   <div class="wrap">
     <div class="eco-wrap">
       <div>
         <p class="kicker rv">L'écosystème</p>
         <h2 class="rv" style="--d:.06s;">Une page seule ne convainc personne. <span class="it">Un écosystème, si.</span></h2>
-        <p class="rv mt1" style="--d:.12s;font-size:17.5px;line-height:1.65;">Les IA ne croient pas un site isolé. Elles croisent tout ce qui existe sur vous : votre site, vos vidéos, vos réseaux, votre fiche Google, ce que la presse et les annuaires médicaux disent de vous. Chaque élément confirme les autres, et c'est cette cohérence qui fait autorité. Aucune cellule ne survit seule : c'est vrai d'une page, c'est vrai de votre présence entière.</p>
+        <p class="lead rv" style="--d:.12s;">Les IA ne croient pas un site isolé. Elles croisent tout ce qui existe sur vous : votre site, vos vidéos, vos réseaux, votre fiche Google, ce que la presse et les annuaires médicaux disent de vous. Chaque élément confirme les autres, et c'est cette cohérence qui fait autorité. Aucune cellule ne survit seule : c'est vrai d'une page, c'est vrai de votre présence entière.</p>
         <p id="eco-caption" class="rv mt2" style="--d:.18s;">Survolez chaque élément : aucun ne suffit seul, l'ensemble fait autorité.</p>
-        <p class="rv mt1" style="--d:.2s;font-size:14px;color:var(--euca);">Nous construisons et pilotons le cœur — site, IA, fiche Google — et orchestrons avec vous les couches d'amplification : YouTube, réseaux sociaux, presse.</p>
+        <p class="rv mt1 muted" style="--d:.2s;font-size:14px;">Nous construisons et pilotons le cœur — site, IA, fiche Google — et orchestrons avec vous les couches d'amplification : YouTube, réseaux sociaux, presse.</p>
       </div>
       <div class="rv" style="--d:.1s;">
         <svg id="eco" viewBox="0 0 640 640" role="img" aria-label="L'écosystème digital du praticien : site, YouTube, réseaux sociaux, fiche Google, presse, tous reliés au cabinet et lus par les IA">
           <circle class="ring" cx="320" cy="320" r="286" fill="none" stroke="#7A9986" stroke-width="1" stroke-dasharray="3 10" opacity=".6"/>
-          <text x="320" y="26" text-anchor="middle" font-family="Inter" font-size="12.5" font-weight="600" letter-spacing="2.5" fill="#7A9986">LES IA LISENT L'ENSEMBLE</text>
+          <text x="320" y="26" text-anchor="middle" font-family="Manrope,Inter,sans-serif" font-size="11.5" font-weight="600" letter-spacing="3" fill="#7A9986">LES IA LISENT L'ENSEMBLE</text>
           <g class="flux" stroke="#A8C4B0" stroke-width="1.4" fill="none" opacity=".85">
             <line x1="320" y1="320" x2="320" y2="110"/><line x1="320" y1="320" x2="520" y2="255"/><line x1="320" y1="320" x2="443" y2="490"/>
             <line x1="320" y1="320" x2="197" y2="490"/><line x1="320" y1="320" x2="120" y2="255"/>
           </g>
           <g class="node" tabindex="0" data-info="Le socle : des pages soins expertes, structurées pour être lues, comprises et citées par les IA.">
-            <circle cx="320" cy="110" r="50" fill="#FFFFFF" stroke="#1F2D4F" stroke-width="1.5"/>
-            <text x="320" y="106" text-anchor="middle" font-family="Inter" font-size="14" font-weight="650" fill="#1F2D4F">Site</text>
-            <text x="320" y="123" text-anchor="middle" font-family="Inter" font-size="14" font-weight="650" fill="#1F2D4F">web</text>
+            <circle cx="320" cy="110" r="50" fill="#FBF9F5" stroke="#1F2D4F" stroke-width="1"/>
+            <text x="320" y="106" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="19" fill="#1F2D4F">Site</text>
+            <text x="320" y="127" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="19" fill="#1F2D4F">web</text>
           </g>
           <g class="node" style="--d:1.2s" tabindex="0" data-info="Vos explications en vidéo : transcrites, indexées, reprises par les IA dans leurs réponses.">
-            <circle cx="520" cy="255" r="50" fill="#FFFFFF" stroke="#1F2D4F" stroke-width="1.5"/>
-            <text x="520" y="251" text-anchor="middle" font-family="Inter" font-size="14" font-weight="650" fill="#1F2D4F">Chaîne</text>
-            <text x="520" y="268" text-anchor="middle" font-family="Inter" font-size="14" font-weight="650" fill="#1F2D4F">YouTube</text>
+            <circle cx="520" cy="255" r="50" fill="#FBF9F5" stroke="#1F2D4F" stroke-width="1"/>
+            <text x="520" y="251" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="19" fill="#1F2D4F">Chaîne</text>
+            <text x="520" y="272" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="19" fill="#1F2D4F">YouTube</text>
           </g>
           <g class="node" style="--d:2.4s" tabindex="0" data-info="La preuve sociale : une présence cohérente qui confirme votre autorité auprès des patientes comme des algorithmes.">
-            <circle cx="443" cy="490" r="50" fill="#FFFFFF" stroke="#1F2D4F" stroke-width="1.5"/>
-            <text x="443" y="486" text-anchor="middle" font-family="Inter" font-size="14" font-weight="650" fill="#1F2D4F">Réseaux</text>
-            <text x="443" y="503" text-anchor="middle" font-family="Inter" font-size="14" font-weight="650" fill="#1F2D4F">sociaux</text>
+            <circle cx="443" cy="490" r="50" fill="#FBF9F5" stroke="#1F2D4F" stroke-width="1"/>
+            <text x="443" y="486" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="19" fill="#1F2D4F">Réseaux</text>
+            <text x="443" y="507" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="19" fill="#1F2D4F">sociaux</text>
           </g>
           <g class="node" style="--d:3.6s" tabindex="0" data-info="L'ancrage local : la fiche que Google et Maps montrent en premier, avec vos avis et vos photos.">
-            <circle cx="197" cy="490" r="50" fill="#FFFFFF" stroke="#1F2D4F" stroke-width="1.5"/>
-            <text x="197" y="486" text-anchor="middle" font-family="Inter" font-size="14" font-weight="650" fill="#1F2D4F">Fiche</text>
-            <text x="197" y="503" text-anchor="middle" font-family="Inter" font-size="14" font-weight="650" fill="#1F2D4F">Google</text>
+            <circle cx="197" cy="490" r="50" fill="#FBF9F5" stroke="#1F2D4F" stroke-width="1"/>
+            <text x="197" y="486" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="19" fill="#1F2D4F">Fiche</text>
+            <text x="197" y="507" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="19" fill="#1F2D4F">Google</text>
           </g>
           <g class="node" style="--d:4.8s" tabindex="0" data-info="L'autorité tierce : annuaires médicaux et presse qui parlent de vous, pas seulement vous.">
-            <circle cx="120" cy="255" r="50" fill="#FFFFFF" stroke="#1F2D4F" stroke-width="1.5"/>
-            <text x="120" y="251" text-anchor="middle" font-family="Inter" font-size="14" font-weight="650" fill="#1F2D4F">Presse &amp;</text>
-            <text x="120" y="268" text-anchor="middle" font-family="Inter" font-size="14" font-weight="650" fill="#1F2D4F">annuaires</text>
+            <circle cx="120" cy="255" r="50" fill="#FBF9F5" stroke="#1F2D4F" stroke-width="1"/>
+            <text x="120" y="251" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="19" fill="#1F2D4F">Presse &amp;</text>
+            <text x="120" y="272" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="19" fill="#1F2D4F">annuaires</text>
           </g>
           <g>
-            <circle cx="320" cy="320" r="64" fill="#1F2D4F" stroke="#A8C4B0" stroke-width="1.6"/>
-            <text x="320" y="316" text-anchor="middle" font-family="Fraunces,Georgia" font-size="17" font-style="italic" fill="#F0E8E0">Votre</text>
-            <text x="320" y="337" text-anchor="middle" font-family="Fraunces,Georgia" font-size="17" font-style="italic" fill="#F0E8E0">cabinet</text>
+            <circle cx="320" cy="320" r="64" fill="#1F2D4F" stroke="#A8C4B0" stroke-width="1"/>
+            <text x="320" y="316" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="21" font-style="italic" fill="#F0E8E0">Votre</text>
+            <text x="320" y="340" text-anchor="middle" font-family="Cormorant Garamond,Georgia,serif" font-size="21" font-style="italic" fill="#F0E8E0">cabinet</text>
           </g>
         </svg>
       </div>
@@ -184,36 +220,41 @@
   </div>
 </section>
 
-<section class="navy">
+<section class="cine">
+  <div class="media"><img src="assets/img/bloc2.jpg" alt="" loading="lazy"></div>
   <div class="wrap">
-    <p class="kicker rv">La méthode</p>
-    <h2 class="rv" style="--d:.06s;">La science des réseaux, <span class="it">pas l'intuition.</span></h2>
-    <p class="rv mt1" style="--d:.12s;font-size:17.5px;line-height:1.65;max-width:760px;">En 1970, John Conway démontre qu'aucune cellule ne survit seule : son voisinage décide. Cinquante ans plus tard, Google et les IA classent les pages exactement ainsi. Nous avons traduit ces règles en méthode pilotée, mesurée chaque mois. La grille vivante que vous avez traversée en haut de cette page, c'est elle.</p>
-    <p class="mt2 rv" style="--d:.18s;"><a class="btn ghost" href="methode.html">Voir les quatre règles en direct</a></p>
+    <div style="max-width:640px;">
+      <p class="kicker rv">La méthode</p>
+      <h2 class="rv" style="--d:.06s;">La science des réseaux, <span class="it">pas l'intuition.</span></h2>
+      <p class="lead rv" style="--d:.12s;">En 1970, John Conway démontre qu'aucune cellule ne survit seule : son voisinage décide. Cinquante ans plus tard, Google et les IA classent les pages exactement ainsi. Nous avons traduit ces règles en méthode pilotée, mesurée chaque mois. La grille vivante qui respire derrière le titre de cette page, c'est elle.</p>
+      <div class="actions rv" style="--d:.18s;"><a class="btn" href="methode.html">Voir les quatre règles en direct</a></div>
+    </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <p class="kicker rv">Tarifs publics</p>
-    <h2 class="rv" style="--d:.06s;">Trois formules. <span class="it">Aucun devis caché.</span></h2>
-    <div class="plans mt2">
+    <div class="head">
+      <p class="kicker rv">Tarifs publics</p>
+      <h2 class="rv" style="--d:.06s;">Trois formules. <span class="it">Aucun devis caché.</span></h2>
+    </div>
+    <div class="plans mt3">
       <div class="plan rv"><span class="tag">Essentiel</span><h3>Formule A</h3>
         <div class="price">2&#8239;050&nbsp;€</div><div class="per">par mois HT</div>
         <ul><li>Référencement Google (SEO médical)</li><li>Visibilité dans les IA (GEO)</li><li>Maintenance du site</li><li>Pilotage et reporting mensuel</li></ul>
-        <a class="btn ghost mt2" href="tarifs.html">Le détail</a></div>
+        <a class="btn" href="tarifs.html">Le détail</a></div>
       <div class="plan hl rv" style="--d:.1s;"><span class="tag">La plus choisie</span><h3>Formule B</h3>
         <div class="price">2&#8239;240&nbsp;€</div><div class="per">par mois HT</div>
         <ul><li>Tout le contenu de la formule A</li><li>Fiche Google entièrement gérée</li><li>Avis traités sous 24&nbsp;h</li><li>Visibilité locale Maps</li></ul>
-        <a class="btn inv mt2" href="tarifs.html">Le détail</a></div>
+        <a class="btn inv" href="tarifs.html">Le détail</a></div>
       <div class="plan rv" style="--d:.2s;"><span class="tag">Expert</span><h3>Formule C</h3>
         <div class="price">3&#8239;150&nbsp;€</div><div class="per">par mois HT</div>
         <ul><li>Tout le contenu de la formule B</li><li>Refonte complète du site</li><li>Parcours patient et prise de RDV Doctolib</li></ul>
-        <a class="btn ghost mt2" href="tarifs.html">Le détail</a></div>
+        <a class="btn" href="tarifs.html">Le détail</a></div>
     </div>
     <div class="band mt3 rv">
       <p><b>Cinq places au tarif de lancement, −15&#8239;% pendant un an.</b> En échange de résultats publiables et d'un témoignage, écrits au contrat. Ou commencez par la mission d'essai : 90 jours, 4&#8239;900&nbsp;€, sans abonnement.</p>
-      <a class="btn inv" href="tarifs.html">Découvrir les deux portes d'entrée</a>
+      <a class="btn" href="tarifs.html">Découvrir les deux portes d'entrée</a>
     </div>
   </div>
 </section>
@@ -221,16 +262,18 @@
 <footer>
   <div class="wrap">
     <div>
-      <b style="font-size:18px;letter-spacing:.36em;">HANA</b>
-      <p style="opacity:.75;margin-top:8px;max-width:340px;">Réseau d'autorité médicale digitale. Un seul praticien par spécialité et par ville.</p>
+      <div class="fb"><canvas class="logo-life" width="56" height="56" aria-hidden="true"></canvas><b>HANA</b></div>
+      <p style="margin-top:18px;max-width:340px;">Réseau d'autorité médicale digitale. Un seul praticien par spécialité et par ville.</p>
     </div>
-    <div>
-      <p><b>Sihem Kazi-Tani</b> · Fondatrice</p>
-      <p class="mt1"><a href="tel:+33699305873">06 99 30 58 73</a><br>
-      <a href="mailto:contact.hanahealth@gmail.com">contact.hanahealth@gmail.com</a></p>
+    <div class="col">
+      <span class="lab">Contact</span>
+      <p style="color:var(--ivory);">Sihem Kazi-Tani · Fondatrice</p>
+      <a href="tel:+33699305873">06 99 30 58 73</a>
+      <a href="mailto:contact.hanahealth@gmail.com">contact.hanahealth@gmail.com</a>
     </div>
-    <div>
-      <p><a href="methode.html">La méthode</a><br><a href="tarifs.html">Tarifs</a><br><a href="contact.html">Contact</a></p>
+    <div class="col">
+      <span class="lab">Navigation</span>
+      <a href="methode.html">La méthode</a><a href="tarifs.html">Tarifs</a><a href="contact.html">Contact</a><a href="demo/" target="_blank" rel="noopener">Site témoin</a>
     </div>
     <div class="fsig"><span>Dans Google comme dans la vie, le voisinage décide.</span><span>© 2026 HANA · Marseille</span></div>
   </div>
