@@ -6,3 +6,5 @@ ia.jpg          https://unsplash.com/photos/drwpcjkvxuU
 maintenance.jpg https://unsplash.com/photos/fPkvU7RDmCo
 bloc.jpg        https://unsplash.com/photos/vfy71fExF7g
 youtube.jpg     https://unsplash.com/photos/8LfE0Lywyak (recadrée)
+
+Pictos des actes : Health Icons (healthicons.org), licence MIT, style outline : nose, head, breasts, body, general-surgery, eye, opthalmology, leg, syringe, mouth.

@@ -298,7 +298,7 @@ body.is-reveal .skip{opacity:0;pointer-events:none}
 .acts-ring{position:relative;height:clamp(300px,34vw,440px);cursor:grab;user-select:none;touch-action:pan-y}
 .acts-ring:active{cursor:grabbing}
 .obj{position:absolute;left:50%;top:50%;margin:0;width:clamp(96px,11vw,150px);aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,rgba(255,255,255,.09),rgba(255,255,255,.02) 70%);border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 60px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.12);transform:translate(-50%,-50%) translate(var(--x),var(--y)) scale(var(--s));opacity:var(--o);z-index:var(--z);will-change:transform,opacity;transition:border-color .3s,background .3s}
-.obj svg{width:58%;height:58%;fill:none;stroke:#dfffee;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 10px rgba(127,214,163,.45))}
+.obj svg{width:60%;height:60%;fill:#dfffee;stroke:none;filter:drop-shadow(0 0 10px rgba(127,214,163,.45))}
 .obj.front{border-color:rgba(127,214,163,.6);background:radial-gradient(circle at 50% 40%,rgba(127,214,163,.22),rgba(127,214,163,.03) 70%)}
 .acts-foot{display:flex;justify-content:center;align-items:center;gap:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.1);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8fa0c4}
 .acts-count{margin:0;font-size:clamp(16px,1.6vw,22px);letter-spacing:0;text-transform:none;color:#fff;font-weight:500}
@@ -498,4 +498,3 @@ body.is-reveal .skip{opacity:0;pointer-events:none}
 .swipe svg{width:120px;height:24px;fill:none;stroke:#8fa0c4;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .swipe i{position:absolute;top:50%;left:20px;width:14px;height:14px;margin-top:-7px;border-radius:50%;background:#7fd6a3;box-shadow:0 0 14px rgba(127,214,163,.7);animation:swipe 2.6s ease-in-out infinite}
 @keyframes swipe{0%,100%{left:20px}50%{left:86px}}
-.obj svg{stroke-width:1.9}
