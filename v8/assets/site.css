@@ -487,3 +487,5 @@ body.is-reveal .skip{opacity:0;pointer-events:none}
 .card-doc>div{flex:1 1 auto;min-width:0}
 .card-doc small{display:block}
 @media (max-width:600px){.card-doc{flex-wrap:wrap;gap:10px 12px}.card-doc .ok{margin-left:50px;flex-basis:100%}}
+.card-doc>div{flex:1 1 0}
+@media (max-width:600px){.card-doc .ok{margin-left:50px;text-align:left}}
