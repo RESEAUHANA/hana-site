@@ -7,4 +7,4 @@ maintenance.jpg https://unsplash.com/photos/fPkvU7RDmCo
 bloc.jpg        https://unsplash.com/photos/vfy71fExF7g
 youtube.jpg     https://unsplash.com/photos/8LfE0Lywyak (recadrée)
 
-Pictos des actes : Health Icons (healthicons.org), licence MIT, style outline : nose, head, breasts, body, general-surgery, eye, opthalmology, leg, syringe, mouth.
+Pictos des actes : Hugeicons (hugeicons.com, licence MIT) via Iconify : nose, face-id, tape-measure, body-part-six-pack, eye, scan-eye, body-part-leg, syringe ; Material Symbols (Google, Apache 2.0) : lips-outline (light) ; poitrine dessinée maison dans le meme style.
