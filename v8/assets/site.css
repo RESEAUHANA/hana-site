@@ -481,3 +481,5 @@ body.is-reveal .skip{opacity:0;pointer-events:none}
 .monthly li.plus span{color:#b9c2d8}
 .dash-wrap .lead{font-size:15px}
 @media (max-width:900px){.monthly li{grid-template-columns:52px 1fr;gap:10px}.monthly b{font-size:32px}.monthly span{font-size:14px}}
+.sc-body p{max-width:60ch}
+@media (min-width:901px){.sc{min-height:clamp(440px,60vh,600px)}}
