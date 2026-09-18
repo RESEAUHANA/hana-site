@@ -483,3 +483,7 @@ body.is-reveal .skip{opacity:0;pointer-events:none}
 @media (max-width:900px){.monthly li{grid-template-columns:52px 1fr;gap:10px}.monthly b{font-size:32px}.monthly span{font-size:14px}}
 .sc-body p{max-width:60ch}
 @media (min-width:901px){.sc{min-height:clamp(440px,60vh,600px)}}
+/* carte praticien du chat IA : le badge passe sous le nom sur mobile, le texte ne se compresse plus */
+.card-doc>div{flex:1 1 auto;min-width:0}
+.card-doc small{display:block}
+@media (max-width:600px){.card-doc{flex-wrap:wrap;gap:10px 12px}.card-doc .ok{margin-left:50px;flex-basis:100%}}
