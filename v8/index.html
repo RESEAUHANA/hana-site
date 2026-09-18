@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HANA · Visibilité Google et IA pour chirurgiens et médecins esthétiques</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@300..700&family=Archivo:wdth,wght@87.5..112.5,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=128">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script>
+</head>
+<body class="is-intro">
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="HANA, accueil">
+      <svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="0" width="6" height="6" rx="1"/><rect x="16" y="8" width="6" height="6" rx="1"/><rect x="0" y="16" width="6" height="6" rx="1"/><rect x="8" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/></svg>
+      <span class="word">HANA</span>
+    </a>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="#">Méthode</a><a href="#">Expertises</a><a href="#">Tarifs</a><a href="#">Réalisations</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn primary" href="#contact">Réserver une visio</a>
+      <button class="nav-burger" type="button" aria-label="Menu"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="top" aria-label="Introduction">
+  <canvas class="gl" id="gl" aria-hidden="true"></canvas>
+  <div class="hero-veil" aria-hidden="true"></div>
+
+  <div class="wrap hero-grid">
+    <div class="hero-content" id="heroContent">
+      <!-- le sigle : H·A·N·A = Healthcare · Authority · Network · Architecture -->
+      <div class="sigle" id="sigle" aria-label="HANA : Healthcare, Authority, Network, Architecture">
+        <span class="l" style="--i:0"><b>H</b><small>Healthcare</small></span>
+        <span class="l" style="--i:1"><b>A</b><small>Authority</small></span>
+        <span class="l" style="--i:2"><b>N</b><small>Network</small></span>
+        <span class="l" style="--i:3"><b>A</b><small>Architecture</small></span>
+      </div>
+      <p class="kicker rise" style="--d:0"><i></i>Réseau d'autorité médicale</p>
+      <h1 class="h1 rise" style="--d:1">Un seul chirurgien esthétique par ville.</h1>
+      <p class="lead rise" style="--d:2">Nous signons un seul chirurgien par ville et par spécialité, et jamais son confrère concurrent&nbsp;: c'est écrit au contrat. Nous faisons tout&nbsp;: votre site, neuf ou repris, son design, son référencement, votre fiche Google, votre visibilité dans ChatGPT et Gemini. Dix ans au contact de vos patientes&nbsp;: nous savons ce qu'elles cherchent, et nous faisons en sorte qu'elles vous trouvent.</p>
+      <div class="hero-actions rise" style="--d:3">
+        <a class="btn primary big" href="#villes">Villes disponibles <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn secondary big" href="#reseau">Notre réseau</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-foot rise" style="--d:3">
+    <div class="wrap">
+      <a class="scroll-cue" href="#methode"><span class="dot"></span>Découvrir</a>
+      <p class="cited">Site · Référencement · Fiche Google · Visibilité IA · Réseau</p>
+    </div>
+  </div>
+  <button class="skip" id="skip" type="button">Passer</button>
+</section>
+
+<section class="sec story s-monde" id="monde" aria-labelledby="monde-h2">
+  <div class="wrap split2">
+    <div class="copy io">
+      <p class="kicker"><i></i>2026 · Vos patientes ont changé</p>
+      <h2 id="monde-h2" class="words-io">Vos patientes ne cherchent plus comme avant.</h2>
+      <p class="lead">Le meilleur restaurant, le meilleur hôtel… et maintenant le meilleur chirurgien&nbsp;: elles le demandent à ChatGPT. Et Google lui-même répond désormais avec l'IA, alimenté par Gemini. La recherche ne disparaît pas, elle change d'interface&nbsp;: il ne suffit plus d'être dans les résultats, il faut être dans les sources qui servent à construire les réponses. <strong>Nous rendons votre expertise identifiable, compréhensible et vérifiable.</strong></p>
+      <ul class="stats3">
+        <li class="io" style="transition-delay:.1s"><b><span class="count" data-to="27">0</span><i>%</i></b><span class="bar"><i style="--w:27%"></i></span><span>des patients français ont utilisé une IA pour une recherche médicale dans les 90 derniers jours. Ils étaient 8&nbsp;% en 2024.</span><small>Baromètre santé numérique JDN, 2026</small></li>
+        <li class="io" style="transition-delay:.2s"><b><span class="count" data-to="230">0</span><i>M</i></b><span class="bar"><i style="--w:100%"></i></span><span>de personnes posent chaque semaine une question de santé à ChatGPT. OpenAI a lancé ChatGPT Santé en janvier 2026.</span><small>OpenAI, janvier 2026</small></li>
+        <li class="io" style="transition-delay:.3s"><b><i class="lt">&lt;</i><span class="count" data-to="9">0</span><i>%</i></b><span class="bar"><i style="--w:9%"></i></span><span>des réponses santé de ChatGPT citent une source. Être parmi les rares cités n'est pas un bonus&nbsp;: c'est toute la visibilité.</span><small>SE Ranking, France, mars 2026</small></li>
+      </ul>
+    </div>
+    <div class="chat io tilt" aria-hidden="true">
+      <div class="chat-bar"><span></span><span></span><span></span><em>Assistant IA</em></div>
+      <div class="msg user"><p>Meilleur chirurgien esthétique pour une rhinoplastie à Lyon&nbsp;?</p></div>
+      <div class="msg ai">
+        <div class="typing"><i></i><i></i><i></i></div>
+        <div class="answer">
+          <p>D'après les sources disponibles, voici un praticien reconnu à Lyon&nbsp;:</p>
+          <div class="card-doc"><span class="av">Dr</span><div><b>Dr Dupont</b><small>Chirurgie esthétique · Lyon · Membre du Réseau HANA</small></div><span class="ok">Sources vérifiées</span></div>
+          <p class="src">Sources&nbsp;: site du praticien · Réseau HANA · fiche Google · sources professionnelles</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec story s-milieu dark" id="milieu" aria-labelledby="milieu-h2">
+  <div class="wrap milieu-grid">
+    <div class="acts io" id="acts" aria-label="Actes et interventions maîtrisés">
+      <div class="acts-title"><small id="actCat">Chirurgie du visage</small><b id="actName">Rhinoplastie ultrasonique</b></div>
+      <div class="acts-ring" id="actsRing"><figure class="obj" data-i="0" data-name="Rhinoplastie ultrasonique" data-cat="Chirurgie du visage"><svg viewBox="0 0 64 64"><path d="M34 12c-2 10-1 18-8 26-3 3-1 8 3 8 5 0 9-2 11-5"/><path d="M26 44c2 2 6 2 9 0"/></svg></figure><figure class="obj" data-i="1" data-name="Lifting deep-plane" data-cat="Chirurgie du visage"><svg viewBox="0 0 64 64"><path d="M40 8c-8 0-14 6-14 14 0 4 1 6 0 9l-4 3 3 2c0 3 0 6 2 8 2 3 6 4 10 4 6 0 10-3 12-8"/><path d="M28 34c2 0 4 1 5 2"/><path d="M23 24c-2 0-3 1-3 3"/></svg></figure><figure class="obj" data-i="2" data-name="Augmentation mammaire" data-cat="Chirurgie du corps"><svg viewBox="0 0 64 64"><path d="M12 40c0-8 5-14 12-14s12 6 12 14"/><path d="M28 40c0-8 5-14 12-14s12 6 12 14"/><path d="M8 40h48"/><path d="M20 26V14M44 26V14"/></svg></figure><figure class="obj" data-i="3" data-name="Liposuccion & Vaser HD" data-cat="Chirurgie du corps"><svg viewBox="0 0 64 64"><path d="M24 8c0 6-4 8-8 12 4 4 6 10 4 16 6 4 6 12 0 20h24c-6-8-6-16 0-20-2-6 0-12 4-16-4-4-8-6-8-12"/></svg></figure><figure class="obj" data-i="4" data-name="Abdominoplastie" data-cat="Chirurgie du corps"><svg viewBox="0 0 64 64"><path d="M18 10c-4 10-6 18-4 26 2 8 8 14 18 14s16-6 18-14c2-8 0-16-4-26"/><path d="M32 34c1 1 1 3 0 4"/><path d="M14 30c6 2 30 2 36 0"/></svg></figure><figure class="obj" data-i="5" data-name="Greffe de cheveux" data-cat="Capillaire"><svg viewBox="0 0 64 64"><path d="M20 30c0-9 5-16 12-16s12 7 12 16v6c0 6-5 12-12 12s-12-6-12-12z"/><path d="M18 24c2-10 8-16 14-16 7 0 13 6 15 16"/><path d="M22 20c3-4 6-6 10-6M42 20c-3-4-6-6-10-6"/></svg></figure><figure class="obj" data-i="6" data-name="Chirurgie réfractive" data-cat="Ophtalmologie"><svg viewBox="0 0 64 64"><path d="M6 32c8-12 16-18 26-18s18 6 26 18c-8 12-16 18-26 18S14 44 6 32z"/><circle cx="32" cy="32" r="8"/><circle cx="32" cy="32" r="3"/></svg></figure><figure class="obj" data-i="7" data-name="Épilation laser" data-cat="Médecine esthétique"><svg viewBox="0 0 64 64"><path d="M22 12h20l4 10-4 4H22l-4-4z"/><path d="M26 26v10c0 6 3 10 6 10s6-4 6-10V26"/><path d="M28 12V6M36 12V6"/><path d="M20 52h24M14 58h36" stroke-dasharray="3 3"/></svg></figure><figure class="obj" data-i="8" data-name="Injections & lèvres" data-cat="Médecine esthétique"><svg viewBox="0 0 64 64"><path d="M10 32c8-6 14-8 22-8s14 2 22 8c-8 8-14 12-22 12S18 40 10 32z"/><path d="M10 32h44"/><path d="M26 24c2-2 4-2 6 0 2-2 4-2 6 0"/></svg></figure><figure class="obj" data-i="9" data-name="Blépharoplastie" data-cat="Chirurgie du regard"><svg viewBox="0 0 64 64"><path d="M8 30c8-10 16-14 24-14s16 4 24 14"/><path d="M8 34c8 10 16 14 24 14s16-4 24-14"/><path d="M32 22v8M24 24l2 6M40 24l-2 6"/></svg></figure></div>
+      <div class="acts-foot"><span>Glisser · Scroll</span><p class="acts-count"><b>+30</b> actes et interventions que nous connaissons et savons rendre visibles</p></div>
+    </div>
+    <div class="copy io">
+      <p class="kicker"><i></i>Depuis 2016</p>
+      <h2 id="milieu-h2" class="words-io">Nous venons de votre monde.</h2>
+      <p class="lead">Dix ans en clinique et en cabinet, aux côtés de chirurgiens et de médecins esthétiques&nbsp;: les protocoles, les suites opératoires, les mots exacts que tapent vos patientes, le Code de déontologie. Ce n'est pas un secteur que nous découvrons. C'est le nôtre.</p>
+      <ul class="proofs">
+        <li><b>10<i>ans</i></b><span>de chirurgie et de médecine esthétiques, en clinique et en libéral</span></li>
+        <li><b>15</b><span>chirurgiens accompagnés en France, en Suisse et dans les DOM-TOM</span></li>
+        <li><b>3<i>pays</i></b><span>France, Belgique, Suisse. Un seul praticien par spécialité et par ville</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="sec story s-constat" id="constat" aria-labelledby="constat-h2">
+  <div class="wrap">
+    <div class="constat-head io">
+      <p class="kicker"><i></i>Le constat</p>
+      <h2 id="constat-h2" class="words-io">Personne ne l'avait fait.</h2>
+      <p class="lead">En France, en Suisse, en Belgique, aucun réseau n'existait pour faire travailler ensemble la visibilité des praticiens d'excellence. Chacun se battait seul, souvent avec une agence généraliste qui vend le même site à trois confrères de la même ville. Alors nous avons décidé de choisir certains d'entre eux, un par ville, et de pousser leur visibilité à fond.</p>
+    </div>
+    <div class="compare">
+      <div class="cmp bad io tilt">
+        <span class="tag">Agence généraliste</span>
+        <div class="sites"><div class="site"><i></i><i></i><i></i></div><div class="site"><i></i><i></i><i></i></div><div class="site"><i></i><i></i><i></i></div></div>
+        <p><b>Trois confrères, même ville, même agence, même site.</b> Hier un hôtel, ce matin un restaurant, cet après-midi votre cabinet. Elles ne connaissent ni vos actes, ni vos protocoles, ni ce qu'une patiente attend vraiment. Le contenu produit pour vous est réécrit à quelques mots près pour votre concurrent. Personne ne monte.</p>
+      </div>
+      <div class="cmp good io tilt" style="transition-delay:.15s">
+        <span class="tag">Réseau HANA</span>
+        <div class="sites one"><div class="site you"><i></i><i></i><i></i><em>Lyon</em></div><div class="site far"><i></i><i></i><i></i><em>Nice</em></div><div class="site far"><i></i><i></i><i></i><em>Genève</em></div></div>
+        <p><b>Un praticien par ville, un écosystème autour de lui.</b> Dix ans au contact des patientes au quotidien : nous savons ce qu'elles tapent, ce qu'elles veulent, et ce qu'elles ne veulent pas. Votre contenu ne sert qu'à vous, et tout l'écosystème parle de vous. Vous montez.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec reseau" id="reseau" aria-labelledby="reseau-h2">
+  <div class="wrap reseau-grid">
+    <div class="reseau-map" id="reseauMap">
+      <svg class="net" viewBox="0 0 600 600" aria-label="Le réseau HANA : cliquez sur une ville">
+      <defs><radialGradient id="hubg"><stop offset="0" stop-color="#2fa36b" stop-opacity=".45"/><stop offset="1" stop-color="#2fa36b" stop-opacity="0"/></radialGradient><radialGradient id="youg"><stop offset="0" stop-color="#ffffff" stop-opacity=".35"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient></defs>
+      <circle class="orbit" cx="300" cy="300" r="150"/><circle class="orbit" cx="300" cy="300" r="245"/>
+      <g class="link" style="--i:0"><line class="lk" x1="300.0" y1="150.0" x2="300" y2="300"/><line class="pulse" x1="300.0" y1="150.0" x2="300" y2="300"/></g>
+      <g class="link" style="--i:1"><line class="lk" x1="375.7" y1="67.0" x2="300" y2="300"/><line class="pulse" x1="375.7" y1="67.0" x2="300" y2="300"/></g>
+      <g class="link" style="--i:2"><line class="lk" x1="224.3" y1="67.0" x2="300" y2="300"/><line class="pulse" x1="224.3" y1="67.0" x2="300" y2="300"/></g>
+      <g class="link" style="--i:3"><line class="lk" x1="447.7" y1="274.0" x2="300" y2="300"/><line class="pulse" x1="447.7" y1="274.0" x2="300" y2="300"/></g>
+      <g class="link" style="--i:4"><line class="lk" x1="542.6" y1="334.1" x2="300" y2="300"/><line class="pulse" x1="542.6" y1="334.1" x2="300" y2="300"/></g>
+      <g class="link" style="--i:5"><line class="lk" x1="512.2" y1="177.5" x2="300" y2="300"/><line class="pulse" x1="512.2" y1="177.5" x2="300" y2="300"/></g>
+      <g class="link" style="--i:6"><line class="lk" x1="170.1" y1="225.0" x2="300" y2="300"/><line class="pulse" x1="170.1" y1="225.0" x2="300" y2="300"/></g>
+      <g class="link" style="--i:7"><line class="lk" x1="414.9" y1="396.4" x2="300" y2="300"/><line class="pulse" x1="414.9" y1="396.4" x2="300" y2="300"/></g>
+      <g class="link" style="--i:8"><line class="lk" x1="300.0" y1="450.0" x2="300" y2="300"/><line class="pulse" x1="300.0" y1="450.0" x2="300" y2="300"/></g>
+      <g class="link" style="--i:9"><line class="lk" x1="155.1" y1="338.8" x2="300" y2="300"/><line class="pulse" x1="155.1" y1="338.8" x2="300" y2="300"/></g>
+      <g class="link" style="--i:10"><line class="lk" x1="207.7" y1="181.8" x2="300" y2="300"/><line class="pulse" x1="207.7" y1="181.8" x2="300" y2="300"/></g>
+      <g class="link" style="--i:11"><line class="lk" x1="450.8" y1="493.1" x2="300" y2="300"/><line class="pulse" x1="450.8" y1="493.1" x2="300" y2="300"/></g>
+      <g class="link" style="--i:12"><line class="lk" x1="257.5" y1="541.3" x2="300" y2="300"/><line class="pulse" x1="257.5" y1="541.3" x2="300" y2="300"/></g>
+      <g class="link" style="--i:13"><line class="lk" x1="126.8" y1="473.2" x2="300" y2="300"/><line class="pulse" x1="126.8" y1="473.2" x2="300" y2="300"/></g>
+      <g class="link" style="--i:14"><line class="lk" x1="55.0" y1="300.0" x2="300" y2="300"/><line class="pulse" x1="55.0" y1="300.0" x2="300" y2="300"/></g>
+      <g class="link" style="--i:15"><line class="lk" x1="450.8" y1="106.9" x2="300" y2="300"/><line class="pulse" x1="450.8" y1="106.9" x2="300" y2="300"/></g>
+      <g class="link" style="--i:16"><line class="lk" x1="69.8" y1="216.2" x2="300" y2="300"/><line class="pulse" x1="69.8" y1="216.2" x2="300" y2="300"/></g>
+      <g class="hub"><circle class="glow" cx="300" cy="300" r="70" fill="url(#hubg)"/><circle class="ring r1" cx="300" cy="300" r="40"/><circle class="ring r2" cx="300" cy="300" r="40"/><circle class="core" cx="300" cy="300" r="34"/><g class="mark" transform="translate(286,286) scale(1.17)"><rect x="8" y="0" width="6" height="6" rx="1"/><rect x="16" y="8" width="6" height="6" rx="1"/><rect x="0" y="16" width="6" height="6" rx="1"/><rect x="8" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/></g><text class="hubt" x="300" y="358" text-anchor="middle">HANA</text></g>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <text class="country" x="300.0" y="12.0" text-anchor="middle">Belgique</text>
+      <text class="country" x="585.6" y="243.3" text-anchor="middle">Suisse</text>
+      <text class="country" x="154.0" y="556.9" text-anchor="middle">France</text>
+      <g class="node" data-n="Bruxelles" style="--i:0" tabindex="0" role="button" aria-label="Bruxelles"><circle class="yglow" cx="300.0" cy="150.0" r="46" fill="url(#youg)"/><circle class="ypulse" cx="300.0" cy="150.0" r="14"/><rect class="pill" x="254.6" y="136.0" width="90.8" height="28" rx="14"/><circle class="dot" cx="267.6" cy="150.0" r="3.5"/><text class="lab" x="278.6" y="154.2">Bruxelles</text></g>
+      <g class="node" data-n="Liège" style="--i:1" tabindex="0" role="button" aria-label="Liège"><circle class="yglow" cx="375.7" cy="67.0" r="46" fill="url(#youg)"/><circle class="ypulse" cx="375.7" cy="67.0" r="14"/><rect class="pill" x="344.7" y="53.0" width="62.0" height="28" rx="14"/><circle class="dot" cx="357.7" cy="67.0" r="3.5"/><text class="lab" x="368.7" y="71.2">Liège</text></g>
+      <g class="node" data-n="Anvers" style="--i:2" tabindex="0" role="button" aria-label="Anvers"><circle class="yglow" cx="224.3" cy="67.0" r="46" fill="url(#youg)"/><circle class="ypulse" cx="224.3" cy="67.0" r="14"/><rect class="pill" x="189.7" y="53.0" width="69.2" height="28" rx="14"/><circle class="dot" cx="202.7" cy="67.0" r="3.5"/><text class="lab" x="213.7" y="71.2">Anvers</text></g>
+      <g class="node" data-n="Genève" style="--i:3" tabindex="0" role="button" aria-label="Genève"><circle class="yglow" cx="447.7" cy="274.0" r="46" fill="url(#youg)"/><circle class="ypulse" cx="447.7" cy="274.0" r="14"/><rect class="pill" x="413.1" y="260.0" width="69.2" height="28" rx="14"/><circle class="dot" cx="426.1" cy="274.0" r="3.5"/><text class="lab" x="437.1" y="278.2">Genève</text></g>
+      <g class="node" data-n="Lausanne" style="--i:4" tabindex="0" role="button" aria-label="Lausanne"><circle class="yglow" cx="542.6" cy="334.1" r="46" fill="url(#youg)"/><circle class="ypulse" cx="542.6" cy="334.1" r="14"/><rect class="pill" x="500.8" y="320.1" width="83.6" height="28" rx="14"/><circle class="dot" cx="513.8" cy="334.1" r="3.5"/><text class="lab" x="524.8" y="338.3">Lausanne</text></g>
+      <g class="node" data-n="Zurich" style="--i:5" tabindex="0" role="button" aria-label="Zurich"><circle class="yglow" cx="512.2" cy="177.5" r="46" fill="url(#youg)"/><circle class="ypulse" cx="512.2" cy="177.5" r="14"/><rect class="pill" x="477.6" y="163.5" width="69.2" height="28" rx="14"/><circle class="dot" cx="490.6" cy="177.5" r="3.5"/><text class="lab" x="501.6" y="181.7">Zurich</text></g>
+      <g class="node" data-n="Paris" style="--i:6" tabindex="0" role="button" aria-label="Paris"><circle class="yglow" cx="170.1" cy="225.0" r="46" fill="url(#youg)"/><circle class="ypulse" cx="170.1" cy="225.0" r="14"/><rect class="pill" x="139.1" y="211.0" width="62.0" height="28" rx="14"/><circle class="dot" cx="152.1" cy="225.0" r="3.5"/><text class="lab" x="163.1" y="229.2">Paris</text></g>
+      <g class="node" data-n="Lyon" style="--i:7" tabindex="0" role="button" aria-label="Lyon"><circle class="yglow" cx="414.9" cy="396.4" r="46" fill="url(#youg)"/><circle class="ypulse" cx="414.9" cy="396.4" r="14"/><rect class="pill" x="387.5" y="382.4" width="54.8" height="28" rx="14"/><circle class="dot" cx="400.5" cy="396.4" r="3.5"/><text class="lab" x="411.5" y="400.6">Lyon</text></g>
+      <g class="node" data-n="Marseille" style="--i:8" tabindex="0" role="button" aria-label="Marseille"><circle class="yglow" cx="300.0" cy="450.0" r="46" fill="url(#youg)"/><circle class="ypulse" cx="300.0" cy="450.0" r="14"/><rect class="pill" x="254.6" y="436.0" width="90.8" height="28" rx="14"/><circle class="dot" cx="267.6" cy="450.0" r="3.5"/><text class="lab" x="278.6" y="454.2">Marseille</text></g>
+      <g class="node" data-n="Bordeaux" style="--i:9" tabindex="0" role="button" aria-label="Bordeaux"><circle class="yglow" cx="155.1" cy="338.8" r="46" fill="url(#youg)"/><circle class="ypulse" cx="155.1" cy="338.8" r="14"/><rect class="pill" x="113.3" y="324.8" width="83.6" height="28" rx="14"/><circle class="dot" cx="126.3" cy="338.8" r="3.5"/><text class="lab" x="137.3" y="343.0">Bordeaux</text></g>
+      <g class="node" data-n="Lille" style="--i:10" tabindex="0" role="button" aria-label="Lille"><circle class="yglow" cx="207.7" cy="181.8" r="46" fill="url(#youg)"/><circle class="ypulse" cx="207.7" cy="181.8" r="14"/><rect class="pill" x="176.7" y="167.8" width="62.0" height="28" rx="14"/><circle class="dot" cx="189.7" cy="181.8" r="3.5"/><text class="lab" x="200.7" y="186.0">Lille</text></g>
+      <g class="node" data-n="Nice" style="--i:11" tabindex="0" role="button" aria-label="Nice"><circle class="yglow" cx="450.8" cy="493.1" r="46" fill="url(#youg)"/><circle class="ypulse" cx="450.8" cy="493.1" r="14"/><rect class="pill" x="423.4" y="479.1" width="54.8" height="28" rx="14"/><circle class="dot" cx="436.4" cy="493.1" r="3.5"/><text class="lab" x="447.4" y="497.3">Nice</text></g>
+      <g class="node" data-n="Montpellier" style="--i:12" tabindex="0" role="button" aria-label="Montpellier"><circle class="yglow" cx="257.5" cy="541.3" r="46" fill="url(#youg)"/><circle class="ypulse" cx="257.5" cy="541.3" r="14"/><rect class="pill" x="204.9" y="527.3" width="105.2" height="28" rx="14"/><circle class="dot" cx="217.9" cy="541.3" r="3.5"/><text class="lab" x="228.9" y="545.5">Montpellier</text></g>
+      <g class="node" data-n="Toulouse" style="--i:13" tabindex="0" role="button" aria-label="Toulouse"><circle class="yglow" cx="126.8" cy="473.2" r="46" fill="url(#youg)"/><circle class="ypulse" cx="126.8" cy="473.2" r="14"/><rect class="pill" x="85.0" y="459.2" width="83.6" height="28" rx="14"/><circle class="dot" cx="98.0" cy="473.2" r="3.5"/><text class="lab" x="109.0" y="477.4">Toulouse</text></g>
+      <g class="node" data-n="Nantes" style="--i:14" tabindex="0" role="button" aria-label="Nantes"><circle class="yglow" cx="55.0" cy="300.0" r="46" fill="url(#youg)"/><circle class="ypulse" cx="55.0" cy="300.0" r="14"/><rect class="pill" x="20.4" y="286.0" width="69.2" height="28" rx="14"/><circle class="dot" cx="33.4" cy="300.0" r="3.5"/><text class="lab" x="44.4" y="304.2">Nantes</text></g>
+      <g class="node" data-n="Strasbourg" style="--i:15" tabindex="0" role="button" aria-label="Strasbourg"><circle class="yglow" cx="450.8" cy="106.9" r="46" fill="url(#youg)"/><circle class="ypulse" cx="450.8" cy="106.9" r="14"/><rect class="pill" x="401.8" y="92.9" width="98.0" height="28" rx="14"/><circle class="dot" cx="414.8" cy="106.9" r="3.5"/><text class="lab" x="425.8" y="111.1">Strasbourg</text></g>
+      <g class="node" data-n="Rennes" style="--i:16" tabindex="0" role="button" aria-label="Rennes"><circle class="yglow" cx="69.8" cy="216.2" r="46" fill="url(#youg)"/><circle class="ypulse" cx="69.8" cy="216.2" r="14"/><rect class="pill" x="35.2" y="202.2" width="69.2" height="28" rx="14"/><circle class="dot" cx="48.2" cy="216.2" r="3.5"/><text class="lab" x="59.2" y="220.4">Rennes</text></g>
+      </svg>
+      <div class="map-foot">
+        <p class="map-cap"><span data-step="1"><b id="capCity">Lyon</b> · votre ville, réservée pour vous.</span><span data-step="2">Un écosystème de sources construit autour de vous.</span><span data-step="3">Plus de visibilité. Plus de patientes.</span></p>
+      </div>
+    </div>
+    <div class="reseau-steps">
+      <p class="kicker"><i></i>Notre réseau · France, Belgique, Suisse</p>
+      <h2 id="reseau-h2" class="words-io">Seul, on se fait connaître. En réseau, on se fait trouver.</h2>
+      <p class="lead">Quand une patiente cherche un chirurgien, Google et ChatGPT ne regardent pas seulement votre site&nbsp;: ils regardent <strong>qui parle de vous</strong>, et si tout le monde dit la même chose. Un site isolé part avec un handicap. En rejoignant le Réseau HANA, vous êtes présenté, décrit et cité dans tout un écosystème de pages et de sites, dans trois pays. Un écosystème que nous construisons pour vous.</p>
+      <ol class="steps">
+        <li class="step io" data-step="1"><b>01</b><h3>Votre ville vous appartient</h3><p>Un seul chirurgien ou médecin esthétique par spécialité et par ville. Toute la visibilité que le réseau crée chez vous vous revient, jamais à un concurrent. C'est inscrit au contrat.</p></li>
+        <li class="step io" data-step="2"><b>02</b><h3>Un maillage construit pour vous</h3><p>Le Réseau HANA publie une page par ville et une page par praticien, et vous présente, vous décrit et vous cite&nbsp;: annuaire du réseau, page ville, page praticien, contenus experts. Vous n'avez personne à solliciter, rien à coordonner&nbsp;: c'est nous qui construisons l'écosystème.</p></li>
+        <li class="step io" data-step="3"><b>03</b><h3>Plus vous êtes lisible, plus vous êtes trouvé</h3><p>Nom, ville, spécialité, actes, parcours&nbsp;: décrits à l'identique sur votre site, sur le réseau et dans tout l'écosystème. ChatGPT, Perplexity et Google recoupent plusieurs sources avant de citer un praticien. Un praticien cohérent partout est facile à retenir. Un praticien présent sur un seul site, beaucoup moins.</p></li>
+      </ol>
+      <p class="note">Le réseau est la couche en plus. Le cœur du travail, c'est la conception, la réalisation et le développement de votre site internet, puis son optimisation SEO et GEO poussée à fond, fiche Google comprise.</p>
+      <div class="hero-actions"><a class="btn primary big" href="#villes">Villes disponibles <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+  </div>
+</section>
+<section class="sec story s-faire dark" id="faire" aria-labelledby="faire-h2">
+  <div class="wrap">
+    <div class="faire-top">
+      <div class="copy io">
+        <p class="kicker"><i></i>Ce qu'on fait pour vous</p>
+        <h2 id="faire-h2" class="words-io">Vous opérez. On s'occupe du reste.</h2>
+        <p class="sig">Cinq expertises. Cinq personnes. Un seul interlocuteur.</p>
+        <p class="lead">Pas de ticket, pas de plateforme, pas de service client qui découvre votre dossier à chaque appel. Vous appelez votre interlocuteur HANA&nbsp;: il sait où on en est. Derrière lui, quatre spécialistes, chacun sur son domaine.</p>
+        <ul class="team"><li>Design</li><li>SEO &amp; rédaction</li><li>Fiche Google</li><li>IA / GEO</li><li>Maintenance</li></ul>
+      </div>
+      <div class="call io tilt" id="call" aria-hidden="true">
+        <div class="call-screen">
+          <div class="call-top"><span class="call-state" data-ring>Appel entrant</span><span class="call-state" data-live>En ligne · <i id="callTimer">00:00</i></span></div>
+          <div class="call-av"><span class="ring"></span><span class="ring r2"></span><b>H</b></div>
+          <b class="call-name">Votre interlocuteur HANA</b>
+          <small class="call-sub">La même voix, du premier jour au dernier</small>
+          <div class="call-btns"><i class="no"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></svg></i><i class="yes"><svg viewBox="0 0 24 24"><path d="M6 3h4l2 5-2.5 1.5a11 11 0 0 0 5 5L16 12l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg></i></div>
+        </div>
+        <p class="call-cap">Un seul numéro. Cinq experts derrière.</p>
+      </div>
+    </div>
+
+    <div class="stack" id="stack" aria-label="Nos cinq expertises">
+      <article class="sc" style="--i:0">
+        <figure class="sc-img"><picture><source srcset="assets/img/site.webp" type="image/webp"><img src="assets/img/site.jpg" alt="" loading="lazy" decoding="async"></picture><span class="sc-tag"><b>01</b>Site</span></figure>
+        <div class="sc-body">
+          <em>Une personne dédiée · design et développement</em>
+          <h3>Création ou refonte complète</h3>
+          <p>Un designer dédié dessine votre site pour votre pratique, pas un gabarit repris d'un autre cabinet. Une page par acte important, une architecture claire, et un site qui donne envie de prendre rendez-vous.</p>
+          <ul class="chips"><li>Design</li><li>Développement</li><li>Contenu</li><li>Refonte</li></ul>
+        </div>
+      </article>
+      <article class="sc" style="--i:1">
+        <figure class="sc-img"><picture><source srcset="assets/img/seo.webp" type="image/webp"><img src="assets/img/seo.jpg" alt="" loading="lazy" decoding="async"></picture><span class="sc-tag"><b>02</b>SEO</span></figure>
+        <div class="sc-body">
+          <em>Une personne dédiée · SEO et rédaction</em>
+          <h3>Être trouvé sur les recherches qui comptent</h3>
+          <p>Vos actes, votre spécialité, votre ville et les questions réelles de vos patientes. Contenu expert, technique irréprochable, et le réseau derrière vous.</p>
+          <ul class="chips"><li>Stratégie</li><li>Contenus</li><li>Technique</li><li>Suivi mensuel</li></ul>
+        </div>
+      </article>
+      <article class="sc" style="--i:2">
+        <figure class="sc-img"><picture><source srcset="assets/img/google.webp" type="image/webp"><img src="assets/img/google.jpg" alt="" loading="lazy" decoding="async"></picture><span class="sc-tag"><b>03</b>Google</span></figure>
+        <div class="sc-body">
+          <em>Une personne dédiée · tous les jours</em>
+          <h3>Une fiche Google travaillée chaque jour</h3>
+          <p>La première chose que vos patientes voient sur Maps. Photos, actes, horaires, publications, avis&nbsp;: une personne ne fait que ça et fait vivre votre fiche. Sinon, elle ne sert à rien.</p>
+          <ul class="chips"><li>Optimisation</li><li>Publications</li><li>Photos</li><li>Avis</li></ul>
+        </div>
+      </article>
+      <article class="sc" style="--i:3">
+        <figure class="sc-img"><picture><source srcset="assets/img/ia.webp" type="image/webp"><img src="assets/img/ia.jpg" alt="" loading="lazy" decoding="async"></picture><span class="sc-tag"><b>04</b>IA</span></figure>
+        <div class="sc-body">
+          <em>Une personne dédiée · GEO</em>
+          <h3>Présent dans les réponses des IA</h3>
+          <p>Google, Gemini, ChatGPT, Perplexity&nbsp;: aucun bouton pour y être référencé. Nous structurons votre présence et vos sources pour que votre expertise y soit clairement identifiable.</p>
+          <ul class="chips"><li>GEO</li><li>Données structurées</li><li>Sources</li><li>Cohérence</li></ul>
+        </div>
+      </article>
+      <article class="sc" style="--i:4">
+        <figure class="sc-img"><picture><source srcset="assets/img/maintenance.webp" type="image/webp"><img src="assets/img/maintenance.jpg" alt="" loading="lazy" decoding="async"></picture><span class="sc-tag"><b>05</b>Maintenance</span></figure>
+        <div class="sc-body">
+          <em>Une personne dédiée · technique</em>
+          <h3>Votre site évolue avec votre cabinet</h3>
+          <p>Sécurité, sauvegardes, mises à jour, nouveaux actes, nouvelles pages. Rien ne reste figé.</p>
+          <ul class="chips"><li>Sécurité</li><li>Évolution</li><li>Support</li></ul>
+        </div>
+      </article>
+    </div>
+
+    <div class="dash-wrap">
+      <div class="copy io">
+        <p class="kicker"><i></i>Chaque jour, pas une fois par mois</p>
+        <h3 class="dash-h">Vos chiffres en direct. Ceux qu'aucune agence ne vous montre.</h3>
+        <p class="lead">Pas un PDF de trafic envoyé à la fin du mois. Votre Espace HANA, ouvert 24&nbsp;h/24 sur votre téléphone, avec les chiffres qui découlent de notre méthode&nbsp;: êtes-vous cité par les IA, quelle part des recherches de votre ville vous revient, quels actes vos patientes demandent. Et à côté, ce que nous avons livré. Si le mois est bon, vous le voyez. S'il est moins bon, aussi.</p>
+        <ul class="dash-pts">
+          <li><b>Cité par les IA, mesuré chaque mois</b><span>Nous posons à ChatGPT, Gemini et Perplexity les questions que tapent vos patientes, et nous notons si vous êtes cité, et d'où vient la source.</span></li>
+          <li><b>Votre part de voix dans votre ville</b><span>Sur les recherches de votre spécialité, votre place face à vos confrères, anonymisés.</span></li>
+          <li><b>Un point visio par mois, des livrables datés</b><span>30 minutes avec votre interlocuteur. Les livrables du mois suivant annoncés à l'avance, cochés sous vos yeux.</span></li>
+        </ul>
+      </div>
+      <div class="phone-wrap io">
+        <span class="h24" aria-hidden="true">24H/24</span>
+        <div class="toast t1" aria-hidden="true"><i></i><div><b>ChatGPT vous a cité</b><span>« rhinoplastie ultrasonique Lyon » · il y a 2 h</span></div></div>
+        <div class="toast t2" aria-hidden="true"><i class="g"></i><div><b>Nouvelle demande de consultation</b><span>Rhinoplastie · via votre site · 09:12</span></div></div>
+        <div class="phone tilt" aria-hidden="true">
+          <div class="phone-notch"></div>
+          <div class="app">
+            <div class="app-status"><span>21:47</span><span class="live"><i></i>En direct</span></div>
+            <div class="app-head"><span class="app-brand"><svg viewBox="0 0 24 24"><rect x="8" y="0" width="6" height="6" rx="1"/><rect x="16" y="8" width="6" height="6" rx="1"/><rect x="0" y="16" width="6" height="6" rx="1"/><rect x="8" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/></svg>Espace HANA</span><b>Dr Dupont</b><small>Chirurgie esthétique · Lyon · Septembre</small></div>
+            <div class="tile hero-tile">
+              <small>Cité par les IA · 10 questions patientes</small>
+              <ul class="rings"><li><svg viewBox="0 0 52 52"><circle class="bg" cx="26" cy="26" r="22"/><circle class="fg" cx="26" cy="26" r="22" style="--off:41.5"/></svg><b>7<i>/10</i></b><span>ChatGPT</span></li><li><svg viewBox="0 0 52 52"><circle class="bg" cx="26" cy="26" r="22"/><circle class="fg" cx="26" cy="26" r="22" style="--off:55.3"/></svg><b>6<i>/10</i></b><span>Gemini</span></li><li><svg viewBox="0 0 52 52"><circle class="bg" cx="26" cy="26" r="22"/><circle class="fg" cx="26" cy="26" r="22" style="--off:27.6"/></svg><b>8<i>/10</i></b><span>Perplexity</span></li></ul>
+              <em class="up">+5 citations vs août · source la plus utilisée&nbsp;: votre site</em>
+            </div>
+            <div class="tile">
+              <small>Part de voix · chirurgie esthétique à Lyon</small>
+              <ul class="voice">
+                <li class="you"><span>Vous</span><i style="--w:41%"></i><b>41&nbsp;%</b></li>
+                <li><span>Confrère A</span><i style="--w:22%"></i><b>22&nbsp;%</b></li>
+                <li><span>Confrère B</span><i style="--w:17%"></i><b>17&nbsp;%</b></li>
+                <li><span>Confrère C</span><i style="--w:9%"></i><b>9&nbsp;%</b></li>
+              </ul>
+            </div>
+            <div class="tiles2">
+              <div class="tile">
+                <small>Demandes par acte</small>
+                <b class="big"><span class="count" data-to="12">0</span></b>
+                <ul class="acts-l"><li><span>Rhinoplastie</span><i style="--w:58%"></i><b>7</b></li><li><span>Lifting</span><i style="--w:25%"></i><b>3</b></li><li><span>Blépharoplastie</span><i style="--w:17%"></i><b>2</b></li></ul>
+              </div>
+              <div class="tile">
+                <small>Appels reçus</small>
+                <b class="big"><span class="count" data-to="34">0</span></b>
+                <em>21 depuis la fiche Google</em>
+                <em class="up">3 manqués hors horaires, rappelés</em>
+              </div>
+            </div>
+            <div class="tiles2">
+              <div class="tile">
+                <small>Cohérence de votre identité</small>
+                <b class="big"><span class="count" data-to="14">0</span><i>/14</i></b>
+                <span class="seg"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                <em>sources à jour&nbsp;: site, fiche Google, Ordre, annuaires, Réseau HANA</em>
+              </div>
+              <div class="tile">
+                <small>Avis Google</small>
+                <b class="big">4,9<i>★</i></b>
+                <em class="up">3 nouveaux ce mois</em>
+                <em>répondus en 6 h en moyenne</em>
+              </div>
+            </div>
+            <div class="tile deliv">
+              <div class="deliv-h"><small>Livrables · septembre</small><b>4/4 livrés</b></div>
+              <ul>
+                <li>Page « Rhinoplastie ultrasonique » relue et publiée</li>
+                <li>Fiche Google&nbsp;: 12 photos, 6 publications, 3 avis répondus</li>
+                <li>Données structurées Physician mises à jour</li>
+                <li>Page « Dr Dupont » sur le Réseau HANA</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-actions faire-actions io"><a class="btn primary big" href="#villes">Villes disponibles <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn secondary big" href="#tarifs">Voir les tarifs</a></div>
+  </div>
+</section>
+<section class="sec story s-ethique" id="ethique" aria-labelledby="ethique-h2">
+  <div class="wrap split2">
+    <div class="copy io">
+      <p class="kicker"><i></i>Notre ligne</p>
+      <h2 id="ethique-h2" class="words-io">Ce que nous ne ferons jamais.</h2>
+      <p class="lead">Vous êtes médecin. Votre visibilité doit être à la hauteur de votre déontologie. Nous rendons visible ce qui est vrai. C'est la seule visibilité qui dure.</p>
+    </div>
+    <ul class="nevers io">
+      <li><span class="x"></span><div><b>Promettre une position sur Google.</b><span>Personne ne contrôle Google. Nous nous engageons sur des livrables datés et des résultats mesurés chaque mois.</span></div></li>
+      <li><span class="x"></span><div><b>Publier un contenu médical sans relecture.</b><span>Chaque page soin est rédigée par une experte santé et relue par un membre de votre équipe avant mise en ligne.</span></div></li>
+      <li><span class="x"></span><div><b>Travailler avec votre concurrent direct.</b><span>Un seul praticien par spécialité et par ville. Votre signature ferme votre zone.</span></div></li>
+      <li><span class="x"></span><div><b>Réutiliser votre contenu pour quelqu'un d'autre.</b><span>Ce que nous écrivons pour vous ne sert qu'à vous. Jamais réécrit à quelques mots près pour un autre praticien.</span></div></li>
+      <li><span class="x"></span><div><b>Vous garder captif.</b><span>Votre site, vos accès, vos données restent à vous. Engagement clair, préavis d'un mois, aucune surprise.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<script type="module" src="assets/glider3d.js?v=128"></script>
+<script src="assets/site.js?v=128"></script>
+</body>
+</html>
