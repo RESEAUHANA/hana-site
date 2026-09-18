@@ -2,66 +2,151 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact · Réserver une visio de cadrage avec HANA</title>
-<meta name="description" content="Réservez 45 minutes en visio, offertes, pour valider que la méthode HANA s'applique à votre cabinet. Réponse sous 24 h ouvrées. Un seul praticien par ville.">
+<title>Être rappelé — HANA</title>
+<meta name="description" content="Laissez vos coordonnées et votre situation : Sihem Kazi-Tani vous rappelle sous 24 h ouvrées. Un seul praticien par spécialité et par ville.">
 <link rel="canonical" href="https://hanahealth.fr/contact.html">
 <meta property="og:title" content="Contacter HANA"><meta property="og:locale" content="fr_FR">
-<meta name="theme-color" content="#1F2D4F">
 <link rel="icon" href="assets/glider.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700;9..40,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css">
 </head>
-<body>
-<header class="nav" id="nav">
+<body class="p-contact">
+<header class="nav">
   <div class="wrap">
     <a class="brand" href="index.html" aria-label="HANA, accueil">
       <canvas class="logo-life" width="56" height="56" aria-hidden="true"></canvas>
-      <span><b>HANA</b><small>Réseau · Autorité · Médicale</small></span>
+      <b>HANA</b>
     </a>
-    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu">Menu</button>
-    <nav id="menu" aria-label="Navigation principale">
+    <button class="nav-toggle" aria-expanded="false" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+    <div class="nav-links">
       <a href="methode.html">La méthode</a>
+      <a href="expertises.html">Expertises</a>
+      <a href="equipe.html">L'équipe</a>
       <a href="tarifs.html">Tarifs</a>
       <a href="contact.html" aria-current="page">Contact</a>
-      <a class="btn" href="contact.html">Réserver une visio</a>
-    </nav>
+      <a class="btn vert" href="#rappel">Être rappelé</a>
+    </div>
   </div>
 </header>
 
-<section class="hero compact" style="--pos:center 40%;">
-  <div class="media"><img src="assets/img/salon.jpg" alt="" fetchpriority="high"></div>
-  <div class="wrap">
-    <p class="kicker">Premier contact</p>
-    <h1><span class="hl"><span>Prêt à</span></span><span class="hl"><span class="it" style="--d:.14s;">en discuter ?</span></span></h1>
-    <p class="lead">45 minutes en visio, offertes, pour comprendre votre situation, vérifier que la méthode s'applique à votre cas et identifier la formule pertinente. Sans engagement, réponse sous 24&nbsp;h ouvrées.</p>
-    <div class="actions">
-      <a class="btn inv" href="mailto:contact.hanahealth@gmail.com?subject=Demande%20de%20visio%20de%20cadrage&body=Bonjour%2C%0A%0AJe%20suis%20%5Bnom%2C%20sp%C3%A9cialit%C3%A9%2C%20ville%5D%20et%20je%20souhaite%20r%C3%A9server%20une%20visio%20de%20cadrage.%0A%0AMes%20disponibilit%C3%A9s%20%3A">Écrire un email</a>
-      <a class="btn" href="tel:+33699305873">Appeler le 06 99 30 58 73</a>
+<section class="hero grad" style="padding:64px 0 48px;">
+  <div class="wrap" style="display:block;">
+    <h1>Dites-nous où vous en êtes. On vous rappelle.</h1>
+    <p class="lead">Deux minutes pour décrire votre situation, un rappel sous 24 h ouvrées, puis 45 minutes en visio, offertes et sans engagement, pour vérifier que la méthode s'applique à votre cas.</p>
+    <div class="hero-cta">
+      <a class="btn vert" href="#rappel">Remplir le formulaire</a>
+      <a class="btn ghost" href="tel:+33699305873">Appeler le 06 99 30 58 73</a>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="wrap grid2">
-    <div>
-      <div class="head"><h2 class="rv">La suite, en <span class="it">trois étapes.</span></h2></div>
-      <div class="info rv" style="--d:.1s;">
-        <div><b>Téléphone</b><a href="tel:+33699305873">06 99 30 58 73</a></div>
-        <div><b>Email</b><a href="mailto:contact.hanahealth@gmail.com">contact.hanahealth@gmail.com</a></div>
-        <div><b>Fondatrice</b><span>Sihem Kazi-Tani · Stratégie &amp; Coordination · Marseille</span></div>
-      </div>
-    </div>
-    <div class="steps" style="grid-template-columns:1fr;">
-      <div class="step rv"><b class="n">01</b><h3>Visio de cadrage</h3><p>45 minutes offertes pour valider que la méthode s'applique à votre cas et identifier la formule pertinente.</p></div>
-      <div class="step rv" style="--d:.08s;"><b class="n">02</b><h3>Proposition sous 48 h</h3><p>La formule adaptée à votre cabinet, aux tarifs publics du site. Rien à négocier, rien de caché.</p></div>
-      <div class="step rv" style="--d:.16s;"><b class="n">03</b><h3>Démarrage sous 7 jours</h3><p>Contrat transmis sous 7 jours après votre accord, démarrage opérationnel sous 7 jours après signature. Audit remis la première semaine.</p></div>
-    </div>
-  </div>
+<section id="rappel" style="padding-top:48px;">
   <div class="wrap">
-    <div class="band mt3 rv">
-      <p><b>Votre ville est peut-être déjà réservée.</b> Un seul praticien par spécialité et par ville : indiquez votre spécialité et votre ville dans votre message, la réponse est immédiate.</p>
-      <a class="btn" href="mailto:contact.hanahealth@gmail.com?subject=Ma%20ville%20est-elle%20libre%20%3F">Vérifier ma ville</a>
+    <h2 class="rv sect">Votre situation, en deux minutes.</h2>
+    <p class="lead rv" style="--d:.06s;">Plus votre réponse est précise, plus le rappel est utile : on arrive en connaissant déjà votre ville, vos actes et votre priorité.</p>
+
+    <form id="rappel-form" class="form rv" style="--d:.1s;" action="https://formspree.io/f/VOTRE_ID" method="POST">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+      <div class="f-grid two">
+        <div class="f-field">
+          <label for="f-profil">Vous êtes</label>
+          <select id="f-profil" name="Profil" required>
+            <option value="" disabled selected>Choisir</option>
+            <option>Chirurgien(ne) esthétique ou plasticien(ne)</option>
+            <option>Médecin esthétique</option>
+            <option>Dermatologue à activité esthétique</option>
+            <option>Chirurgien maxillo-facial ou ORL de la face</option>
+            <option>Directeur(trice) de clinique ou de centre esthétique</option>
+            <option>Autre profession de l'esthétique médicale</option>
+          </select>
+        </div>
+        <div class="f-field">
+          <label for="f-nom">Votre nom</label>
+          <input type="text" id="f-nom" name="Nom" autocomplete="name" required>
+        </div>
+      </div>
+
+      <div class="f-grid two" style="margin-top:18px;">
+        <div class="f-field">
+          <label for="f-ville">Votre ville d'exercice</label>
+          <input type="text" id="f-ville" name="Ville" required>
+          <p class="small" style="margin:6px 0 0;">Un seul praticien par spécialité et par ville : on vous dit dès le rappel si la vôtre est encore libre.</p>
+        </div>
+        <div class="f-field">
+          <label for="f-actes">Vos actes principaux</label>
+          <input type="text" id="f-actes" name="Actes" placeholder="Rhinoplastie, lifting, injections…">
+        </div>
+      </div>
+
+      <fieldset style="margin-top:26px;">
+        <span class="f-legend">Aujourd'hui, vous vous reconnaissez dans quoi ? Cochez tout ce qui est vrai.</span>
+        <div class="checks two">
+          <label class="check"><input type="checkbox" name="Situation" value="Site daté ou inexistant"> Mon site est daté, ou je n'en ai pas.</label>
+          <label class="check"><input type="checkbox" name="Situation" value="Site correct mais invisible"> Mon site est correct, mais il n'apparaît nulle part.</label>
+          <label class="check"><input type="checkbox" name="Situation" value="Fiche Google négligée"> Ma fiche Google est négligée : avis sans réponse, photos datées.</label>
+          <label class="check"><input type="checkbox" name="Situation" value="Absent des réponses des IA"> Quand on demande à ChatGPT, je n'existe pas.</label>
+          <label class="check"><input type="checkbox" name="Situation" value="Un confrère prend le dessus"> Un confrère de ma ville prend visiblement le dessus en ligne.</label>
+          <label class="check"><input type="checkbox" name="Situation" value="Prestataire décevant"> J'ai déjà un prestataire, mais je ne vois pas les résultats.</label>
+        </div>
+      </fieldset>
+
+      <fieldset style="margin-top:26px;">
+        <span class="f-legend">Ce qui vous intéresse en priorité</span>
+        <div class="checks two">
+          <label class="radio"><input type="radio" name="Priorite" value="Formule complète" required> Une formule complète, au mois.</label>
+          <label class="radio"><input type="radio" name="Priorite" value="Mission d'essai 90 jours"> La mission d'essai : 90 jours, sans abonnement.</label>
+          <label class="radio"><input type="radio" name="Priorite" value="Comprendre d'abord"> D'abord comprendre ce que vous feriez sur mon cas.</label>
+          <label class="radio"><input type="radio" name="Priorite" value="Vérifier ma ville"> Simplement vérifier si ma ville est encore libre.</label>
+        </div>
+      </fieldset>
+
+      <div class="f-grid two" style="margin-top:26px;">
+        <div class="f-field">
+          <label for="f-tel">Votre téléphone</label>
+          <input type="tel" id="f-tel" name="Telephone" autocomplete="tel" required>
+        </div>
+        <div class="f-field">
+          <label for="f-mail">Votre email</label>
+          <input type="email" id="f-mail" name="Email" autocomplete="email" required>
+        </div>
+      </div>
+
+      <fieldset style="margin-top:26px;">
+        <span class="f-legend">Le meilleur moment pour vous rappeler</span>
+        <div class="checks two">
+          <label class="radio"><input type="radio" name="Creneau" value="Matin (9h-12h)" required> Le matin, entre 9 h et 12 h.</label>
+          <label class="radio"><input type="radio" name="Creneau" value="Pause (12h-14h)"> Entre midi et 14 h.</label>
+          <label class="radio"><input type="radio" name="Creneau" value="Fin de journée (18h-20h)"> En fin de journée, 18 h à 20 h.</label>
+          <label class="radio"><input type="radio" name="Creneau" value="Peu importe"> Peu importe, je décroche.</label>
+        </div>
+      </fieldset>
+
+      <div class="f-field" style="margin-top:26px;">
+        <label for="f-msg">Un mot sur votre contexte, si vous voulez</label>
+        <textarea id="f-msg" name="Message" placeholder="Facultatif"></textarea>
+      </div>
+
+      <label class="f-consent" style="margin-top:20px;">
+        <input type="checkbox" name="Consentement" value="Oui" required>
+        <span>J'accepte que ces informations soient utilisées pour me recontacter au sujet de ma demande. Elles ne sont ni cédées ni utilisées à d'autres fins, et supprimées sur simple demande à contact@hanahealth.fr.</span>
+      </label>
+
+      <p style="margin-top:24px;"><button type="submit" class="btn vert" style="width:100%;font-size:17px;">Être rappelé sous 24 h ouvrées</button></p>
+      <p class="f-note">Vous préférez l'écrit ? <a href="mailto:contact@hanahealth.fr">contact@hanahealth.fr</a>, réponse sous 24 h ouvrées.</p>
+      <p class="f-ok">Merci. Votre demande est partie : vous serez rappelé sous 24 h ouvrées, sur le créneau choisi.</p>
+    </form>
+  </div>
+</section>
+
+<section class="on-sauge">
+  <div class="wrap">
+    <h2 class="rv sect">La suite, en trois étapes.</h2>
+    <div class="steps">
+      <div class="step rv"><b class="n">01</b><h3>Rappel et visio de cadrage</h3><p>45 minutes offertes pour comprendre votre situation et vérifier que la méthode s'applique à votre cas.</p></div>
+      <div class="step rv" style="--d:.08s;"><b class="n">02</b><h3>Proposition sous 48 h</h3><p>La formule adaptée à votre cabinet, aux tarifs publics du site. Rien à négocier, rien de caché.</p></div>
+      <div class="step rv" style="--d:.16s;"><b class="n">03</b><h3>Démarrage sous 7 jours</h3><p>Contrat transmis sous 7 jours après votre accord, démarrage sous 7 jours après signature. Audit remis la première semaine.</p></div>
     </div>
   </div>
 </section>
@@ -69,23 +154,24 @@
 <footer>
   <div class="wrap">
     <div>
-      <div class="fb"><canvas class="logo-life" width="56" height="56" aria-hidden="true"></canvas><b>HANA</b></div>
-      <p style="margin-top:18px;max-width:340px;">Réseau d'autorité médicale digitale. Un seul praticien par spécialité et par ville.</p>
+      <b class="logo">HANA</b>
+      <p style="opacity:.8;margin-top:10px;max-width:340px;">Réseau d'autorité médicale digitale. Un seul praticien par spécialité et par ville.</p>
     </div>
-    <div class="col">
-      <span class="lab">Contact</span>
-      <p style="color:var(--ivory);">Sihem Kazi-Tani · Fondatrice</p>
-      <a href="tel:+33699305873">06 99 30 58 73</a>
-      <a href="mailto:contact.hanahealth@gmail.com">contact.hanahealth@gmail.com</a>
+    <div>
+      <p><b>Sihem Kazi-Tani</b>, fondatrice</p>
+      <p style="margin-top:8px;"><a href="tel:+33699305873">06 99 30 58 73</a><br>
+      <a href="mailto:contact@hanahealth.fr">contact@hanahealth.fr</a></p>
     </div>
-    <div class="col">
-      <span class="lab">Navigation</span>
-      <a href="methode.html">La méthode</a><a href="tarifs.html">Tarifs</a><a href="contact.html">Contact</a><a href="demo/" target="_blank" rel="noopener">Site témoin</a>
+    <div>
+      <p><a href="methode.html">La méthode</a><br><a href="equipe.html">L'équipe</a><br><a href="tarifs.html">Tarifs</a><br><a href="contact.html">Contact</a></p>
     </div>
-    <div class="fsig"><span>Dans Google comme dans la vie, le voisinage décide.</span><span>© 2026 HANA · Marseille</span></div>
+    <div>
+      <p><a href="seo-medical.html">SEO médical</a><br><a href="visibilite-ia.html">Visibilité dans les IA</a><br><a href="ecosysteme.html">L'écosystème digital</a></p>
+    </div>
+    <div class="fsig"><span>Dans Google comme dans la vie, le voisinage décide.</span><span>© 2026 HANA, Marseille</span></div>
   </div>
 </footer>
-<a class="cta-bar" href="contact.html">Réserver une visio · 45 min offertes</a>
+<a class="cta-bar" href="#rappel">Être rappelé sous 24 h</a>
 <script src="assets/site.js" defer></script>
 </body>
 </html>
