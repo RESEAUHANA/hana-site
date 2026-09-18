@@ -466,3 +466,4 @@ body.is-reveal .skip{opacity:0;pointer-events:none}
 .acts-l li span{grid-column:1;grid-row:1}
 .acts-l li b{grid-column:2;grid-row:1}
 .acts-l li i{grid-column:1/3;grid-row:2}
+.hero-tile em:not(.up){font-size:10px;color:#8fa0c4}
