@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Le jeu de la vie · Pourquoi un réseau · Réseau HANA</title>
+<meta name="description" content="Aucune cellule ne survit seule. Pourquoi le logo du Réseau HANA est un planeur du jeu de la vie, comment le réseau est construit (une page par ville, une page par praticien, données structurées) et les 14 sources qui rendent un praticien vérifiable.">
+<link rel="canonical" href="https://hanahealth.fr/reseau.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Réseau HANA">
+<meta property="og:title" content="Le jeu de la vie · Pourquoi un réseau · Réseau HANA">
+<meta property="og:description" content="Aucune cellule ne survit seule. Pourquoi un réseau, et pourquoi ce logo.">
+<meta property="og:image" content="https://hanahealth.fr/assets/og.png?v=16">
+<meta property="og:url" content="https://hanahealth.fr/reseau.html">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="assets/favicon.svg?v=3" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png?v=3" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=3">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Le jeu de la vie · Pourquoi un réseau · Réseau HANA","url":"https://hanahealth.fr/reseau.html","inLanguage":"fr","isPartOf":{"@type":"WebSite","name":"Réseau HANA","url":"https://hanahealth.fr/"},"about":{"@type":"Organization","name":"Réseau HANA","url":"https://hanahealth.fr/"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@300..700&family=Archivo:wdth,wght@87.5..112.5,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=192">
+</head>
+<body class="legal-page rpage">
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="HANA, accueil">
+      <svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="0" width="6" height="6" rx="1"/><rect x="16" y="8" width="6" height="6" rx="1"/><rect x="0" y="16" width="6" height="6" rx="1"/><rect x="8" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/></svg>
+      <span class="word">HANA</span>
+    </a>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <div class="dd"><button type="button" class="dd-btn" aria-expanded="false" aria-haspopup="true">Ce que nous faisons <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><ul class="dd-menu" role="menu"><li><a href="/ce-que-nous-faisons.html"><b>L'écosystème</b><span>Pourquoi tout ensemble</span></a></li><li><a href="/site-internet.html"><b>Site internet</b><span>Création et refonte</span></a></li><li><a href="/referencement-google.html"><b>Référencement Google</b><span>SEO médical</span></a></li><li><a href="/fiche-google.html"><b>Fiche Google</b><span>Travaillée chaque jour</span></a></li><li><a href="/visibilite-ia.html"><b>Visibilité dans les IA</b><span>GEO : ChatGPT, Gemini</span></a></li><li><a href="/youtube-linkedin.html"><b>YouTube et LinkedIn</b><span>Vos vidéos, référencées</span></a></li><li><a href="/maintenance.html"><b>Maintenance et sécurité</b><span>Surveillé 24 h/24</span></a></li></ul></div><a href="/references.html">Références</a><a href="/reseau.html">Le jeu de la vie de Conway</a><a href="/tarifs.html">Tarifs</a><a href="/qui-sommes-nous.html">Qui sommes-nous</a><a href="/ordre.html">Et l'Ordre&nbsp;?</a><a href="/actualites.html">Actualités</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn primary" href="/#contact">Réserver une visio</a>
+      <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<nav class="mnav" id="mnav" aria-label="Menu mobile" hidden>
+  <details class="mnav-group"><summary>Ce que nous faisons</summary><div class="mnav-sub"><a href="/ce-que-nous-faisons.html">L'écosystème</a><a href="/site-internet.html">Site internet</a><a href="/referencement-google.html">Référencement Google</a><a href="/fiche-google.html">Fiche Google</a><a href="/visibilite-ia.html">Visibilité dans les IA</a><a href="/youtube-linkedin.html">YouTube et LinkedIn</a><a href="/maintenance.html">Maintenance et sécurité</a></div></details><a href="/references.html">Références</a><a href="/reseau.html">Le jeu de la vie de Conway</a><a href="/tarifs.html">Tarifs</a><a href="/qui-sommes-nous.html">Qui sommes-nous</a><a href="/ordre.html">Et l'Ordre&nbsp;?</a><a href="/actualites.html">Actualités</a><a href="/#contact">Contact</a><a class="mnav-cta" href="/#contact">Réserver une visio</a>
+  <div class="mnav-foot"><a href="tel:+33699305873">06 99 30 58 73</a><a href="mailto:contact@hanahealth.fr">contact@hanahealth.fr</a></div>
+</nav>
+
+<main>
+
+<section class="about-hero rp-hero" aria-labelledby="rp-h1">
+  <div class="wrap">
+    <div class="about-hero-copy">
+      <p class="kicker"><i></i>Notre réseau · Le jeu de la vie</p>
+      <h1 id="rp-h1" class="words-io">Aucune cellule ne survit seule.</h1>
+      <p class="lead">Notre logo est un planeur, la figure la plus connue du jeu de la vie conçu par le mathématicien John Conway en 1970. Trois règles, une grille&nbsp;: de ces trois règles naît une forme qui traverse l'écran sans jamais s'arrêter. Nous en avons fait notre logo parce qu'il illustre précisément ce qu'un réseau apporte à un praticien.</p>
+    </div>
+    <div class="rp-hero-art io" aria-hidden="true">
+      <svg viewBox="0 0 132 132" class="glider2d big">
+        <g fill="none" stroke="rgba(44,58,91,.12)"><rect x="2" y="2" width="40" height="40" rx="7"/><rect x="46" y="2" width="40" height="40" rx="7"/><rect x="90" y="2" width="40" height="40" rx="7"/><rect x="2" y="46" width="40" height="40" rx="7"/><rect x="46" y="46" width="40" height="40" rx="7"/><rect x="90" y="46" width="40" height="40" rx="7"/><rect x="2" y="90" width="40" height="40" rx="7"/><rect x="46" y="90" width="40" height="40" rx="7"/><rect x="90" y="90" width="40" height="40" rx="7"/></g>
+        <g class="cells"><rect x="46" y="2" width="40" height="40" rx="7"/><rect x="90" y="46" width="40" height="40" rx="7"/><rect x="2" y="90" width="40" height="40" rx="7"/><rect x="46" y="90" width="40" height="40" rx="7"/><rect x="90" y="90" width="40" height="40" rx="7"/></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark s-life" id="regles" aria-labelledby="regles-h2">
+  <div class="wrap">
+    <div class="life-grid">
+      <div class="life-card io">
+        <div class="life-bar">
+          <span class="life-live"><i></i>En direct</span>
+          <span class="life-stats">Génération <b id="lifeGen">0</b> · Cellules <b id="lifePop">0</b></span>
+        </div>
+        <canvas id="lifeBig" aria-label="Le jeu de la vie : cliquez sur la grille pour ajouter des cellules"></canvas>
+        <div class="life-ctl">
+          <button type="button" class="btn secondary" data-life="glider">Planeur</button>
+          <button type="button" class="btn secondary" data-life="random">Aléatoire</button>
+          <button type="button" class="btn secondary" data-life="pause">Pause</button>
+          <button type="button" class="btn secondary" data-life="clear">Effacer</button>
+          <span class="life-hint">Cliquez sur la grille pour placer une cellule.</span>
+        </div>
+      </div>
+      <div class="life-copy">
+        <p class="kicker"><i></i>Trois règles</p>
+        <h2 id="regles-h2" class="words-io">Ce que la grille apprend à un praticien.</h2>
+        <p class="lead">Dans le jeu de la vie, chaque cellule ne dépend que de ses voisines. Remplacez « cellule » par « source qui parle de vous », et vous avez la règle du référencement, sur Google comme dans les IA.</p>
+        <ol class="rules">
+          <li class="io"><b>1</b><div><h3>Une cellule isolée meurt.</h3><p>Un site seul, que rien ne confirme ailleurs, finit par disparaître des réponses. Google et les IA ne retiennent pas ce qu'ils ne peuvent pas recouper.</p></div></li>
+          <li class="io" style="transition-delay:.1s"><b>2</b><div><h3>Une cellule entourée survit.</h3><p>Un praticien décrit à l'identique sur plusieurs sources, avec le même nom, la même spécialité et les mêmes actes, est identifié, compris et retenu.</p></div></li>
+          <li class="io" style="transition-delay:.2s"><b>3</b><div><h3>Trois voisines font naître une cellule.</h3><p>Quand plusieurs sources cohérentes se recoupent, une visibilité apparaît là où il n'y avait rien&nbsp;: une citation, une réponse, un(e) patient(e).</p></div></li>
+        </ol>
+        <p class="note light">C'est une image, pas une formule. Personne ne connaît la recette des moteurs. Mais tous fonctionnent ainsi&nbsp;: ils recoupent, et ils ne retiennent que ce qu'ils peuvent vérifier.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec story s-sources dark" id="sources" aria-labelledby="sources-h2">
+  <div class="wrap milieu-grid">
+    <div class="acts io" id="acts" aria-label="Les 14 sources de votre identité">
+      <div class="acts-title"><small id="actCat">Source n°01 · Votre socle</small><b id="actName">Votre site</b></div>
+      <div class="acts-ring" id="actsRing">
+        <figure class="obj" data-i="0" data-name="Votre site" data-cat="Source n°01 · Votre socle"><svg viewBox="0 0 64 64"><rect x="10" y="14" width="44" height="36" rx="5"/><path d="M10 24h44"/><circle cx="17" cy="19" r="1.4"/><circle cx="23" cy="19" r="1.4"/><path d="M18 33h20M18 40h14"/></svg></figure>
+        <figure class="obj" data-i="1" data-name="Votre fiche Google" data-cat="Source n°02 · Google"><svg viewBox="0 0 64 64"><path d="M32 54s-14-13-14-24a14 14 0 0 1 28 0c0 11-14 24-14 24z"/><circle cx="32" cy="30" r="5"/></svg></figure>
+        <figure class="obj" data-i="2" data-name="Votre page sur le Réseau HANA" data-cat="Source n°03 · Le réseau"><svg viewBox="0 0 64 64"><rect x="26" y="12" width="12" height="12" rx="2"/><rect x="40" y="26" width="12" height="12" rx="2"/><rect x="12" y="40" width="12" height="12" rx="2"/><rect x="26" y="40" width="12" height="12" rx="2"/><rect x="40" y="40" width="12" height="12" rx="2"/></svg></figure>
+        <figure class="obj" data-i="3" data-name="Annuaire de l'Ordre" data-cat="Source n°04 · Institution"><svg viewBox="0 0 64 64"><path d="M32 10l18 6v14c0 12-8 20-18 24-10-4-18-12-18-24V16z"/><path d="M32 24v16M24 32h16"/></svg></figure>
+        <figure class="obj" data-i="4" data-name="Doctolib" data-cat="Source n°05 · Rendez-vous"><svg viewBox="0 0 64 64"><rect x="12" y="16" width="40" height="36" rx="5"/><path d="M12 27h40M22 11v10M42 11v10"/><circle cx="32" cy="40" r="3"/></svg></figure>
+        <figure class="obj" data-i="5" data-name="Pages Jaunes" data-cat="Source n°06 · Annuaire"><svg viewBox="0 0 64 64"><path d="M20 12h8l4 10-5 3a20 20 0 0 0 12 12l3-5 10 4v8a4 4 0 0 1-4 4A32 32 0 0 1 16 16a4 4 0 0 1 4-4z"/></svg></figure>
+        <figure class="obj" data-i="6" data-name="LinkedIn" data-cat="Source n°07 · Réseau professionnel"><svg viewBox="0 0 64 64"><rect x="10" y="22" width="44" height="30" rx="5"/><path d="M24 22v-6a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v6M10 34h44"/></svg></figure>
+        <figure class="obj" data-i="7" data-name="Instagram" data-cat="Source n°08 · Réseau social"><svg viewBox="0 0 64 64"><rect x="12" y="14" width="40" height="40" rx="10"/><circle cx="32" cy="34" r="9"/><circle cx="44" cy="22" r="1.8"/></svg></figure>
+        <figure class="obj" data-i="8" data-name="YouTube" data-cat="Source n°09 · Vidéo indexée"><svg viewBox="0 0 64 64"><rect x="10" y="16" width="44" height="32" rx="9"/><path d="M28 25v14l12-7z"/></svg></figure>
+        <figure class="obj" data-i="9" data-name="Facebook" data-cat="Source n°10 · Réseau social"><svg viewBox="0 0 64 64"><circle cx="25" cy="24" r="7"/><path d="M12 50a13 13 0 0 1 26 0"/><circle cx="43" cy="26" r="5"/><path d="M40 39a10 10 0 0 1 14 9"/></svg></figure>
+        <figure class="obj" data-i="10" data-name="Votre société savante" data-cat="Source n°11 · Institution"><svg viewBox="0 0 64 64"><path d="M14 14h30a6 6 0 0 1 6 6v30H20a6 6 0 0 1-6-6z"/><path d="M14 44a6 6 0 0 1 6-6h30"/><path d="M24 24h16"/></svg></figure>
+        <figure class="obj" data-i="11" data-name="Votre clinique" data-cat="Source n°12 · Lieu d'exercice"><svg viewBox="0 0 64 64"><rect x="14" y="12" width="36" height="42" rx="3"/><path d="M32 22v12M26 28h12M22 54v-10h20v10"/></svg></figure>
+        <figure class="obj" data-i="12" data-name="Wikidata" data-cat="Source n°13 · Base de connaissances"><svg viewBox="0 0 64 64"><circle cx="18" cy="20" r="5"/><circle cx="46" cy="20" r="5"/><circle cx="32" cy="46" r="5"/><path d="M22 23l7 18M42 23l-7 18M23 20h18"/></svg></figure>
+        <figure class="obj" data-i="13" data-name="Un annuaire local" data-cat="Source n°14 · Annuaire"><svg viewBox="0 0 64 64"><path d="M14 18h24M14 30h20M14 42h16"/><path d="M48 50s-8-8-8-14a8 8 0 0 1 16 0c0 6-8 14-8 14z"/><circle cx="48" cy="36" r="2.5"/></svg></figure>
+      </div>
+      <div class="swipe" aria-hidden="true"><svg viewBox="0 0 120 24"><path d="M6 12h108M14 5l-8 7 8 7M106 5l8 7-8 7"/></svg><i></i></div>
+      <div class="acts-foot"><p class="acts-count"><b>14</b> sources que nous vérifions et corrigeons chaque mois, avec les mêmes mots partout</p></div>
+    </div>
+    <div class="copy io">
+      <p class="kicker"><i></i>Vos voisines</p>
+      <h2 id="sources-h2" class="words-io">Les 14 sources de votre identité.</h2>
+      <p class="lead">Une IA fait confiance à ce qui se recoupe. Votre site, votre fiche Google, votre page sur le réseau, l'annuaire de l'Ordre, Doctolib, vos réseaux, votre société savante, votre clinique&nbsp;: <strong>même nom, même adresse, même spécialité, mêmes actes principaux.</strong> Une incohérence, un ancien cabinet, une spécialité mal libellée, et une IA vous écarte ou vous confond avec un autre.</p>
+      <ul class="proofs">
+        <li><b>14</b><span>sources suivies, corrigées chaque mois, comptées dans votre Espace HANA</span></li>
+        <li><b>1</b><span>dossier d'autorité par praticien&nbsp;: la source de vérité de tout ce qui est publié à votre nom</span></li>
+        <li><b>0</b><span>lien acheté, avis acheté ou citation achetée. Jamais.</span></li>
+      </ul>
+      <a class="sc-link" href="methode-ia.html">Notre méthode IA, étape par étape <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec s-build" id="construction" aria-labelledby="build-h2">
+  <div class="wrap">
+    <div class="build-head io">
+      <p class="kicker"><i></i>Comment le réseau est construit</p>
+      <h2 id="build-h2" class="words-io">Une page par ville. Une page par praticien.</h2>
+      <p class="lead">hanahealth.fr n'est pas une copie de votre site. Chaque page du réseau a une raison d'exister pour un(e) patient(e) qui cherche, et elle vous renvoie vers vous.</p>
+    </div>
+    <ul class="build3">
+      <li class="io"><span class="b-n">01</span><h3>La page ville</h3><p>« Chirurgie plastique à Lyon »&nbsp;: la page qui présente le praticien membre de la ville, sa spécialité, ses actes, et renvoie vers son site. Une seule place par spécialité, donc un seul nom.</p></li>
+      <li class="io" style="transition-delay:.1s"><span class="b-n">02</span><h3>La page praticien</h3><p>Qui vous êtes, votre parcours, vos qualifications, vos actes, vos lieux d'exercice. Rédigée à partir de votre dossier d'autorité, relue et validée par vous avant publication.</p></li>
+      <li class="io" style="transition-delay:.2s"><span class="b-n">03</span><h3>Les données structurées</h3><p>Votre page porte un balisage <b>Physician</b> avec le lien <b>memberOf</b> vers le Réseau HANA, et votre site renvoie vers elle avec le même balisage. C'est ce qui dit aux moteurs que le Dr Dupont du site, de la fiche Google et du réseau sont la même personne.</p></li>
+    </ul>
+    <div class="notnet io">
+      <b>Ce que le réseau n'est pas</b>
+      <ul>
+        <li><span>Un échange de liens.</span> Aucun praticien du réseau n'a à en citer un autre. Vous n'avez personne à solliciter, rien à coordonner&nbsp;: c'est nous qui construisons l'écosystème.</li>
+        <li><span>Un annuaire payant.</span> Le Code de déontologie interdit le référencement prioritaire payant. Le réseau est une source éditoriale, cohérente et vérifiable, rien de plus.</li>
+        <li><span>Le moteur.</span> Le réseau est la couche en plus. Le moteur reste votre site, votre fiche Google et vos avis. C'est là que va l'essentiel du travail.</li>
+      </ul>
+    </div>
+    <div class="note ordre io"><b>Et le Conseil de l'Ordre&nbsp;?</b><p>Votre page sur hanahealth.fr est factuelle&nbsp;: identité, parcours, actes, coordonnées, lien vers votre site. Pas de classement, pas d'avis de patient(e)s, pas de comparaison, aucun superlatif. L'exclusivité est un engagement de HANA envers vous, inscrit au contrat&nbsp;: elle n'apparaît pas sur votre page. Vous relisez et validez chaque page avant publication. <a href="/#ethique">Ce que nous ne ferons jamais</a></p></div>
+  </div>
+</section>
+
+<section class="sec about-cta dark" aria-label="Et maintenant">
+  <div class="wrap">
+    <div class="about-cta-grid">
+      <div class="io">
+        <p class="kicker"><i></i>Votre ville</p>
+        <h2 class="words-io">Une seule place par ville et par spécialité.</h2>
+        <p class="lead">Seize places à l'ouverture, dans dix-huit villes de France, de Belgique et de Suisse&nbsp;: Marseille et Aix, Nice et Cannes ne forment qu'une seule zone. Le praticien qui prend la place de sa ville est le seul dont nous travaillons la visibilité.</p>
+        <div class="hero-actions"><a class="btn accent big" href="/#contact">Votre ville est-elle disponible&nbsp;? <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn secondary big" href="/#contact">Réserver une visio</a></div>
+      </div>
+      <ul class="about-links io" style="transition-delay:.12s">
+        <li><a href="/#reseau"><b>La constellation</b><span>Le réseau en un coup d'œil, sur la page d'accueil.</span></a></li>
+        <li><a href="methode-ia.html"><b>Notre méthode IA</b><span>Le dossier d'autorité, les 14 sources, la mesure mensuelle.</span></a></li>
+        <li><a href="qui-sommes-nous.html"><b>Qui sommes-nous</b><span>Dix ans dans votre monde, avant le référencement.</span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot" id="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="/#top" aria-label="HANA, accueil"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="0" width="6" height="6" rx="1"/><rect x="16" y="8" width="6" height="6" rx="1"/><rect x="0" y="16" width="6" height="6" rx="1"/><rect x="8" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/></svg><span class="word">HANA</span></a>
+        <p class="foot-sig">Healthcare · Authority · Network · Architecture</p>
+        <p class="foot-tag">Réseau d'autorité médicale. Un seul chirurgien par ville et par spécialité, visible sur Google et dans les moteurs IA.</p>
+        <ul class="foot-proof"><li><b>10</b>ans dans vos blocs</li><li><b>15</b>chirurgiens accompagnés</li><li><b>3</b>pays francophones</li></ul>
+      </div>
+      <nav class="foot-col" aria-label="Plan du site">
+        <b>Le réseau</b>
+        <a href="/#reseau">Notre réseau</a><a href="reseau.html">Le jeu de la vie</a><a href="/#milieu">Nous venons de votre monde</a><a href="/#faire">Ce qu'on fait pour vous</a><a href="/#ethique">Ce que nous ne ferons jamais</a><a href="methode-ia.html">Notre méthode IA</a><a href="qui-sommes-nous.html">Qui sommes-nous</a><a href="/tarifs.html">Tarifs</a>
+      </nav>
+      <nav class="foot-col" aria-label="Villes">
+        <b>Le réseau, ville par ville</b>
+        <a href="/#reseau">Paris</a><a href="/#reseau">Lyon</a><a href="/#reseau">Marseille</a><a href="/#reseau">Bordeaux</a><a href="/#reseau">Lille</a><a href="/#reseau">Nice</a><a href="/#reseau">Genève</a><a href="/#reseau">Bruxelles</a><a class="more" href="/#reseau">Les 18 villes du réseau</a>
+      </nav>
+      <div class="foot-col">
+        <b>Contact</b>
+        <a href="tel:+33699305873">06 99 30 58 73</a><a href="mailto:contact@hanahealth.fr">contact@hanahealth.fr</a><span>Boulevard Latil<br>13008 Marseille</span>
+        <a class="btn accent" href="/#contact">Réserver une visio</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Réseau HANA · Marseille</span>
+      <nav aria-label="Informations légales"><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Confidentialité</a><a href="/#top">Haut de page ↑</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js?v=175"></script>
+</body>
+</html>

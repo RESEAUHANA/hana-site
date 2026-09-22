@@ -1,0 +1,11 @@
+Photos Unsplash (licence Unsplash, usage commercial autorise, attribution non obligatoire mais appreciee)
+site.jpg        https://unsplash.com/photos/_x335IZXxfc
+seo.jpg         https://unsplash.com/photos/kUqqaRjJuw0
+google.jpg      https://unsplash.com/photos/UWVJaDvXW_c
+ia.jpg          https://unsplash.com/photos/drwpcjkvxuU
+maintenance.jpg https://unsplash.com/photos/fPkvU7RDmCo
+bloc.jpg        https://unsplash.com/photos/vfy71fExF7g
+youtube.jpg     https://unsplash.com/photos/8LfE0Lywyak (recadrée)
+
+Pictos des actes : Hugeicons (hugeicons.com, licence MIT) via Iconify : nose, face-id, tape-measure, body-part-six-pack, eye, scan-eye, body-part-leg, syringe ; Material Symbols (Google, Apache 2.0) : lips-outline (light) ; poitrine dessinée maison dans le meme style.
+Captures d'écran des sites clients (assets/img/sites), prises le 21/09/2026 avec Chrome headless, recadrées sur le haut de page. Propriété de chaque praticien ; retirer sur demande.

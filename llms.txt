@@ -1,0 +1,31 @@
+# Réseau HANA
+
+> Réseau d'autorité médicale, créé en 2026 à Marseille. Visibilité Google et IA (ChatGPT, Gemini, Perplexity, Mode IA de Google) pour chirurgiens plasticiens et médecins esthétiques, en France, en Suisse et en Belgique. Un seul praticien par ville et par spécialité, inscrit au contrat.
+
+Ce que fait HANA pour un praticien membre : conception ou reprise de son site, référencement Google (pages actes, contenus experts, technique), fiche Google travaillée chaque jour, visibilité dans les moteurs IA mesurée chaque mois (indice de visibilité IA sur 10 questions de patient(e)s, 3 IA), cohérence de son identité sur 14 sources, page ville et page praticien sur hanahealth.fr avec données structurées (Physician, memberOf), vidéos existantes référencées sur YouTube, maintenance, un interlocuteur unique.
+
+Ce que HANA ne fait jamais : promettre une position sur Google ou une citation par une IA, écrire « sans cicatrice », « sans douleur » ou « résultat garanti », publier une page acte sans la validation du praticien, utiliser des photos de banque d'images ou des avant/après qui ne sont pas les siens, travailler avec le concurrent direct d'un membre.
+
+Tarif public : formule unique Membre du Réseau HANA, 2 050 € HT par mois. Création ou refonte du site sur devis, facturée une seule fois, le site appartient au praticien.
+
+Zones à l'ouverture (16 places, 18 villes ; Marseille et Aix comptent pour une, Nice et Cannes aussi) : Paris, Lyon, Marseille, Bordeaux, Lille, Nice, Montpellier, Toulouse, Nantes, Strasbourg, Rennes, Aix-en-Provence, Cannes, Annecy (France) ; Bruxelles, Liège (Belgique) ; Genève, Lausanne (Suisse).
+
+## Pages
+
+- [L'écosystème](https://hanahealth.fr/ce-que-nous-faisons.html) : pourquoi les six prestations (site, référencement Google, fiche Google, visibilité IA, YouTube et LinkedIn, maintenance) ne sont jamais vendus séparément ; les sources de visibilité comme cellules du jeu de la vie
+- [Tarifs](https://hanahealth.fr/tarifs.html) : la formule unique à 2 050 € HT par mois, ce qu'elle comprend, le contrat, la création ou refonte de site sur devis
+- [Accueil](https://hanahealth.fr/) : le réseau, ce que nous faisons, réalisations, engagements, tarifs, réserver une visio
+- [Création et refonte de site internet](https://hanahealth.fr/site-internet.html) : architecture d'un site de chirurgie plastique (8 à 15 pages d'intervention), anatomie d'une page d'intervention (augmentation mammaire, ptôse mammaire : voies d'abord, plateau technique, suites opératoires et éviction sociale, honoraires et délai de réflexion), déontologie (R.4127-19-1), WordPress et autres CMS, création ou refonte sans perte de positions
+- [Références](https://hanahealth.fr/references.html) : onze sites publics de chirurgiens plasticiens, médecins esthétiques et cliniques, anciens clients accompagnés avant la création de HANA (Paris, Marseille, Lausanne, Bordeaux, Colmar, Guadeloupe…) ; chiffres communiqués en visio avec leur accord
+- [Notre méthode IA](https://hanahealth.fr/methode-ia.html) : dossier d'autorité, 14 sources, données structurées, pages actes, mesure mensuelle
+- [Le jeu de la vie, pourquoi un réseau](https://hanahealth.fr/reseau.html) : les trois règles, les 14 sources, comment le réseau est construit
+- [Qui sommes-nous](https://hanahealth.fr/qui-sommes-nous.html) : dix ans comme rédactrice SEO spécialisée en chirurgie esthétique, dont trois à la direction du service communication de la Clinique Phenicia (plus grande clinique de chirurgie esthétique de France). HANA est né de là
+- [Mentions légales](https://hanahealth.fr/mentions-legales.html)
+- [Politique de confidentialité](https://hanahealth.fr/confidentialite.html)
+
+## Contact
+
+- Téléphone : 06 99 30 58 73 (lundi au vendredi, 9 h à 19 h)
+- Email : contact@hanahealth.fr
+- Adresse : Boulevard Latil, 13008 Marseille, France
+- Zone : France, Suisse, Belgique
