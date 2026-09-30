@@ -2169,3 +2169,8 @@ h2.dash-h{margin:0}
 /* 30/09 : titres des cartes de prestations sur deux lignes maximum */
 .stack .sc-body h3{font-size:clamp(24px,2.2vw,32px);max-width:none;line-height:1}
 @media (max-width:600px){.stack .sc-body h3{font-size:24px}}
+
+/* 30/09 : cartes de prestations sans tags, une ligne de production quand elle est chiffrée */
+.sc-fact{display:inline-flex;align-items:center;gap:9px;margin:0;font-size:13.5px;font-weight:600;letter-spacing:.02em;color:#7fd6a3}
+.sc-fact::before{content:"";width:7px;height:7px;border-radius:50%;background:#2fa36b;box-shadow:0 0 0 4px rgba(47,163,107,.2)}
+.stack .sc-body{gap:18px}
