@@ -664,3 +664,24 @@
   new IntersectionObserver(e=>{ visible=e[0].isIntersecting; },{threshold:.1}).observe(card);
   setInterval(()=>{ if(!visible||document.hidden) return; rows[k].classList.remove('on'); k=(k+1)%rows.length; rows[k].classList.add('on'); },1900);
 })();
+
+/* Visibilité dans les IA : la question du hero change, avec ce que nous documentons */
+(function(){
+  const box=document.getElementById('iaAsk'); if(!box) return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||/[?&]nomotion/.test(location.search)) return;
+  const Q=document.getElementById('iaQ'), L=document.getElementById('iaDocs'), dots=[...document.querySelectorAll('#iaDots li')];
+  const D=[
+    ['Qui consulter pour une rhinoplastie à Lyon ?',["Votre identité et votre spécialité","Votre lieu d'exercice","Votre page Rhinoplastie","Votre fiche Google"]],
+    ['Quelle différence entre deux techniques de rhinoplastie ?',["Un contenu expert sur les techniques","Votre page Rhinoplastie","Les techniques que vous utilisez","Vos questions fréquentes"]],
+    ['Que prévoir après une augmentation mammaire ?',["Un contenu sur les suites","Votre page Augmentation mammaire","La récupération et la reprise","Les informations pratiques"]]
+  ];
+  let k=0, visible=true, t=null;
+  new IntersectionObserver(e=>{ visible=e[0].isIntersecting; },{threshold:.1}).observe(box);
+  function type(s,done){ let i=0; Q.textContent=''; clearInterval(t); t=setInterval(()=>{ Q.textContent=s.slice(0,++i).replace(/ \?$/,'\u00a0?'); if(i>=s.length){ clearInterval(t); done(); } },45); }
+  function next(){
+    if(!visible||document.hidden){ setTimeout(next,1200); return; }
+    k=(k+1)%D.length; L.innerHTML='';
+    type(D[k][0],()=>{ L.innerHTML=D[k][1].map(x=>'<li>'+x+'</li>').join(''); dots.forEach((d,j)=>d.classList.toggle('on',j===k)); setTimeout(next,4200); });
+  }
+  setTimeout(next,4200);
+})();
