@@ -2493,6 +2493,8 @@ h2.dash-h{margin:0}
 /* Accueil : parcours patient (01/10) */
 .hpp{margin-top:clamp(28px,3.4vw,48px);padding-top:clamp(28px,3vw,44px);border-top:1px solid rgba(255,255,255,.12);scroll-margin-top:90px}
 .hpp h3{margin:14px 0 0;font-family:var(--display);font-weight:500;font-size:clamp(30px,3.2vw,50px);line-height:1;letter-spacing:.005em;text-transform:uppercase;color:#fff;text-wrap:balance}
+.hpp .kicker{color:#fff}
+.hpp h3{color:#7fd6a3}
 .hpp .lead{font-size:clamp(15px,1.1vw,17px);color:#c9d0e2;margin:12px 0 0;max-width:72ch}
 .hpp-steps{list-style:none;margin:clamp(20px,2.4vw,30px) 0 0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
 .hpp-steps li{position:relative;padding:18px 16px 18px;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(255,255,255,.04)}
