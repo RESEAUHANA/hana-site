@@ -173,7 +173,7 @@
     }catch(err){
       f.classList.remove('busy');
       const body=`Nom : ${data.nom}%0ASpécialité : ${data.specialite}%0AVille : ${data.ville}%0ATéléphone : ${data.telephone}%0AEmail : ${data.email}%0A%0A${encodeURIComponent(data.message||'')}`;
-      location.href=`mailto:contact@hanahealth.fr?subject=${encodeURIComponent('Demande de visio · '+data.ville)}&body=${body}`;
+      location.href=`mailto:contact@hanahealth.fr?subject=${encodeURIComponent('Demande de diagnostic · '+data.ville)}&body=${body}`;
     }
   });
   const b=document.getElementById('mapLoad'); if(!b) return;
@@ -239,36 +239,6 @@
   }));
 })();
 
-/* Page réseau : jeu de la vie interactif (règles de Conway sur un tore, clic = cellule, planeur / aléatoire / pause / effacer) */
-(function(){
-  const cv=document.getElementById('lifeBig'); if(!cv) return;
-  const ctx=cv.getContext('2d'), gen=document.getElementById('lifeGen'), pop=document.getElementById('lifePop');
-  const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches||new URLSearchParams(location.search).has('nomotion');
-  let S=26, cols=0, rows=0, grid, prev, g=0, running=!reduce, last=0, vis=false, W=0;
-  const idx=(x,y)=>((y+rows)%rows)*cols+((x+cols)%cols);
-  const GL=[[1,0],[2,1],[0,2],[1,2],[2,2]];
-  function count(){ let a=0; for(let i=0;i<grid.length;i++) a+=grid[i]; pop.textContent=a; gen.textContent=g; }
-  function glider(x,y){ GL.forEach(([dx,dy])=>grid[idx(x+dx,y+dy)]=1); }
-  function seed(){ grid=new Uint8Array(cols*rows); prev=grid.slice(); g=0; glider(1,1); glider(Math.floor(cols*0.55),Math.floor(rows*0.15)); glider(Math.floor(cols*0.2),Math.floor(rows*0.6)); prev=grid.slice(); count(); }
-  function resize(){ const r=cv.getBoundingClientRect(); const d=Math.min(2,devicePixelRatio||1); W=Math.round(r.width); S=W<420?22:26; cols=Math.floor(W/S); rows=cols; cv.width=Math.ceil(W*d); cv.height=Math.ceil(W*d); ctx.setTransform(d,0,0,d,0,0); seed(); draw(1); }
-  function step(){ const n=new Uint8Array(cols*rows); for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){ let c=0; for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){ if(dx||dy) c+=grid[idx(x+dx,y+dy)]; } const a=grid[y*cols+x]; n[y*cols+x]=(c===3||(a&&c===2))?1:0; } prev=grid; grid=n; g++; count(); }
-  function draw(k){ ctx.clearRect(0,0,W,W); const off=(W-cols*S)/2; ctx.strokeStyle='rgba(255,255,255,.05)'; ctx.lineWidth=1; ctx.beginPath(); for(let x=0;x<=cols;x++){ ctx.moveTo(off+x*S+.5,off); ctx.lineTo(off+x*S+.5,off+rows*S); } for(let y=0;y<=rows;y++){ ctx.moveTo(off,off+y*S+.5); ctx.lineTo(off+cols*S,off+y*S+.5); } ctx.stroke();
-    for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){ const i=y*cols+x, a=grid[i], p=prev[i]; if(!a&&!p) continue; const o=a?(p?1:k):(1-k); if(o<=0.02) continue; const sz=(S-6)*(a?(p?1:.8+.2*k):(1-.3*k)); ctx.globalAlpha=.9*o; ctx.fillStyle='#2fa36b'; ctx.beginPath(); ctx.roundRect(off+x*S+(S-sz)/2,off+y*S+(S-sz)/2,sz,sz,5); ctx.fill(); } ctx.globalAlpha=1; }
-  function loop(now){ requestAnimationFrame(loop); if(!vis) return; if(!last) last=now; const T=420; if(running&&now-last>=T){ step(); last=now; } draw(running?Math.min(1,(now-last)/240):1); }
-  cv.addEventListener('pointerdown',e=>{ const r=cv.getBoundingClientRect(); const off=(W-cols*S)/2; const x=Math.floor((e.clientX-r.left-off)/S), y=Math.floor((e.clientY-r.top-off)/S); if(x<0||y<0||x>=cols||y>=rows) return; grid[y*cols+x]=grid[y*cols+x]?0:1; prev[y*cols+x]=grid[y*cols+x]; count(); draw(1); });
-  const btns=[...document.querySelectorAll('[data-life]')];
-  const setPause=()=>btns.forEach(b=>{ if(b.dataset.life==='pause'){ b.classList.toggle('on',!running); b.textContent=running?'Pause':'Reprendre'; } });
-  btns.forEach(b=>b.addEventListener('click',()=>{ const a=b.dataset.life;
-    if(a==='glider'){ glider(Math.floor(Math.random()*(cols-4)),Math.floor(Math.random()*(rows-4))); prev=grid.slice(); count(); draw(1); }
-    if(a==='random'){ for(let i=0;i<grid.length;i++) grid[i]=Math.random()<0.28?1:0; prev=grid.slice(); g=0; count(); draw(1); }
-    if(a==='pause'){ running=!running; last=0; setPause(); }
-    if(a==='clear'){ grid=new Uint8Array(cols*rows); prev=grid.slice(); g=0; count(); draw(1); }
-  }));
-  setPause();
-  new IntersectionObserver(es=>{ vis=es[0].isIntersecting; if(vis) last=0; },{threshold:.1}).observe(cv);
-  addEventListener('resize',()=>{ clearTimeout(cv._t); cv._t=setTimeout(resize,150); },{passive:true});
-  resize(); requestAnimationFrame(loop);
-})();
 /* Qui sommes-nous : jeu de la vie dans le hero (deux planeurs qui traversent la page, règles de Conway, sans collision) */
 (function(){
   const hero=document.querySelector('.about-page .about-hero'); if(!hero) return;

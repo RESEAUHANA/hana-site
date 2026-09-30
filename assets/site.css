@@ -2512,3 +2512,9 @@ h2.dash-h{margin:0}
   .hpp-steps b{margin-top:0}
   .hpp-steps li:not(:last-child)::after{top:auto;bottom:-10px;right:auto;left:22px;transform:rotate(135deg)}
 }
+
+/* Verrouillage (01/10) : structure de réponse IA illustrative, planeur sans jeu interactif, consigne du champ libre */
+.chat .card-doc.ai-struct{padding:9px 12px;margin-top:8px}
+.chat .card-doc.ai-struct .av{width:28px;height:28px;font-size:12px}
+.life-grid.life-solo{display:block;max-width:760px}
+.cform .cf-hint{display:block;margin-top:6px;font-size:12px;line-height:1.4;color:var(--text-2)}
