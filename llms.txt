@@ -1,6 +1,6 @@
 # Réseau HANA
 
-> Réseau d'autorité médicale, créé en 2026 à Marseille. Visibilité Google et IA (ChatGPT, Gemini, Perplexity, Mode IA de Google) pour chirurgiens plasticiens et médecins esthétiques, en France, en Suisse et en Belgique. Un seul praticien par ville et par spécialité, inscrit au contrat.
+> Réseau d'autorité médicale, créé en 2026 à Marseille. Visibilité Google et IA (ChatGPT, Gemini, Perplexity, Mode IA de Google) pour chirurgiens plasticiens et médecins esthétiques, en France, en Suisse et en Belgique. Un seul praticien par zone et par spécialité, inscrit au contrat.
 
 Ce que fait HANA pour un praticien membre : conception ou reprise de son site, référencement Google (pages actes, contenus experts, technique), fiche Google travaillée chaque jour, visibilité dans les moteurs IA mesurée chaque mois (indice de visibilité IA sur 10 questions de patient(e)s, 3 IA), cohérence de son identité sur 14 sources, page ville et page praticien sur hanahealth.fr avec données structurées (Physician, memberOf), vidéos existantes référencées sur YouTube, maintenance, un interlocuteur unique.
 

@@ -1851,3 +1851,66 @@ h2.dash-h{margin:0}
 .armap .lk.tpl.hot{stroke:var(--accent);stroke-dasharray:none;stroke-width:2}
 .ar-cap{color:var(--text-2);font-size:13px}
 .ar-cap b{color:var(--navy);font-weight:600}
+
+
+/* 30/09 : « Ça pourrait vous intéresser » (remplace .about-links) */
+.about-cta-grid.solo{grid-template-columns:1fr;max-width:860px}
+.related{background:var(--bg-2,#f6f5f1)}
+.rel-head{display:flex;flex-direction:column;gap:10px;margin-bottom:clamp(24px,3vw,40px)}
+.rel-head h2{font-family:var(--display);font-weight:500;text-transform:uppercase;color:var(--navy);font-size:clamp(34px,4vw,56px);line-height:1;margin:0}
+.rel-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px)}
+.rel-card{display:flex;flex-direction:column;gap:8px;color:var(--navy);text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:20px;padding:12px 12px 22px;transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s,border-color .3s}
+.rel-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px -18px rgba(44,58,91,.35);border-color:rgba(47,163,107,.45)}
+.rel-vis{margin:0 0 10px;aspect-ratio:16/10;border-radius:14px;overflow:hidden;background:#e9ece8}
+.rel-vis picture,.rel-vis img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.rel-card:hover .rel-vis img{transform:scale(1.05)}
+.rel-vis.rel-art{display:grid;place-items:center;background:radial-gradient(120% 90% at 70% 20%,#3a4b73 0%,#2c3a5b 45%,#151e33 100%)}
+.rel-vis.rel-art svg{width:34%;max-width:120px;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.rel-card:hover .rel-art svg{transform:rotate(-8deg) scale(1.06)}
+.rel-card small,.rel-card h3,.rel-card p,.rel-card .rel-go{padding-inline:10px}
+.rel-card small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.rel-card h3{font-family:var(--display);font-weight:500;text-transform:uppercase;font-size:clamp(22px,2vw,28px);line-height:1.05;margin:0;letter-spacing:.01em}
+.rel-card p{font-size:14.5px;line-height:1.5;color:var(--muted);margin:0;flex:1}
+.rel-go{display:inline-flex;align-items:center;gap:8px;margin-top:6px;font-size:13.5px;font-weight:600;color:var(--navy)}
+.rel-go svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s}
+.rel-card:hover .rel-go{color:var(--accent)}.rel-card:hover .rel-go svg{transform:translateX(4px)}
+@media (max-width:900px){.rel-grid{grid-template-columns:1fr 1fr}.rel-grid .rel-card:last-child{grid-column:1/-1}}
+@media (max-width:600px){.rel-grid{grid-template-columns:1fr}.rel-grid .rel-card:last-child{grid-column:auto}}
+
+/* 30/09 : points de pagination (remplacent flèches et indicateurs de glissement) */
+.dots{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:9px;margin:14px auto 12px;padding:0;border:0;background:none;width:auto;max-width:92vw}
+.dots button{position:relative;width:7px;height:7px;padding:0;border:0;border-radius:99px;background:rgba(44,58,91,.22);cursor:pointer;transition:width .4s cubic-bezier(.2,.8,.2,1),background .3s}
+.dots button::after{content:"";position:absolute;inset:-9px -5px}
+.dots button:hover{background:rgba(44,58,91,.45)}
+.dots button.on{width:24px;background:var(--accent)}
+.dark .dots button,.s-milieu .dots button,.s-sources .dots button{background:rgba(255,255,255,.26)}
+.dark .dots button:hover{background:rgba(255,255,255,.5)}
+.dark .dots button.on,.s-milieu .dots button.on,.s-sources .dots button.on{background:#7fd6a3}
+.dots button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.nev-marq.static+.nev-nav{display:none}
+
+/* 30/09 : Qui sommes-nous, le parcours en frise verticale (remplace les cinq écrans horizontaux .hs) */
+.tlv{position:relative;background:radial-gradient(120% 70% at 75% 10%,#1f2c4c,#151e33 60%);color:#fff;overflow:hidden}
+.tlv::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:44px 44px;pointer-events:none}
+.tlv .wrap{position:relative}
+.tlv-head{display:flex;flex-direction:column;gap:12px;max-width:760px}
+.tlv-head .kicker{color:#7fd6a3}.tlv-head .kicker i{background:#7fd6a3}
+.tlv-head h2{margin:0;font-family:var(--display);font-weight:500;text-transform:uppercase;font-size:clamp(40px,5vw,76px);line-height:.95;color:#fff}
+.tlv-body{position:relative;display:flex;flex-direction:column;gap:clamp(72px,10vw,150px);margin-top:clamp(48px,6vw,96px);padding-bottom:8px}
+.tlv-line{position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;background:rgba(255,255,255,.12);border-radius:2px}
+.tlv-line i{display:block;width:100%;height:0;background:linear-gradient(#7fd6a3,#2fa36b);border-radius:2px;box-shadow:0 0 14px rgba(127,214,163,.55)}
+.tlv .hp{width:auto;height:auto;max-width:none;padding:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(64px,9vw,140px);align-items:center;position:relative}
+.tlv .hp .hp-copy{max-width:520px;justify-self:end}
+.tlv .hp .hp-vis{justify-self:start;max-width:520px}
+.tlv .hp.alt .hp-copy{order:2;justify-self:start}
+.tlv .hp.alt .hp-vis{order:1;justify-self:end}
+.tlv .hp h3{font-size:clamp(30px,3.2vw,52px);line-height:.98}
+.tlv-dot{position:absolute;left:50%;top:50%;z-index:2;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#151e33;border:1px solid rgba(255,255,255,.2);font-family:var(--display);font-weight:500;font-size:19px;letter-spacing:.04em;color:#8fa0c4;transition:background .5s,border-color .5s,color .5s,box-shadow .5s}
+.tlv .hp.on .tlv-dot{background:#1f8a58;border-color:#7fd6a3;color:#fff;box-shadow:0 0 0 8px rgba(127,214,163,.12),0 0 30px rgba(127,214,163,.35)}
+@media (max-width:900px){
+  .tlv-line{left:22px}
+  .tlv .hp{grid-template-columns:1fr;gap:28px;padding-left:64px}
+  .tlv .hp .hp-copy,.tlv .hp.alt .hp-copy{order:1;justify-self:stretch;max-width:none}
+  .tlv .hp .hp-vis,.tlv .hp.alt .hp-vis{order:2;justify-self:stretch;max-width:none}
+  .tlv-dot{left:22px;top:0;transform:translate(-50%,0);width:44px;height:44px;font-size:16px}
+}

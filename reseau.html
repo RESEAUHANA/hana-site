@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@300..700&family=Archivo:wdth,wght@87.5..112.5,300..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=193">
+<link rel="stylesheet" href="assets/site.css?v=195">
 </head>
 <body class="legal-page rpage">
 
@@ -117,7 +117,7 @@
         <figure class="obj" data-i="12" data-name="Wikidata" data-cat="Source n°13 · Base de connaissances"><svg viewBox="0 0 64 64"><circle cx="18" cy="20" r="5"/><circle cx="46" cy="20" r="5"/><circle cx="32" cy="46" r="5"/><path d="M22 23l7 18M42 23l-7 18M23 20h18"/></svg></figure>
         <figure class="obj" data-i="13" data-name="Un annuaire local" data-cat="Source n°14 · Annuaire"><svg viewBox="0 0 64 64"><path d="M14 18h24M14 30h20M14 42h16"/><path d="M48 50s-8-8-8-14a8 8 0 0 1 16 0c0 6-8 14-8 14z"/><circle cx="48" cy="36" r="2.5"/></svg></figure>
       </div>
-      <div class="swipe" aria-hidden="true"><svg viewBox="0 0 120 24"><path d="M6 12h108M14 5l-8 7 8 7M106 5l8 7-8 7"/></svg><i></i></div>
+      <div class="ring-dots dots" role="group" aria-label="Choisir une source"></div>
       <div class="acts-foot"><p class="acts-count"><b>14</b> sources que nous vérifions et corrigeons chaque mois, avec les mêmes mots partout</p></div>
     </div>
     <div class="copy io">
@@ -160,18 +160,24 @@
 
 <section class="sec about-cta dark" aria-label="Et maintenant">
   <div class="wrap">
-    <div class="about-cta-grid">
+    <div class="about-cta-grid solo">
       <div class="io">
         <p class="kicker"><i></i>Votre ville</p>
-        <h2 class="words-io">Une seule place par ville et par spécialité.</h2>
+        <h2 class="words-io">Une seule place par zone et par spécialité.</h2>
         <p class="lead">Seize places à l'ouverture, dans dix-huit villes de France, de Belgique et de Suisse&nbsp;: Marseille et Aix, Nice et Cannes ne forment qu'une seule zone. Le praticien qui prend la place de sa ville est le seul dont nous travaillons la visibilité.</p>
         <div class="hero-actions"><a class="btn accent big" href="/#contact">Votre ville est-elle disponible&nbsp;? <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn secondary big" href="/#contact">Réserver une visio</a></div>
       </div>
-      <ul class="about-links io" style="transition-delay:.12s">
-        <li><a href="/#reseau"><b>La constellation</b><span>Le réseau en un coup d'œil, sur la page d'accueil.</span></a></li>
-        <li><a href="methode-ia.html"><b>Notre méthode IA</b><span>Le dossier d'autorité, les 14 sources, la mesure mensuelle.</span></a></li>
-        <li><a href="qui-sommes-nous.html"><b>Qui sommes-nous</b><span>Dix ans dans votre monde, avant le référencement.</span></a></li>
-      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec related" aria-labelledby="rel-h2">
+  <div class="wrap">
+    <div class="rel-head io"><p class="kicker"><i></i>Pour aller plus loin</p><h2 id="rel-h2">Ça pourrait vous intéresser.</h2></div>
+    <div class="rel-grid">
+      <a class="rel-card io" style="transition-delay:0.0s" href="/#reseau"><figure class="rel-vis rel-art"><svg viewBox="0 0 132 132" aria-hidden="true"><g fill="none" stroke="rgba(255,255,255,.16)"><rect x="2" y="2" width="40" height="40" rx="7"/><rect x="46" y="2" width="40" height="40" rx="7"/><rect x="90" y="2" width="40" height="40" rx="7"/><rect x="2" y="46" width="40" height="40" rx="7"/><rect x="46" y="46" width="40" height="40" rx="7"/><rect x="90" y="46" width="40" height="40" rx="7"/><rect x="2" y="90" width="40" height="40" rx="7"/><rect x="46" y="90" width="40" height="40" rx="7"/><rect x="90" y="90" width="40" height="40" rx="7"/></g><g fill="#2fa36b"><rect x="46" y="2" width="40" height="40" rx="7"/><rect x="90" y="46" width="40" height="40" rx="7"/><rect x="2" y="90" width="40" height="40" rx="7"/><rect x="46" y="90" width="40" height="40" rx="7"/><rect x="90" y="90" width="40" height="40" rx="7"/></g></svg></figure><small>Le réseau</small><h3>La constellation</h3><p>Le réseau en un coup d'œil, sur la page d'accueil.</p><span class="rel-go">Lire <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="rel-card io" style="transition-delay:0.06s" href="/methode-ia.html"><figure class="rel-vis"><picture><source srcset="assets/img/ia.webp" type="image/webp"><img src="assets/img/ia.jpg" alt="" loading="lazy" decoding="async"></picture></figure><small>Méthode</small><h3>Notre méthode IA</h3><p>Le dossier d'autorité, les 14 sources, la mesure mensuelle.</p><span class="rel-go">Lire <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="rel-card io" style="transition-delay:0.12s" href="/qui-sommes-nous.html"><figure class="rel-vis"><picture><source srcset="assets/img/seo.webp" type="image/webp"><img src="assets/img/seo.jpg" alt="" loading="lazy" decoding="async"></picture></figure><small>L'équipe</small><h3>Qui sommes-nous</h3><p>Dix ans dans votre spécialité.</p><span class="rel-go">Lire <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
     </div>
   </div>
 </section>
@@ -184,7 +190,7 @@
       <div class="foot-brand">
         <a class="brand" href="/#top" aria-label="HANA, accueil"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="0" width="6" height="6" rx="1"/><rect x="16" y="8" width="6" height="6" rx="1"/><rect x="0" y="16" width="6" height="6" rx="1"/><rect x="8" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/></svg><span class="word">HANA</span></a>
         <p class="foot-sig">Healthcare · Authority · Network · Architecture</p>
-        <p class="foot-tag">Réseau d'autorité médicale. Un seul chirurgien par ville et par spécialité, visible sur Google et dans les moteurs IA.</p>
+        <p class="foot-tag">Réseau d'autorité médicale. Un seul chirurgien par zone et par spécialité, visible sur Google et dans les moteurs IA.</p>
         <ul class="foot-proof"><li><b>10</b>ans dans vos blocs</li><li><b>15</b>chirurgiens accompagnés</li><li><b>3</b>pays francophones</li></ul>
       </div>
       <nav class="foot-col" aria-label="Plan du site">
@@ -208,6 +214,6 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=175"></script>
+<script src="assets/site.js?v=177"></script>
 </body>
 </html>

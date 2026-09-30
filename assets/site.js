@@ -116,6 +116,9 @@
   const up=()=>drag=null; ring.addEventListener('pointerup',up); ring.addEventListener('pointercancel',up);
   addEventListener('scroll',()=>{ if(!vis||reduce) return; const d=scrollY-lastScroll; lastScroll=scrollY; rot+=d*0.0025; },{passive:true});
   objs.forEach((o,i)=>o.addEventListener('click',()=>{ const target=-i*2*Math.PI/n; let d=((target-rot)%(2*Math.PI)+3*Math.PI)%(2*Math.PI)-Math.PI; vel=0; const t0=performance.now(), r0=rot; const go=now=>{ const k=Math.min(1,(now-t0)/700), e=1-Math.pow(1-k,3); rot=r0+d*e; if(k<1) requestAnimationFrame(go); }; requestAnimationFrame(go); }));
+  const dw=ring.closest('section')&&ring.closest('section').querySelector('.ring-dots');
+  if(dw){ objs.forEach((o,i)=>{ const b=document.createElement('button'); b.type='button'; b.setAttribute('aria-label',o.dataset.name||('Élément '+(i+1))); b.addEventListener('click',()=>o.click()); dw.appendChild(b); });
+    const bs=[...dw.children]; const sync=()=>{ bs.forEach((b,i)=>b.classList.toggle('on',i===front)); requestAnimationFrame(sync); }; sync(); }
   layout(); requestAnimationFrame(tick);
 })();
 
@@ -196,7 +199,8 @@
   const track=m.querySelector('.marq-track'); const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   let x=Math.max(20,Math.min(80,innerWidth*0.05)), half=0, drag=null, lastX=0, vel=0, vis=false, seen=0, hover=false, last=performance.now();
   const measure=()=>{ half=track.scrollWidth/2; }; measure(); addEventListener('resize',measure); addEventListener('load',measure);
-  const render=()=>{ if(half>0){ while(x<=-half) x+=half; while(x>0) x-=half; } track.style.setProperty('--x',x.toFixed(1)+'px'); };
+  let upd=null;
+  const render=()=>{ if(half>0){ while(x<=-half) x+=half; while(x>0) x-=half; } track.style.setProperty('--x',x.toFixed(1)+'px'); if(upd) upd(); };
   new IntersectionObserver(es=>{ vis=es[0].isIntersecting; if(vis&&!seen) seen=performance.now(); },{threshold:.05}).observe(m); /* le défilement ne démarre que 5 s après l'apparition : le temps de lire les premiers noms */
   m.addEventListener('pointerenter',()=>hover=true); m.addEventListener('pointerleave',()=>hover=false);
   m.addEventListener('dragstart',e=>e.preventDefault());
@@ -206,6 +210,13 @@
   m.addEventListener('click',e=>{ if(m.classList.contains('dragging')) e.preventDefault(); },true);
   m.addEventListener('wheel',e=>{ if(Math.abs(e.deltaX)>Math.abs(e.deltaY)){ e.preventDefault(); x-=e.deltaX; render(); } },{passive:false});
   const step=()=>{ const c=m.querySelector('.rsite'); return c?c.getBoundingClientRect().width+22:400; };
+  /* points : un par site ; le point actif suit le défilement, un clic amène le site au bord gauche */
+  const x00=x, nD=Math.round(m.querySelectorAll('.rsite').length/2), dn=document.querySelector('.marq-nav.dots');
+  if(dn&&nD>1){ for(let i=0;i<nD;i++){ const b=document.createElement('button'); b.type='button'; b.setAttribute('aria-label','Site '+(i+1)+' sur '+nD);
+      b.addEventListener('click',()=>{ const st=step(); let t=x00-i*st; if(half) t+=Math.round((x-t)/half)*half; const x0=x, t0=performance.now();
+        const go=now=>{ const k=Math.min(1,(now-t0)/500), e=1-Math.pow(1-k,3); x=x0+(t-x0)*e; render(); if(k<1) requestAnimationFrame(go); }; requestAnimationFrame(go);
+        hover=true; clearTimeout(dn._t); dn._t=setTimeout(()=>{ if(!m.matches(':hover')) hover=false; },4000); }); dn.appendChild(b); }
+    const bs=[...dn.children]; let cur=-1; upd=()=>{ const i=((Math.round((x00-x)/step())%nD)+nD)%nD; if(i!==cur){ cur=i; bs.forEach((b,k)=>b.classList.toggle('on',k===i)); } }; upd(); }
   document.querySelectorAll('.marq-btn').forEach(b=>b.addEventListener('click',()=>{ const d=+b.dataset.dir; const x0=x, target=x-d*step(); const t0=performance.now();
     const go=now=>{ const k=Math.min(1,(now-t0)/450), e=1-Math.pow(1-k,3); x=x0+(target-x0)*e; render(); if(k<1) requestAnimationFrame(go); }; requestAnimationFrame(go);
     hover=true; clearTimeout(b._t); b._t=setTimeout(()=>{ if(!m.matches(':hover')) hover=false; },3000); }));
@@ -575,14 +586,16 @@
   document.querySelectorAll('.nev-marq').forEach(m=>{
     const track=m.querySelector('.nev-track'), set=m.querySelector('.nev-set'); if(!track||!set) return;
     if(reduce){ m.classList.add('static'); return; }
-    m.insertAdjacentHTML('afterend','<div class="nev-nav"><button type="button" class="nev-btn" data-dir="-1" aria-label="Étiquettes précédentes"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><div class="swipe light" aria-hidden="true"><svg viewBox="0 0 120 24"><path d="M6 12h108M14 5l-8 7 8 7M106 5l8 7-8 7"/></svg><i></i></div><button type="button" class="nev-btn" data-dir="1" aria-label="Étiquettes suivantes"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>');
+    m.insertAdjacentHTML('afterend','<div class="nev-nav dots" role="group" aria-label="Choisir une étiquette"></div>');
     const nav=m.nextElementSibling;
     let x=0, w=0, vis=false, hover=false, drag=null, lastX=0, vel=0, hold=0, last=performance.now(), anim=null;
     const speed=parseFloat(m.dataset.speed||'0.04'); /* px par ms */
     const measure=()=>{ w=set.getBoundingClientRect().width; }; measure(); addEventListener('resize',measure);
     const step=()=>{ const c=m.querySelector('.nev-card'); return c?c.getBoundingClientRect().width+16:320; };
     new IntersectionObserver(es=>{ vis=es[0].isIntersecting; },{threshold:.05}).observe(m);
-    function render(){ if(w){ while(x<=-w) x+=w; while(x>0) x-=w; } track.style.transform='translateX('+x+'px)'; }
+    const nC=set.children.length, bs=[]; let cur=-1;
+    for(let i=0;i<nC;i++){ const b=document.createElement('button'); b.type='button'; b.setAttribute('aria-label','Étiquette '+(i+1)+' sur '+nC); b.dataset.i=i; nav.appendChild(b); bs.push(b); }
+    function render(){ if(w){ while(x<=-w) x+=w; while(x>0) x-=w; } track.style.transform='translateX('+x+'px)'; const i=((Math.round(-x/step())%nC)+nC)%nC; if(i!==cur){ cur=i; bs.forEach((b,k)=>b.classList.toggle('on',k===i)); } }
     const touch=()=>{ hold=performance.now(); anim=null; };
     /* souris : survol = pause ; glisser avec capture du pointeur (le geste continue hors de la bande) */
     m.addEventListener('pointerenter',e=>{ if(e.pointerType==='mouse') hover=true; });
@@ -593,8 +606,8 @@
     /* molette horizontale / pavé tactile (ou Maj + molette) : la page continue de défiler verticalement avec une molette normale */
     m.addEventListener('wheel',e=>{ const dx=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:(e.shiftKey?e.deltaY:0); if(!dx) return; e.preventDefault(); x-=dx; vel=0; touch(); render(); },{passive:false});
     /* flèches : une étiquette à la fois, en douceur */
-    nav.querySelectorAll('.nev-btn').forEach(b=>b.addEventListener('click',()=>{ const d=+b.dataset.dir, x0=x, target=x-d*step(), t0=performance.now(); touch(); const id=anim={};
-      (function go(now){ if(anim!==id) return; const k=Math.min(1,(now-t0)/450), e=1-Math.pow(1-k,3); x=x0+(target-x0)*e; render(); if(k<1) requestAnimationFrame(go); })(t0); }));
+    bs.forEach(b=>b.addEventListener('click',()=>{ const x0=x; let target=-(+b.dataset.i)*step(); if(w) target+=Math.round((x-target)/w)*w; const t0=performance.now(); touch(); const id=anim={};
+      (function go(now){ if(anim!==id) return; const k=Math.min(1,(now-t0)/500), e=1-Math.pow(1-k,3); x=x0+(target-x0)*e; render(); if(k<1) requestAnimationFrame(go); else anim=null; })(t0); }));
     function tick(now){ const dt=Math.min(64,now-last); last=now;
       if(vis&&drag===null&&!anim){ x+=vel; vel*=0.9; if(Math.abs(vel)<0.05) vel=0; if(!hover&&now-hold>4000) x-=dt*speed; render(); }
       requestAnimationFrame(tick); }
@@ -605,3 +618,15 @@
 (function(){ const o=document.querySelector('.eorb'); if(!o) return; const fit=()=>{ const node=parseFloat(getComputedStyle(o).getPropertyValue('--node'))||76; o.style.setProperty('--r',(o.clientWidth/2-node/2-4)+'px'); }; fit(); addEventListener('resize',fit); setTimeout(fit,300); })();
 /* Écosystème : orbite figée si ?nomotion */
 (function(){ if(new URLSearchParams(location.search).has('nomotion')){ document.querySelectorAll('.orbit-layer,.orb-in,.orbit-links .sp,.bt.hana .ring,.orbit-sweep,.orbit-center .ring').forEach(el=>el.style.animation='none'); } })();
+
+/* Qui sommes-nous : parcours en frise verticale. La ligne verte se remplit avec le défilement ; chaque étape s'allume
+   quand elle passe au milieu de l'écran (et reste allumée). Tout est affiché d'emblée si l'utilisateur préfère moins de mouvement. */
+(function(){
+  const body=document.getElementById('tlvBody'); if(!body) return;
+  const steps=[...body.querySelectorAll('.tlv-step')], fill=body.querySelector('.tlv-line i');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){ steps.forEach(s=>s.classList.add('on')); fill.style.height='100%'; return; }
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('on'); }),{rootMargin:'-40% 0px -40% 0px'});
+  steps.forEach(s=>io.observe(s));
+  let raf=0; const upd=()=>{ raf=0; const r=body.getBoundingClientRect(); const p=Math.min(1,Math.max(0,(innerHeight*.5-r.top)/r.height)); fill.style.height=(p*100).toFixed(2)+'%'; };
+  addEventListener('scroll',()=>{ if(!raf) raf=requestAnimationFrame(upd); },{passive:true}); addEventListener('resize',upd); upd();
+})();
