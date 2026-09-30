@@ -655,3 +655,12 @@
   }
   setTimeout(next,3600);
 })();
+
+/* Fiche Google : les lignes de la fiche du hero s'allument une à une */
+(function(){
+  const card=document.getElementById('gfCard'); if(!card) return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||/[?&]nomotion/.test(location.search)) return;
+  const rows=[...card.querySelectorAll('.gf-row')]; let k=0, visible=true;
+  new IntersectionObserver(e=>{ visible=e[0].isIntersecting; },{threshold:.1}).observe(card);
+  setInterval(()=>{ if(!visible||document.hidden) return; rows[k].classList.remove('on'); k=(k+1)%rows.length; rows[k].classList.add('on'); },1900);
+})();
