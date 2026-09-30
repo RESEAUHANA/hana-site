@@ -12,7 +12,7 @@ Zones à l'ouverture (16 places, 18 villes ; Marseille et Aix comptent pour une,
 
 ## Pages
 
-- [L'écosystème](https://hanahealth.fr/ce-que-nous-faisons.html) : pourquoi les six prestations (site, référencement Google, fiche Google, visibilité IA, YouTube et LinkedIn, maintenance) ne sont jamais vendus séparément ; les sources de visibilité comme cellules du jeu de la vie
+- [L'écosystème](https://hanahealth.fr/ce-que-nous-faisons.html) : pourquoi les six prestations (site, référencement Google, fiche Google, visibilité IA, YouTube et LinkedIn, maintenance) ne sont jamais vendus séparément
 - [Tarifs](https://hanahealth.fr/tarifs.html) : la formule unique à 2 050 € HT par mois, ce qu'elle comprend, le contrat, la création ou refonte de site à partir de 2 000 € HT selon le périmètre
 - [Accueil](https://hanahealth.fr/) : le réseau, ce que nous faisons, réalisations, engagements, tarifs, diagnostic offert
 - [Création et refonte de site internet](https://hanahealth.fr/site-internet.html) : architecture d'un site de chirurgie plastique (8 à 15 pages d'intervention), anatomie d'une page d'intervention (augmentation mammaire, ptôse mammaire : voies d'abord, plateau technique, suites opératoires et éviction sociale, honoraires et délai de réflexion), cadre déontologique, WordPress et autres CMS, création ou refonte sans perte de positions
