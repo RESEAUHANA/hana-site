@@ -586,6 +586,8 @@
   document.querySelectorAll('.nev-marq').forEach(m=>{
     const track=m.querySelector('.nev-track'), set=m.querySelector('.nev-set'); if(!track||!set) return;
     if(reduce){ m.classList.add('static'); return; }
+    /* boucle : le second jeu est cloné ici, pour que le texte n'apparaisse qu'une fois dans la page */
+    if(!track.querySelector('.nev-set.dup')){ const d=set.cloneNode(true); d.classList.add('dup'); d.setAttribute('aria-hidden','true'); d.setAttribute('data-nosnippet',''); track.appendChild(d); }
     m.insertAdjacentHTML('afterend','<div class="nev-nav dots" role="group" aria-label="Choisir une étiquette"></div>');
     const nav=m.nextElementSibling;
     let x=0, w=0, vis=false, hover=false, drag=null, lastX=0, vel=0, hold=0, last=performance.now(), anim=null;
