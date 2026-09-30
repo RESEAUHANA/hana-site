@@ -159,20 +159,22 @@
   io.observe(card); addEventListener('resize',resize,{passive:true}); resize();
 })();
 
-/* Contact : envoi du formulaire sans quitter la page (FormSubmit vers contact@hanahealth.fr, repli mailto) + carte chargée à la demande */
+/* Contact : envoi du formulaire sans quitter la page (Web3Forms vers contact@hanahealth.fr, repli mailto) + carte chargée à la demande */
 (function(){
   const f=document.getElementById('cform'); if(!f) return;
   f.addEventListener('submit',async e=>{
     e.preventDefault(); f.classList.add('tried'); if(!f.checkValidity()){ f.querySelector(':invalid')?.focus(); return; }
     const fd=new FormData(f); const data=Object.fromEntries(fd.entries());
+    if(!data.botcheck) delete data.botcheck;
     f.classList.add('busy');
     try{
-      const r=await fetch('https://formsubmit.co/ajax/contact@hanahealth.fr',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
-      if(!r.ok) throw new Error(r.status);
+      const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+      const res=await r.json().catch(()=>({}));
+      if(!r.ok||!res.success) throw new Error(r.status);
       f.classList.remove('busy'); f.classList.add('sent'); f.querySelector('.cf-ok').hidden=false;
     }catch(err){
       f.classList.remove('busy');
-      const body=`Nom : ${data.nom}%0ASpécialité : ${data.specialite}%0AVille : ${data.ville}%0ATéléphone : ${data.telephone}%0AEmail : ${data.email}%0A%0A${encodeURIComponent(data.message||'')}`;
+      const body=encodeURIComponent(`Nom : ${data.nom}\nSpécialité : ${data.specialite}\nVille : ${data.ville}\nTéléphone : ${data.telephone}\nEmail : ${data.email}\n\n${data.message||''}`);
       location.href=`mailto:contact@hanahealth.fr?subject=${encodeURIComponent('Demande de diagnostic · '+data.ville)}&body=${body}`;
     }
   });
