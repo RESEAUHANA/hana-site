@@ -630,3 +630,28 @@
   let raf=0; const upd=()=>{ raf=0; const r=body.getBoundingClientRect(); const p=Math.min(1,Math.max(0,(innerHeight*.5-r.top)/r.height)); fill.style.height=(p*100).toFixed(2)+'%'; };
   addEventListener('scroll',()=>{ if(!raf) raf=requestAnimationFrame(upd); },{passive:true}); addEventListener('resize',upd); upd();
 })();
+
+/* Référencement Google : barre de recherche du hero (six recherches, six intentions) */
+(function(){
+  const box=document.getElementById('rgSearch'); if(!box) return;
+  const Q=document.getElementById('rgQ'), I=document.getElementById('rgI'), A=document.getElementById('rgA'), dots=[...document.querySelectorAll('#rgDots li')];
+  const D=[
+    ['rhinoplastie Marseille','Trouver qui pratique cette intervention, près de chez elle','Votre page Rhinoplastie'],
+    ['chirurgien plasticien Marseille','Choisir un praticien','Accueil, parcours et titres, fiche Google'],
+    ['rhinoplastie ultrasonique','Comprendre une technique','Un contenu expert sur la technique'],
+    ['augmentation mammaire','Se renseigner, tôt dans la réflexion','Votre page Augmentation mammaire'],
+    ['suites rhinoplastie','Se préparer, ou se rassurer après','Un contenu sur les suites opératoires'],
+    ['prix rhinoplastie','Évaluer un budget','La section Honoraires']
+  ];
+  const still=matchMedia('(prefers-reduced-motion: reduce)').matches||/[?&]nomotion/.test(location.search);
+  if(still) return;
+  let k=0, typing=null, visible=true;
+  new IntersectionObserver(e=>{ visible=e[0].isIntersecting; },{threshold:.1}).observe(box);
+  function type(txt,done){ let i=0; Q.textContent=''; clearInterval(typing); typing=setInterval(()=>{ Q.textContent=txt.slice(0,++i); if(i>=txt.length){ clearInterval(typing); done&&done(); } },55); }
+  function next(){
+    if(!visible||document.hidden){ setTimeout(next,1200); return; }
+    k=(k+1)%D.length; box.classList.add('swap');
+    type(D[k][0],()=>{ I.textContent=D[k][1]; A.textContent=D[k][2]; dots.forEach((d,j)=>d.classList.toggle('on',j===k)); box.classList.remove('swap'); setTimeout(next,3200); });
+  }
+  setTimeout(next,3600);
+})();
