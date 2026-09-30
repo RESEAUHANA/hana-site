@@ -4,7 +4,7 @@
 
 Ce que fait HANA pour un praticien membre : conception ou reprise de son site, référencement Google (pages actes, contenus experts, technique), fiche Google travaillée chaque jour, visibilité dans les moteurs IA suivie chaque mois (observation de questions de patient(e)s posées à plusieurs assistants IA, sans promesse de citation), cohérence de son identité sur 14 sources, page de zone et page praticien sur hanahealth.fr avec données structurées (Physician, memberOf), vidéos existantes adaptées et publiées sur YouTube, maintenance, un interlocuteur unique.
 
-Ce que HANA ne fait jamais : promettre une position sur Google ou une citation par une IA, écrire « sans cicatrice », « sans douleur » ou « résultat garanti », publier une page acte sans la validation du praticien, publier des avant/après qui ne sont pas les siens, confirmer dans un avis Google qu'une personne est sa ou son patient(e), travailler pour un autre chirurgien de la même spécialité dans la zone d'un membre.
+Ce que HANA ne fait jamais : promettre une position sur Google ou une citation par une IA, écrire « sans cicatrice », « sans douleur » ou « résultat garanti », publier une page acte sans la validation du praticien, publier des avant/après qui ne sont pas les siens, confirmer dans un avis Google qu'une personne est sa ou son patient(e), revenir sur l'exclusivité contractuelle d'un membre (un seul chirurgien plasticien par zone et par spécialité).
 
 Tarif public : formule unique Membre du Réseau HANA, 2 050 € HT par mois. Création ou refonte du site à partir de 2 000 € HT selon le périmètre du projet, facturée une seule fois ; le site appartient au praticien, selon les conditions prévues au contrat.
 
