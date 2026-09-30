@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<title>Maintenance et sécurité du site d'un chirurgien plasticien · Réseau HANA</title>
+<meta name="description" content="Votre site suivi dans la durée : mises à jour chaque semaine, surveillance 24 h/24, sauvegarde chaque jour, corrections des bugs courants et formulaires suivis. La maintenance courante est incluse dans la formule HANA.">
+<link rel="canonical" href="https://hanahealth.fr/maintenance.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Réseau HANA">
+<meta property="og:title" content="Maintenance et sécurité · Réseau HANA">
+<meta property="og:description" content="Votre site reste suivi, vous n'avez rien à gérer : mises à jour, surveillance, sauvegardes et corrections incluses dans l'accompagnement HANA.">
+<meta property="og:image" content="https://hanahealth.fr/assets/og.png?v=16">
+<meta property="og:url" content="https://hanahealth.fr/maintenance.html">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="assets/favicon.svg?v=17" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png?v=17" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=17">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Réseau HANA","alternateName":"HANA","url":"https://hanahealth.fr/","email":"contact@hanahealth.fr","telephone":"+33699305873","address":{"@type":"PostalAddress","streetAddress":"Boulevard Latil","postalCode":"13008","addressLocality":"Marseille","addressCountry":"FR"},"areaServed":["FR","CH","BE"],"logo":"https://hanahealth.fr/assets/logo-hana.png","foundingDate":"2026","sameAs":["https://maps.google.com/?cid=15013412826622317006"],"description":"Réseau d'autorité médicale : visibilité Google et IA pour chirurgiens et médecins esthétiques, un seul praticien par zone et par spécialité."}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@300..700&family=Archivo:wdth,wght@87.5..112.5,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=207">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Maintenance et sécurité du site d'un chirurgien plasticien", "serviceType": "Maintenance de site internet", "provider": {"@type": "Organization", "name": "Réseau HANA", "url": "https://hanahealth.fr/"}, "areaServed": ["FR", "CH", "BE"], "url": "https://hanahealth.fr/maintenance.html", "description": "Votre site suivi dans la durée : mises à jour chaque semaine, surveillance 24 h/24, sauvegarde chaque jour, corrections des bugs courants et formulaires suivis. La maintenance courante est incluse dans la formule HANA."}</script>
+<style>
+/* Page Maintenance : styles propres à la page */
+.mt-art{justify-self:end;width:min(460px,100%);position:relative;display:flex;flex-direction:column;gap:12px}
+.mt-panel{position:relative;z-index:1;background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 30px 80px rgba(21,30,51,.14)}
+.mt-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.mt-top em{font-style:normal;font-size:13px;color:var(--muted)}
+.mt-live{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:600;color:var(--navy)}
+.mt-live i{width:10px;height:10px;border-radius:50%;background:var(--accent);animation:mtPulse 2.2s ease-out infinite}
+@keyframes mtPulse{0%{box-shadow:0 0 0 0 rgba(47,163,107,.55)}70%{box-shadow:0 0 0 10px rgba(47,163,107,0)}100%{box-shadow:0 0 0 0 rgba(47,163,107,0)}}
+.mt-rows{list-style:none;margin:8px 0 16px;padding:0}
+.mt-rows li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line);font-size:14px;color:var(--text-2)}
+.mt-rows b{display:flex;align-items:center;gap:8px;color:var(--navy);font-weight:600}
+.mt-rows b::before{content:"✓";display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--accent);color:#fff;font-size:10px;font-weight:700;opacity:0;transform:scale(.3);transition:opacity .4s ease,transform .4s cubic-bezier(.2,.8,.2,1)}
+.mt-art.in .mt-rows b::before{opacity:1;transform:none}
+.mt-art.in .mt-rows li:nth-child(2) b::before{transition-delay:.15s}.mt-art.in .mt-rows li:nth-child(3) b::before{transition-delay:.3s}.mt-art.in .mt-rows li:nth-child(4) b::before{transition-delay:.45s}.mt-art.in .mt-rows li:nth-child(5) b::before{transition-delay:.6s}
+.mt-bars{display:grid;grid-template-columns:repeat(30,1fr);gap:3px;height:28px;align-items:end}
+.mt-bars i{display:block;height:100%;border-radius:3px;background:var(--accent);opacity:.85;transform:scaleY(0);transform-origin:bottom;transition:transform .5s ease}
+.mt-art.in .mt-bars i{transform:none}
+.mt-bars i:nth-child(3n){transition-delay:.1s}.mt-bars i:nth-child(3n+1){transition-delay:.2s}
+.mt-cap{display:block;margin-top:8px;font-size:12px;color:var(--muted)}
+.mt-tiles{list-style:none;margin:clamp(28px,4vw,44px) 0 20px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.mt-tiles li{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px;transition:transform .35s ease,box-shadow .35s ease}
+.mt-tiles li:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(21,30,51,.1)}
+.mt-tiles b{font-size:17px;font-weight:600;color:var(--navy)}
+.mt-tiles p{margin:0;font-size:14.5px;line-height:1.6;color:var(--text-2)}
+.mt-split{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(28px,5vw,72px);align-items:center}
+.mt-rgpd{list-style:none;margin:0;padding:24px;border-radius:var(--r);background:var(--navy);display:flex;flex-direction:column;gap:4px;box-shadow:0 24px 60px rgba(21,30,51,.18)}
+.mt-rgpd li{display:flex;align-items:center;gap:12px;padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.1);color:#fff;font-size:15px}
+.mt-rgpd li:last-child{border-bottom:0;color:#7fd6a3;font-weight:600}
+.mt-rgpd li::before{content:"";width:16px;height:16px;flex:none;border-radius:4px;border:2px solid #7fd6a3}
+.mt-bugs{list-style:none;margin:clamp(24px,3vw,36px) 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.mt-bugs li{display:flex;align-items:center;gap:10px;font-size:15px;color:#fff;padding:11px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05)}
+.mt-bugs li::before{content:"✓";display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700}
+.mt-scope{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:clamp(28px,4vw,44px)}
+.mt-sc{padding:26px;border-radius:var(--r);border:1px solid var(--line);background:#fff}
+.mt-sc b{display:block;font-family:var(--display);font-weight:500;font-size:26px;text-transform:uppercase;color:var(--navy);margin-bottom:14px}
+.mt-sc ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.mt-sc li{position:relative;padding-left:30px;font-size:15.5px;color:var(--text-2)}
+.mt-sc li::before{position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700}
+.in-scope{background:rgba(47,163,107,.07);border-color:rgba(47,163,107,.35)}
+.in-scope li::before{content:"✓";background:var(--accent);color:#fff}
+.out-scope li::before{content:"";border:2px solid var(--line-2)}
+.out-scope p{margin:16px 0 0;padding-top:14px;border-top:1px dashed var(--line-2);font-size:14.5px;line-height:1.6;color:var(--text-2)}
+.mt-price{margin-top:clamp(28px,4vw,44px)}
+.mt-price h3{margin:8px 0 10px;font-family:var(--display);font-weight:500;font-size:clamp(26px,3vw,40px);line-height:1;text-transform:uppercase;color:var(--navy)}
+.mt-page #visibilite .lead a{color:var(--accent-2);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:1000px){.mt-tiles{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){.mt-art{justify-self:start;width:100%}.mt-split,.mt-scope{grid-template-columns:1fr}}
+@media (max-width:480px){.mt-tiles{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.mt-live i{animation:none}.mt-rows b::before,.mt-bars i{transition:none;opacity:1;transform:none}}
+</style>
+</head>
+<body class="legal-page rg-page mt-page">
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="/#top" aria-label="HANA, accueil">
+      <svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="0" width="6" height="6" rx="1"/><rect x="16" y="8" width="6" height="6" rx="1"/><rect x="0" y="16" width="6" height="6" rx="1"/><rect x="8" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/></svg>
+      <span class="word">HANA</span>
+    </a>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="/reseau.html">Le Réseau HANA</a><div class="dd"><button type="button" class="dd-btn" aria-expanded="false" aria-haspopup="true">Ce que nous faisons <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><ul class="dd-menu" role="menu"><li><a href="/ce-que-nous-faisons.html"><b>L'écosystème</b><span>Pourquoi tout ensemble</span></a></li><li><a href="/site-internet.html"><b>Site internet</b><span>Création et refonte</span></a></li><li><a href="/referencement-google.html"><b>Référencement Google</b><span>SEO médical</span></a></li><li><a href="/fiche-google.html"><b>Fiche Google</b><span>Travaillée chaque jour</span></a></li><li><a href="/visibilite-ia.html"><b>Visibilité dans les IA</b><span>GEO : ChatGPT, Gemini</span></a></li><li><a href="/youtube-linkedin.html"><b>YouTube et LinkedIn</b><span>Vos vidéos, référencées</span></a></li><li><a href="/maintenance.html"><b>Maintenance et sécurité</b><span>Surveillé 24 h/24</span></a></li></ul></div><a href="/references.html">Références</a><a href="/tarifs.html">Tarifs</a><a href="/qui-sommes-nous.html">Qui sommes-nous</a><a href="/ordre.html">Et l'Ordre&nbsp;?</a><a href="/actualites.html">Actualités</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn primary" href="#contact">Réserver une visio</a>
+      <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<nav class="mnav" id="mnav" aria-label="Menu mobile" hidden>
+  <a href="/reseau.html">Le Réseau HANA</a><details class="mnav-group"><summary>Ce que nous faisons</summary><div class="mnav-sub"><a href="/ce-que-nous-faisons.html">L'écosystème</a><a href="/site-internet.html">Site internet</a><a href="/referencement-google.html">Référencement Google</a><a href="/fiche-google.html">Fiche Google</a><a href="/visibilite-ia.html">Visibilité dans les IA</a><a href="/youtube-linkedin.html">YouTube et LinkedIn</a><a href="/maintenance.html">Maintenance et sécurité</a></div></details><a href="/references.html">Références</a><a href="/tarifs.html">Tarifs</a><a href="/qui-sommes-nous.html">Qui sommes-nous</a><a href="/ordre.html">Et l'Ordre&nbsp;?</a><a href="/actualites.html">Actualités</a><a href="#contact">Contact</a><a class="mnav-cta" href="#contact">Réserver une visio</a>
+  <div class="mnav-foot"><a href="tel:+33699305873">06 99 30 58 73</a><a href="mailto:contact@hanahealth.fr">contact@hanahealth.fr</a></div>
+</nav>
+
+<main>
+
+<section class="about-hero si-hero rg-hero mt-hero" aria-labelledby="mt-h1">
+  <div class="wrap">
+    <div class="about-hero-copy">
+      <p class="kicker"><i></i>Maintenance et sécurité</p>
+      <h1 id="mt-h1" class="words-io">Votre site reste suivi. Vous n'avez rien à gérer.</h1>
+      <p class="lead">Nous ne livrons pas un site pour disparaître ensuite. Nous le suivons dans le temps&nbsp;: nous le surveillons, nous le mettons à jour, nous corrigeons ce qui doit l'être. Vous gardez le même interlocuteur, et vous n'avez pas à vous occuper de la technique.</p>
+      <div class="hero-actions"><a class="btn primary big" href="#contact">Parlons de votre site <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn secondary big" href="#surprise">Ce qui est inclus</a></div>
+    </div>
+    <div class="mt-art io" aria-hidden="true">
+      <div class="mt-panel">
+        <div class="mt-top"><span class="mt-live"><i></i>En ligne</span><em>dr-dupont.fr</em></div>
+        <ul class="mt-rows">
+          <li><span>Surveillance</span><b>Active</b></li>
+          <li><span>Dernière sauvegarde</span><b>Aujourd'hui</b></li>
+          <li><span>Mises à jour</span><b>À jour</b></li>
+          <li><span>Formulaire de contact</span><b>Fonctionne</b></li>
+          <li><span>Connexion sécurisée</span><b>Valide</b></li>
+        </ul>
+        <div class="mt-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <small class="mt-cap">30 derniers jours</small>
+      </div>
+      <svg viewBox="0 0 132 132" class="glider2d rg-float" aria-hidden="true"><g fill="none" stroke="rgba(44,58,91,.12)"><rect x="2" y="2" width="40" height="40" rx="7"/><rect x="46" y="2" width="40" height="40" rx="7"/><rect x="90" y="2" width="40" height="40" rx="7"/><rect x="2" y="46" width="40" height="40" rx="7"/><rect x="46" y="46" width="40" height="40" rx="7"/><rect x="90" y="46" width="40" height="40" rx="7"/><rect x="2" y="90" width="40" height="40" rx="7"/><rect x="46" y="90" width="40" height="40" rx="7"/><rect x="90" y="90" width="40" height="40" rx="7"/></g><g class="cells"><rect x="46" y="2" width="40" height="40" rx="7"/><rect x="90" y="46" width="40" height="40" rx="7"/><rect x="2" y="90" width="40" height="40" rx="7"/><rect x="46" y="90" width="40" height="40" rx="7"/><rect x="90" y="90" width="40" height="40" rx="7"/></g></svg>
+      <p class="wire-cap">Exemple illustratif du suivi de votre site.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec si-sec alt" id="securite" aria-labelledby="se-h2">
+  <div class="wrap">
+    <p class="kicker io"><i></i>Au quotidien</p>
+    <h2 id="se-h2" class="words-io">Sécurité, mises à jour, surveillance.</h2>
+    <ul class="mt-tiles">
+      <li class="io"><span class="rg-ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><b>Mises à jour</b><p>Les mises à jour nécessaires, faites chaque semaine et vérifiées après coup.</p></li>
+      <li class="io" style="transition-delay:.06s"><span class="rg-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></span><b>Surveillance</b><p>Votre site est surveillé 24&nbsp;h/24&nbsp;: s'il ne répond plus, nous le savons.</p></li>
+      <li class="io" style="transition-delay:.12s"><span class="rg-ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="6" rx="2"/><rect x="4" y="14" width="16" height="6" rx="2"/></svg></span><b>Sauvegardes</b><p>Une sauvegarde chaque jour, pour pouvoir revenir en arrière si besoin.</p></li>
+      <li class="io" style="transition-delay:.18s"><span class="rg-ic"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg></span><b>Vérifications</b><p>Le bon fonctionnement du site, de ses formulaires et de son affichage sur mobile.</p></li>
+    </ul>
+    <p class="note io">Aucun site n'est à l'abri d'un incident. Notre rôle est d'en limiter le risque, de le repérer vite et de le corriger.</p>
+  </div>
+</section>
+
+<section class="sec si-sec" id="donnees" aria-labelledby="do-h2">
+  <div class="wrap">
+    <div class="mt-split">
+      <div>
+        <p class="kicker io"><i></i>Données</p>
+        <h2 id="do-h2" class="words-io">Vos données et le cadre RGPD.</h2>
+        <p class="lead io">Les formulaires de votre site, les données qu'ils recueillent et les éléments techniques liés à leur traitement font partie du suivi. Nous intégrons et maintenons les éléments techniques nécessaires au respect du cadre RGPD applicable, dans le périmètre de notre intervention.</p>
+      </div>
+      <ul class="mt-rgpd io">
+        <li>Formulaires et données recueillies</li>
+        <li>Consentement et mentions</li>
+        <li>Échanges sécurisés</li>
+        <li>Aucune donnée de santé collectée via vos formulaires</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec si-sec dark rg-dark" id="bug" aria-labelledby="bu-h2">
+  <div class="wrap">
+    <p class="kicker io"><i></i>Un problème&nbsp;?</p>
+    <h2 id="bu-h2" class="words-io">Un bug&nbsp;? Nous nous en occupons.</h2>
+    <p class="lead io">Si quelque chose ne fonctionne plus correctement sur votre site, vous nous le signalez, ou nous le repérons avant vous. Nous identifions la cause et nous corrigeons, lorsque cela relève de la maintenance du site. Votre interlocuteur reste le même.</p>
+    <ul class="mt-bugs">
+      <li class="io">Un formulaire qui ne fonctionne plus</li>
+      <li class="io" style="transition-delay:.05s">Un affichage qui se dégrade</li>
+      <li class="io" style="transition-delay:.1s">Un lien cassé</li>
+      <li class="io" style="transition-delay:.15s">Un problème après une mise à jour</li>
+      <li class="io" style="transition-delay:.2s">Un dysfonctionnement courant</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec si-sec" id="surprise" aria-labelledby="su-h2">
+  <div class="wrap">
+    <p class="kicker io"><i></i>Facturation</p>
+    <h2 id="su-h2" class="words-io">Pas de mauvaise surprise.</h2>
+    <p class="lead io">La maintenance courante est incluse dans l'accompagnement HANA. Vous ne recevez pas une facture chaque fois qu'un bug courant doit être corrigé ou qu'une intervention de maintenance est nécessaire dans le périmètre prévu.</p>
+    <div class="mt-scope">
+      <div class="mt-sc in-scope io"><b>Inclus</b><ul><li>Mises à jour et sauvegardes</li><li>Surveillance</li><li>Correction des bugs courants</li><li>Vérifications de bon fonctionnement</li></ul></div>
+      <div class="mt-sc out-scope io" style="transition-delay:.1s"><b>Hors périmètre, validé avec vous avant</b><ul><li>Un développement spécifique</li><li>Une nouvelle fonctionnalité importante</li><li>Une refonte du site</li></ul><p>Identifié comme tel, chiffré, et validé avec vous avant toute facturation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec si-sec alt" id="visibilite" aria-labelledby="vi-h2">
+  <div class="wrap">
+    <p class="kicker io"><i></i>Avec le reste de HANA</p>
+    <h2 id="vi-h2" class="words-io">La maintenance au service de votre visibilité.</h2>
+    <p class="lead io">La maintenance n'est pas séparée du reste de notre travail. Un site qui fonctionne, reste accessible, sécurisé, à jour et cohérent est la base technique de votre référencement et de votre visibilité. Le détail est sur la page <a href="/referencement-google.html">Référencement Google</a>.</p>
+    <div class="ia-price io mt-price">
+      <div>
+        <p class="kicker"><i></i>Dans la formule HANA</p>
+        <h3>Incluse dans les 2&nbsp;050&nbsp;€&nbsp;HT par mois.</h3>
+        <p>Avec votre site, votre référencement Google, votre fiche Google, votre visibilité dans les IA et un interlocuteur unique.</p>
+      </div>
+      <a class="btn accent big" href="/tarifs.html">Voir la formule <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec contact dark" id="contact" aria-labelledby="contact-h2">
+  <div class="contact-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="copy io">
+        <p class="kicker"><i></i>Réserver une visio</p>
+        <h2 id="contact-h2" class="words-io">Parlons de votre site.</h2>
+        <p class="lead">Trente minutes en visio. Nous vérifions si votre zone est encore disponible, nous regardons votre site et votre fiche Google, et vous repartez avec un premier diagnostic. Nous vous présentons aussi deux cas chiffrés et anonymisés, issus de projets menés avant la création de HANA&nbsp;: ce qui a été fait, en combien de temps, et ce que ça a donné. Sans engagement.</p>
+        <ul class="contact-facts">
+          <li><span class="cf-ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><div><b>06 99 30 58 73</b><span>Réseau HANA. Du lundi au vendredi, 9 h à 19 h.</span></div></li>
+          <li><span class="cf-ic"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg></span><div><b>contact@hanahealth.fr</b><span>Réponse sous 24 h ouvrées.</span></div></li>
+          <li><span class="cf-ic"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><div><b>Boulevard Latil, 13008 Marseille</b><span>Nous intervenons en France, en Suisse et en Belgique.</span></div></li>
+        </ul>
+        <div class="contact-steps">
+          <span><b>1</b>Vous réservez</span><i></i><span><b>2</b>Visio de 30 min</span><i></i><span><b>3</b>Diagnostic et devis sous 48 h</span>
+        </div>
+      </div>
+      <form class="cform io" id="cform" action="https://formsubmit.co/contact@hanahealth.fr" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="Demande de visio · hanahealth.fr">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+        <div class="cf-row">
+          <label><span>Nom et prénom</span><input type="text" name="nom" autocomplete="name" required placeholder="Dr Dupont"></label>
+          <label><span>Spécialité</span><select name="specialite" required><option value="" disabled selected>Choisir</option><option>Chirurgie plastique, reconstructrice et esthétique</option><option>Médecine esthétique</option><option>Autre spécialité (dermatologie, ophtalmologie, dentaire…)</option></select></label>
+        </div>
+        <div class="cf-row">
+          <label><span>Ville d'exercice</span><input type="text" name="ville" autocomplete="address-level2" required placeholder="Lyon"></label>
+          <label><span>Téléphone</span><input type="tel" name="telephone" autocomplete="tel" required placeholder="06 00 00 00 00"></label>
+        </div>
+        <label><span>Email</span><input type="email" name="email" autocomplete="email" required placeholder="dr.dupont@exemple.fr"></label>
+        <label><span>Votre situation <em>facultatif</em></span><textarea name="message" rows="3" placeholder="Site actuel, fiche Google, ce que vous attendez de votre visibilité…"></textarea></label>
+        <label class="cf-check"><input type="checkbox" name="rgpd" required><span>J'accepte que Réseau HANA me contacte au sujet de ma demande. Aucune donnée n'est transmise à des tiers (<a href="confidentialite.html" target="_blank">politique de confidentialité</a>).</span></label>
+        <button class="btn accent big" type="submit"><span class="cf-txt">Réserver ma visio</span><span class="cf-wait">Envoi…</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="cf-note">Un seul chirurgien plasticien par zone et par spécialité. La demande ne vaut pas réservation&nbsp;: la zone est confirmée disponible lors de la visio.</p>
+        <div class="cf-ok" hidden><b>Demande envoyée.</b><span>Nous vous rappelons sous 24 h ouvrées pour fixer la visio.</span></div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot" id="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="/#top" aria-label="HANA, accueil"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="0" width="6" height="6" rx="1"/><rect x="16" y="8" width="6" height="6" rx="1"/><rect x="0" y="16" width="6" height="6" rx="1"/><rect x="8" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/></svg><span class="word">HANA</span></a>
+        <p class="foot-sig">Healthcare · Authority · Network · Architecture</p>
+        <p class="foot-tag">Réseau d'autorité médicale. Un seul chirurgien par zone et par spécialité, avec un travail de visibilité sur Google et dans les moteurs IA.</p>
+        <ul class="foot-proof"><li><b>10</b>ans au service de vos cabinets</li><li><b>15</b>chirurgiens accompagnés</li><li><b>3</b>pays francophones</li></ul>
+      </div>
+      <nav class="foot-col" aria-label="Plan du site">
+        <b>Le réseau</b>
+        <a href="/reseau.html">Le Réseau HANA</a><a href="/reseau.html#regles">Le jeu de la vie</a><a href="/#milieu">Nous venons de votre monde</a><a href="/#faire">Ce qu'on fait pour vous</a><a href="/#ethique">Ce que nous ne ferons jamais</a><a href="/methode-ia.html">Notre méthode IA</a><a href="/qui-sommes-nous.html">Qui sommes-nous</a><a href="/tarifs.html">Tarifs</a>
+      </nav>
+      <nav class="foot-col" aria-label="Villes">
+        <b>Le réseau, zone par zone</b>
+        <a href="/#reseau">Paris</a><a href="/#reseau">Lyon</a><a href="/#reseau">Marseille</a><a href="/#reseau">Bordeaux</a><a href="/#reseau">Lille</a><a href="/#reseau">Nice</a><a href="/#reseau">Genève</a><a href="/#reseau">Bruxelles</a><a class="more" href="/#reseau">Les 18 villes du réseau</a>
+      </nav>
+      <div class="foot-col">
+        <b>Contact</b>
+        <a href="tel:+33699305873">06 99 30 58 73</a><a href="mailto:contact@hanahealth.fr">contact@hanahealth.fr</a><span>Boulevard Latil<br>13008 Marseille</span>
+        <a class="btn accent" href="#contact">Réserver une visio</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Réseau HANA · Marseille</span>
+      <nav aria-label="Informations légales"><a href="/mentions-legales.html">Mentions légales</a><a href="/confidentialite.html">Confidentialité</a><a href="/#top">Haut de page ↑</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js?v=182"></script>
+</body>
+</html>
