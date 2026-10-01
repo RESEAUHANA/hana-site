@@ -2518,3 +2518,12 @@ h2.dash-h{margin:0}
 .chat .card-doc.ai-struct .av{width:28px;height:28px;font-size:12px}
 .life-grid.life-solo{display:block;max-width:760px}
 .cform .cf-hint{display:block;margin-top:6px;font-size:12px;line-height:1.4;color:var(--text-2)}
+
+/* 01/10 : centre du schéma de l'écosystème sans fond blanc, HANA en blanc */
+.orbit-center{background:transparent}
+.orbit-center img{background:transparent}
+.orbit-center b{color:#fff}
+/* 01/10 : schéma version A (validée) : grand cercle seul, sans arc, sans anneaux, sans « relie, aligne, publie », HANA fixe */
+.orbit-sweep{display:none}
+.orbit-center .ring,.orbit-center small{display:none}
+.orbit-center{box-shadow:none}
