@@ -12,7 +12,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23fff'/%3E%3Cpath d='M32 6c13 0 22 9 22 21 0 12-11 24-22 31C21 51 10 39 10 27 10 15 19 6 32 6z' fill='%2317a34a'/%3E%3Cellipse cx='22' cy='29' rx='8' ry='4' transform='rotate(35 22 29)' fill='%23fff'/%3E%3Cellipse cx='42' cy='29' rx='8' ry='4' transform='rotate(-35 42 29)' fill='%23fff'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;height:100%}
@@ -101,6 +101,27 @@ function drawAvatar(c,x,y,r){
   drawAlien(c,x,y+1,(r-7)*0.8,GREEN,'#fff');
 }
 
+/* ---- la patte Marsiens : tags à la bombe ---- */
+var TAGFONT='"Bangers",Impact,"Arial Black",sans-serif';
+var TAGCOLS=['#ff2d95','#9b5de5','#fa7e1e','#1fd3ff','#feda75',GREEN];
+function tagText(c,str,x,y,size,col,dark,rot,skew){
+  c.save();c.translate(x,y);c.rotate(rot||0);c.transform(1,0,skew||0,1,0,0);
+  c.font=size+'px '+TAGFONT;c.textAlign='center';c.textBaseline='middle';c.lineJoin='round';
+  c.shadowColor=col;c.shadowBlur=size*0.5;c.fillStyle=col;c.fillText(str,0,0);c.shadowBlur=0;
+  c.lineWidth=size*0.26;c.strokeStyle='#15161a';c.strokeText(str,0,0);
+  c.fillStyle=dark;c.fillText(str,size*0.08,size*0.08);
+  c.lineWidth=size*0.11;c.strokeStyle='#fff';c.strokeText(str,0,0);
+  c.fillStyle=col;c.fillText(str,0,0);
+  c.restore();
+}
+function drips(c,x,y,w,col,seed){var r=rng(seed);c.strokeStyle=col;c.fillStyle=col;c.lineCap='round';
+  for(var i=0;i<4;i++){var dx=x-w/2+r()*w,len=5+r()*14,lw=1.5+r()*1.5;c.lineWidth=lw;c.beginPath();c.moveTo(dx,y);c.lineTo(dx,y+len);c.stroke();c.beginPath();c.arc(dx,y+len,lw*0.8,0,Math.PI*2);c.fill();}}
+function splat(c,x,y,col,seed,n){var r=rng(seed);c.fillStyle=col;
+  for(var i=0;i<n;i++){var a=r()*6.283,d=r()*24;c.globalAlpha=0.3+r()*0.5;c.beginPath();c.arc(x+Math.cos(a)*d,y+Math.sin(a)*d*0.7,0.6+r()*1.6,0,Math.PI*2);c.fill();}c.globalAlpha=1;}
+function stencilAlien(c,x,y,s,col){c.save();c.shadowColor=col;c.shadowBlur=s*0.9;drawAlien(c,x,y,s,col,'#fff');c.shadowBlur=0;drawAlien(c,x,y,s,col,'#fff');c.restore();}
+function stencilUfo(c,x,y,col){c.save();c.shadowColor=col;c.shadowBlur=9;c.fillStyle=col;c.beginPath();c.ellipse(x,y,17,5.5,0,0,Math.PI*2);c.fill();c.beginPath();c.arc(x,y-3,8.5,Math.PI,0);c.fill();c.shadowBlur=0;
+  c.fillStyle='rgba(255,255,255,0.9)';for(var i=-1;i<=1;i++){c.beginPath();c.arc(x+i*8.5,y+1.5,1.6,0,Math.PI*2);c.fill();}c.restore();}
+
 /* ================= DÉCOR : MARSEILLE ================= */
 
 /* ciel + soleil */
@@ -136,11 +157,13 @@ function buildings(c,B,seed,gap0,gap1){
     c.fillStyle='#c7613b';
     if(r()<0.5){c.fillRect(x-1,B-h-4,w+2,4);}
     else{c.beginPath();c.moveTo(x-1,B-h);c.lineTo(x+w/2,B-h-11);c.lineTo(x+w+1,B-h);c.closePath();c.fill();}
-    for(var wy=B-h+7;wy<B-10;wy+=11)for(var wx=x+5;wx<x+w-7;wx+=10){c.fillStyle='#4f7ea3';c.fillRect(wx-1,wy-1,7,8);c.fillStyle='#9cc4e0';c.fillRect(wx,wy,5,6);}
+    var tagged=r()<0.45&&w>=26&&h>=44;
+    for(var wy=B-h+7;wy<(tagged?B-18:B-10);wy+=11)for(var wx=x+5;wx<x+w-7;wx+=10){c.fillStyle='#4f7ea3';c.fillRect(wx-1,wy-1,7,8);c.fillStyle='#9cc4e0';c.fillRect(wx,wy,5,6);}
+    if(tagged){var tc=TAGCOLS[Math.floor(r()*TAGCOLS.length)];if(r()<0.55)stencilAlien(c,x+w/2,B-9,5.5,tc);else tagText(c,r()<0.5?'13':'MARS',x+w/2,B-8,10,tc,'#222',0,-0.2);}
     x+=w+1+Math.floor(r()*3);
   }
 }
-var cityTile=tile(576,270,function(c){
+function cityDraw(c){
   var B=270,i,k;
   /* colline de la Bonne Mère */
   c.save();
@@ -187,6 +210,7 @@ var cityTile=tile(576,270,function(c){
   c.save();c.beginPath();c.rect(410,B-52,66,52);c.clip();c.strokeStyle='rgba(140,165,180,0.6)';c.lineWidth=1;
   for(k=-52;k<120;k+=7){c.beginPath();c.moveTo(410+k,B-52);c.lineTo(410+k+52,B);c.stroke();c.beginPath();c.moveTo(410+k,B);c.lineTo(410+k+52,B-52);c.stroke();}
   c.restore();
+  stencilAlien(c,443,B-16,9,'#ff2d95');drips(c,443,B-6,14,'#ff2d95',11);
   /* cathédrale de la Major */
   stripedRect(c,484,B-82,14,82);c.beginPath();c.arc(491,B-82,7,Math.PI,0);c.closePath();c.fillStyle='#9fae95';c.fill();
   stripedRect(c,556,B-82,14,82);c.beginPath();c.arc(563,B-82,7,Math.PI,0);c.closePath();c.fillStyle='#9fae95';c.fill();
@@ -194,7 +218,7 @@ var cityTile=tile(576,270,function(c){
   c.beginPath();c.arc(527,B-60,22,Math.PI,0);c.closePath();c.fillStyle='#9fae95';c.fill();
   c.beginPath();c.arc(527,B-60,15,Math.PI,0);c.closePath();c.fillStyle='#b9c6b0';c.fill();
   c.fillStyle='#e8dfc8';c.fillRect(524,B-92,6,10);c.fillStyle='#f3c431';c.beginPath();c.arc(527,B-94,2,0,Math.PI*2);c.fill();
-});
+}
 
 /* la grande roue du Vieux-Port (dessinée à chaque image : elle tourne) */
 function drawWheel(cx,cy,r,now){
@@ -251,18 +275,30 @@ var promTile=tile(576,90,function(c){
   var B=90;palm(c,60,B,58);lamp(c,150,B,42);palm(c,250,B,50);lamp(c,340,B,42);palm(c,440,B,62);lamp(c,530,B,42);
 });
 
-/* le quai (sol) */
-var quayTile=tile(96,112,function(c){
-  c.fillStyle='#d6c096';c.fillRect(0,0,96,112);
-  c.fillStyle='#ebdcb8';c.fillRect(0,0,96,14);
-  c.fillStyle='#cdb27f';for(var x=-12;x<108;x+=12){c.beginPath();c.moveTo(x,0);c.lineTo(x+6,0);c.lineTo(x-1,14);c.lineTo(x-7,14);c.closePath();c.fill();}
-  c.fillStyle='#8f7a57';c.fillRect(0,0,96,1.5);c.fillRect(0,14,96,2);
+/* le quai (sol) : le mur taggé par les Marsiens */
+function quayDraw(c){
+  var TW=576;
+  c.fillStyle='#d6c096';c.fillRect(0,0,TW,112);
+  c.fillStyle='#ebdcb8';c.fillRect(0,0,TW,14);
+  c.fillStyle='#cdb27f';for(var x=-12;x<TW+12;x+=12){c.beginPath();c.moveTo(x,0);c.lineTo(x+6,0);c.lineTo(x-1,14);c.lineTo(x-7,14);c.closePath();c.fill();}
+  c.fillStyle='#8f7a57';c.fillRect(0,0,TW,1.5);c.fillRect(0,14,TW,2);
   c.strokeStyle='#b89f74';c.lineWidth=1;
   var rows=[[16,46],[46,78],[78,112]];
-  for(var i=0;i<rows.length;i++){var y0=rows[i][0],y1=rows[i][1];c.beginPath();c.moveTo(0,y1-0.5);c.lineTo(96,y1-0.5);c.stroke();
-    var off=i%2?24:0;for(var vx=off;vx<96;vx+=48){c.beginPath();c.moveTo(vx+0.5,y0);c.lineTo(vx+0.5,y1);c.stroke();}}
-  c.fillStyle='#3d444c';rrect(c,10,20,10,13,3);c.fill();c.fillStyle='#5f6872';c.beginPath();c.ellipse(15,20,5,2.5,0,0,Math.PI*2);c.fill();
-});
+  for(var i=0;i<rows.length;i++){var y0=rows[i][0],y1=rows[i][1];c.beginPath();c.moveTo(0,y1-0.5);c.lineTo(TW,y1-0.5);c.stroke();
+    var off=i%2?24:0;for(var vx=off;vx<TW;vx+=48){c.beginPath();c.moveTo(vx+0.5,y0);c.lineTo(vx+0.5,y1);c.stroke();}}
+  for(var bx=10;bx<TW;bx+=192){c.fillStyle='#3d444c';rrect(c,bx,20,10,13,3);c.fill();c.fillStyle='#5f6872';c.beginPath();c.ellipse(bx+5,20,5,2.5,0,0,Math.PI*2);c.fill();}
+  /* les tags */
+  splat(c,52,62,GREEN,4,16);stencilAlien(c,52,62,20,GREEN);drips(c,52,80,26,GREEN,3);
+  tagText(c,'MARSIENS',196,62,34,'#ff2d95','#8a0f4e',-0.05,-0.2);drips(c,196,76,120,'#ff2d95',5);
+  tagText(c,'13',302,52,30,'#feda75','#a8731a',0.1,-0.15);splat(c,302,52,'#feda75',8,10);
+  stencilUfo(c,352,72,'#9b5de5');drips(c,352,78,26,'#9b5de5',6);
+  tagText(c,'LES MARSIENS',470,48,24,'#fa7e1e','#8c3d05',0.04,-0.22);splat(c,470,80,'#fa7e1e',7,12);
+  stencilAlien(c,522,84,13,'#1fd3ff');drips(c,522,96,16,'#1fd3ff',9);
+}
+var cityTile,quayTile;
+function buildTiles(){cityTile=tile(576,270,cityDraw);quayTile=tile(576,112,quayDraw);}
+buildTiles();
+if(document.fonts&&document.fonts.load){Promise.all([document.fonts.load('30px "Bangers"'),document.fonts.load('10px "Press Start 2P"')]).then(buildTiles).catch(function(){});}
 
 /* mouettes */
 var gulls=[{x:60,y:72,s:1,v:0.012},{x:210,y:44,s:0.75,v:0.009},{x:150,y:104,s:0.55,v:0.016}];
@@ -393,7 +429,6 @@ var muteBtn=document.getElementById('mute');
 function syncMute(){muteBtn.textContent=sfx.isMuted()?'🔇':'🔊';muteBtn.setAttribute('aria-pressed',sfx.isMuted()?'true':'false');}
 muteBtn.addEventListener('click',function(e){e.stopPropagation();sfx.toggle();syncMute();});
 syncMute();
-if(document.fonts&&document.fonts.load){document.fonts.load('10px "Press Start 2P"').catch(function(){});}
 
 /* ---- boucle à pas fixe (60 Hz) ---- */
 var last=performance.now(),acc=0,STEP=1000/60;
