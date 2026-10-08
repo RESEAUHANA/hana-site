@@ -122,6 +122,36 @@ function stencilAlien(c,x,y,s,col){c.save();c.shadowColor=col;c.shadowBlur=s*0.9
 function stencilUfo(c,x,y,col){c.save();c.shadowColor=col;c.shadowBlur=9;c.fillStyle=col;c.beginPath();c.ellipse(x,y,17,5.5,0,0,Math.PI*2);c.fill();c.beginPath();c.arc(x,y-3,8.5,Math.PI,0);c.fill();c.shadowBlur=0;
   c.fillStyle='rgba(255,255,255,0.9)';for(var i=-1;i<=1;i++){c.beginPath();c.arc(x+i*8.5,y+1.5,1.6,0,Math.PI*2);c.fill();}c.restore();}
 
+/* ---- les vraies pièces des Marsiens : photos du compte Instagram @les_marsiens_13 (publications les plus aimées) ---- */
+var CITY_W=1076;
+var MURALS=[
+  {file:'img/toit-marsiens-2799.jpg',x:272,w:124,strip:19,roof:'flat'},
+  {file:'img/toit-vert-1798.jpg',x:400,w:90,strip:12,roof:'flat'},
+  {file:'img/mosaique-1244.jpg',x:494,w:100,strip:0,roof:'flat',bottom:true,bh:62},
+  {file:'img/on-se-monte-1083.jpg',x:598,w:56,strip:0,roof:'gable'},
+  {file:'img/panier-1025.jpg',x:658,w:46,strip:0,roof:'flat'},
+  {file:'img/mains-446.jpg',x:708,w:60,strip:13,roof:'flat'}
+];
+MURALS.forEach(function(m){var im=new Image();im.onload=function(){m.img=im;buildTiles();};im.src=m.file;});
+function drawMurals(c,B){
+  for(var i=0;i<MURALS.length;i++){var m=MURALS[i],x=m.x,w=m.w;
+    var mh=m.img?Math.round(w*m.img.naturalHeight/m.img.naturalWidth):Math.round(w*0.6);
+    var h=m.bottom?m.bh:mh+m.strip;
+    c.fillStyle='#e9cfa8';c.fillRect(x,B-h,w,h);
+    if(m.bottom){
+      for(var wy=B-h+7;wy<B-mh-6;wy+=11)for(var wx=x+5;wx<x+w-7;wx+=10){c.fillStyle='#4f7ea3';c.fillRect(wx-1,wy-1,7,8);c.fillStyle='#9cc4e0';c.fillRect(wx,wy,5,6);}
+      if(m.img)c.drawImage(m.img,x,B-mh,w,mh);
+    }else{
+      if(m.img)c.drawImage(m.img,x,B-h,w,mh);else{c.fillStyle='#d9b68e';c.fillRect(x,B-h,w,mh);}
+      if(m.strip){c.fillStyle='#3b3f46';c.fillRect(x+Math.round(w/2)-4,B-10,8,10);}
+    }
+    c.strokeStyle='rgba(40,30,20,0.45)';c.lineWidth=1;c.strokeRect(x+0.5,B-h+0.5,w-1,h-1);
+    c.fillStyle='#c7613b';
+    if(m.roof==='gable'){c.beginPath();c.moveTo(x-1,B-h);c.lineTo(x+w/2,B-h-11);c.lineTo(x+w+1,B-h);c.closePath();c.fill();}
+    else c.fillRect(x-1,B-h-4,w+2,4);
+  }
+}
+
 /* ================= DÉCOR : MARSEILLE ================= */
 
 /* ciel + soleil */
@@ -145,13 +175,12 @@ var farTile=tile(576,170,function(c){
 
 /* la ville : Notre-Dame de la Garde, immeubles aux volets bleus, château d'If, Fort Saint-Jean, MuCEM, la Major */
 function stripedRect(c,x,y,w,h){c.fillStyle='#f3ebd8';c.fillRect(x,y,w,h);c.fillStyle='#a3b39b';for(var sy=y+3;sy<y+h-1;sy+=6)c.fillRect(x,sy,w,2.5);c.strokeStyle='#858f7a';c.lineWidth=1;c.strokeRect(x+0.5,y+0.5,w-1,h-1);}
-function buildings(c,B,seed,gap0,gap1){
-  var r=rng(seed),pal=['#efcfa6','#f6e3c6','#e3b388','#eec4ab','#f7e8cc','#dcb591','#f2d6b4','#e8c39e'],x=0;
-  while(x<576){
-    if(x>=gap0&&x<gap1){x=gap1;continue;}
+function buildings(c,B,seed,x0,x1){
+  var r=rng(seed),pal=['#efcfa6','#f6e3c6','#e3b388','#eec4ab','#f7e8cc','#dcb591','#f2d6b4','#e8c39e'],x=x0;
+  while(x<x1){
     var w=22+Math.floor(r()*22),h=36+Math.floor(r()*42),col=pal[Math.floor(r()*pal.length)];
-    if(x<gap0&&x+w>gap0-1)w=gap0-1-x;
-    if(w<10){x=gap1;continue;}
+    if(x+w>x1-1)w=x1-1-x;
+    if(w<10)break;
     c.fillStyle=col;c.fillRect(x,B-h,w,h);
     c.fillStyle='rgba(0,0,0,0.07)';c.fillRect(x+w-6,B-h,6,h);
     c.fillStyle='#c7613b';
@@ -191,8 +220,10 @@ function cityDraw(c){
   c.beginPath();c.moveTo(cx-33,B-234);c.lineTo(cx-21,B-234);c.lineTo(cx-27,B-250);c.closePath();c.fill();
   c.beginPath();c.arc(cx-27,B-253,3.5,0,Math.PI*2);c.fill();
   c.strokeStyle='#f3c431';c.lineWidth=2;c.beginPath();c.moveTo(cx-27,B-245);c.lineTo(cx-33,B-241);c.moveTo(cx-27,B-245);c.lineTo(cx-21,B-241);c.stroke();
-  /* immeubles (trou entre 268 et 334 : la mer et le château d'If) */
-  buildings(c,B,42,268,334);
+  /* immeubles devant la colline, puis le quartier des pièces des Marsiens (272 à 768), puis le port décalé de 500 px */
+  buildings(c,B,42,0,268);buildings(c,B,43,834,CITY_W);
+  drawMurals(c,B);
+  c.save();c.translate(500,0);
   /* château d'If, à l'horizon */
   c.fillStyle='#b9a67e';c.beginPath();c.moveTo(272,B);c.lineTo(280,B-9);c.lineTo(300,B-12);c.lineTo(322,B-8);c.lineTo(332,B);c.closePath();c.fill();
   c.fillStyle='#e4d6b8';c.fillRect(284,B-30,34,20);c.fillStyle='rgba(0,0,0,0.08)';c.fillRect(306,B-30,12,20);
@@ -218,6 +249,7 @@ function cityDraw(c){
   c.beginPath();c.arc(527,B-60,22,Math.PI,0);c.closePath();c.fillStyle='#9fae95';c.fill();
   c.beginPath();c.arc(527,B-60,15,Math.PI,0);c.closePath();c.fillStyle='#b9c6b0';c.fill();
   c.fillStyle='#e8dfc8';c.fillRect(524,B-92,6,10);c.fillStyle='#f3c431';c.beginPath();c.arc(527,B-94,2,0,Math.PI*2);c.fill();
+  c.restore();
 }
 
 /* la grande roue du Vieux-Port (dessinée à chaque image : elle tourne) */
@@ -296,7 +328,7 @@ function quayDraw(c){
   stencilAlien(c,522,84,13,'#1fd3ff');drips(c,522,96,16,'#1fd3ff',9);
 }
 var cityTile,quayTile;
-function buildTiles(){cityTile=tile(576,270,cityDraw);quayTile=tile(576,112,quayDraw);}
+function buildTiles(){cityTile=tile(CITY_W,270,cityDraw);quayTile=tile(576,112,quayDraw);}
 buildTiles();
 if(document.fonts&&document.fonts.load){Promise.all([document.fonts.load('30px "Bangers"'),document.fonts.load('10px "Press Start 2P"')]).then(buildTiles).catch(function(){});}
 
@@ -328,7 +360,8 @@ var sfx=(function(){
 /* ---- état du jeu ---- */
 var state,ship,pipes,score,best=0,newBest,scroll,frame,flash,overAt;
 try{best=parseInt(localStorage.getItem('marsiens_best')||'0',10)||0;}catch(e){}
-function reset(){state='ready';ship={y:H*0.46,vy:0,rot:0};pipes=[];score=0;newBest=false;scroll=0;frame=0;flash=0;}
+var START_SCROLL=parseInt((location.search.match(/[?&]s=(\d+)/)||[])[1]||'0',10)||0;
+function reset(){state='ready';ship={y:H*0.46,vy:0,rot:0};pipes=[];score=0;newBest=false;scroll=START_SCROLL;frame=0;flash=0;}
 function newPipe(x){var gap=curGap();return{x:x,gap:gap,gapY:70+Math.random()*(FLOOR-140-gap),passed:false};}
 function flap(){ship.vy=FLAP_V;sfx.flap();}
 function action(){
