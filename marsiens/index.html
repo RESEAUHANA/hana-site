@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Flappy Marsien · Les Marsiens 13</title>
+<meta name="description" content="Le jeu des Marsiens : fais voler la soucoupe du martien entre les tuyaux, au-dessus du Vieux-Port de Marseille.">
+<meta name="theme-color" content="#0b1e33">
+<meta property="og:title" content="Flappy Marsien · Les Marsiens 13">
+<meta property="og:description" content="Fais voler la soucoupe du martien au-dessus de Marseille. Tape pour voler !">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23fff'/%3E%3Cpath d='M32 6c13 0 22 9 22 21 0 12-11 24-22 31C21 51 10 39 10 27 10 15 19 6 32 6z' fill='%2317a34a'/%3E%3Cellipse cx='22' cy='29' rx='8' ry='4' transform='rotate(35 22 29)' fill='%23fff'/%3E%3Cellipse cx='42' cy='29' rx='8' ry='4' transform='rotate(-35 42 29)' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:100dvh;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+  background:#0b1e33 radial-gradient(circle at 50% 15%,#1a4470 0%,#0b1e33 65%);color:#fff;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  overflow:hidden;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+.stage{position:relative;line-height:0}
+canvas{height:min(calc(100dvh - 56px),calc(100vw * 512 / 288));width:auto;max-width:100vw;border-radius:6px;box-shadow:0 12px 40px rgba(0,0,0,.55);touch-action:none;cursor:pointer}
+#mute{position:absolute;top:8px;right:8px;width:34px;height:34px;border:0;border-radius:50%;background:rgba(0,0,0,.35);color:#fff;font-size:16px;line-height:34px;padding:0;cursor:pointer}
+#mute:hover{background:rgba(0,0,0,.55)}
+footer{font-size:12px;color:#9fb6cc;line-height:1.4;text-align:center}
+footer a{color:#feda75;text-decoration:none;font-weight:600}
+footer a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="stage">
+  <canvas id="game" width="288" height="512" aria-label="Flappy Marsien : tape pour faire voler la soucoupe"></canvas>
+  <button id="mute" type="button" aria-label="Activer ou couper le son">🔊</button>
+</div>
+<footer><a href="https://www.instagram.com/les_marsiens_13/" target="_blank" rel="noopener">@les_marsiens_13</a> · Marseille 👽 · Espace, clic ou tape pour voler</footer>
+<script>
+(function(){
+'use strict';
+var W=288,H=512,FLOOR=400,SEA_Y=332;
+var canvas=document.getElementById('game');
+var ctx=canvas.getContext('2d');
+var DPR=Math.max(1,Math.min(3,window.devicePixelRatio||1));
+canvas.width=W*DPR;canvas.height=H*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);
+
+/* ---- réglages (valeurs Flappy Bird) ---- */
+var G=0.25,FLAP_V=-4.6,MAX_V=8,SPEED=2,PIPE_W=52,GAP=108,PIPE_DIST=172,CAP_H=24;
+var SHIP_X=70,HIT_W=36,HIT_H=20;
+var FONT='"Press Start 2P","Courier New",monospace';
+var IG=['#feda75','#fa7e1e','#d62976','#962fbf','#4f5bd5'];
+var GREEN='#17a34a';
+
+/* ---- utilitaires ---- */
+function rng(seed){var s=seed>>>0;return function(){s=(s*1664525+1013904223)>>>0;return s/4294967296;};}
+function tile(w,h,draw){var c=document.createElement('canvas');c.width=w*DPR;c.height=h*DPR;var x=c.getContext('2d');x.setTransform(DPR,0,0,DPR,0,0);draw(x);return{c:c,w:w,h:h};}
+function rrect(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath();}
+function text(str,x,y,size,fill,stroke,align,lw){ctx.font=size+'px '+FONT;ctx.textAlign=align||'center';ctx.textBaseline='middle';
+  if(stroke){ctx.lineJoin='round';ctx.lineWidth=lw||Math.max(2,size/4);ctx.strokeStyle=stroke;ctx.strokeText(str,x,y);}ctx.fillStyle=fill;ctx.fillText(str,x,y);}
+
+/* ---- le martien (logo les_marsiens_13) ---- */
+function drawAlien(c,x,y,s,fill,eye){
+  c.save();c.translate(x,y);c.scale(s*0.86,s);
+  c.beginPath();c.moveTo(0,-1);
+  c.bezierCurveTo(0.68,-1,1.04,-0.62,1,-0.2);
+  c.bezierCurveTo(0.96,0.3,0.5,0.8,0,1);
+  c.bezierCurveTo(-0.5,0.8,-0.96,0.3,-1,-0.2);
+  c.bezierCurveTo(-1.04,-0.62,-0.68,-1,0,-1);
+  c.closePath();c.fillStyle=fill;c.fill();
+  c.fillStyle=eye;
+  for(var i=0;i<2;i++){var sg=i?1:-1;c.save();c.translate(sg*0.43,-0.1);c.scale(sg,1);c.rotate(-0.62);
+    c.beginPath();c.moveTo(-0.44,0.02);c.bezierCurveTo(-0.12,-0.3,0.26,-0.28,0.4,-0.08);c.bezierCurveTo(0.52,0.1,0.2,0.28,-0.02,0.22);c.bezierCurveTo(-0.22,0.17,-0.38,0.1,-0.44,0.02);c.closePath();c.fill();c.restore();}
+  c.restore();
+}
+
+/* ---- la soucoupe ---- */
+function drawShip(c,x,y,rot,now,thrust){
+  c.save();c.translate(x,y);c.rotate(rot);
+  if(thrust){var tg=c.createRadialGradient(0,9,1,0,9,14);tg.addColorStop(0,'rgba(214,41,118,0.55)');tg.addColorStop(1,'rgba(214,41,118,0)');c.fillStyle=tg;c.beginPath();c.ellipse(0,10,14,9,0,0,Math.PI*2);c.fill();}
+  drawAlien(c,0,-10,9,GREEN,'#fff');
+  c.beginPath();c.arc(0,-2,17,Math.PI,0);c.closePath();
+  var dg=c.createLinearGradient(0,-19,0,-2);dg.addColorStop(0,'rgba(225,246,255,0.55)');dg.addColorStop(1,'rgba(140,205,255,0.18)');
+  c.fillStyle=dg;c.fill();c.lineWidth=1.3;c.strokeStyle='rgba(255,255,255,0.85)';c.stroke();
+  c.beginPath();c.ellipse(-7.5,-12,4.5,1.9,-0.55,0,Math.PI*2);c.fillStyle='rgba(255,255,255,0.75)';c.fill();
+  var bg=c.createLinearGradient(0,-8,0,8);bg.addColorStop(0,'#f4f7fa');bg.addColorStop(0.45,'#c3ccd6');bg.addColorStop(1,'#707b88');
+  c.beginPath();c.ellipse(0,0,24,8,0,0,Math.PI*2);c.fillStyle=bg;c.fill();c.lineWidth=1.5;c.strokeStyle='#39424d';c.stroke();
+  c.beginPath();c.ellipse(0,3.5,15,4.2,0,0,Math.PI);c.fillStyle='#4b5563';c.fill();
+  var xs=[-17,-8.5,0,8.5,17],k=Math.floor(now/110)%5;
+  for(var i=0;i<5;i++){var on=i===k;c.globalAlpha=on?1:0.8;c.beginPath();c.arc(xs[i],2.2,2.2,0,Math.PI*2);c.fillStyle=IG[i];c.fill();
+    if(on){c.globalAlpha=0.35;c.beginPath();c.arc(xs[i],2.2,4.5,0,Math.PI*2);c.fill();}}
+  c.globalAlpha=1;c.restore();
+}
+
+/* ---- avatar Instagram (anneau dégradé) ---- */
+function drawAvatar(c,x,y,r){
+  var g=c.createLinearGradient(x-r,y+r,x+r,y-r);for(var i=0;i<IG.length;i++)g.addColorStop(i/(IG.length-1),IG[i]);
+  c.beginPath();c.arc(x,y,r,0,Math.PI*2);c.fillStyle=g;c.fill();
+  c.beginPath();c.arc(x,y,r-4,0,Math.PI*2);c.fillStyle='#fff';c.fill();
+  drawAlien(c,x,y+1,(r-7)*0.8,GREEN,'#fff');
+}
+
+/* ---- décor : ciel + soleil ---- */
+var skyTile=tile(W,SEA_Y,function(c){
+  var g=c.createLinearGradient(0,0,0,SEA_Y);g.addColorStop(0,'#38a8f0');g.addColorStop(1,'#cfeeff');c.fillStyle=g;c.fillRect(0,0,W,SEA_Y);
+  var sg=c.createRadialGradient(236,62,10,236,62,70);sg.addColorStop(0,'rgba(255,245,180,0.7)');sg.addColorStop(1,'rgba(255,245,180,0)');c.fillStyle=sg;c.fillRect(150,-20,200,180);
+  c.fillStyle='#fff6b3';c.beginPath();c.arc(236,62,19,0,Math.PI*2);c.fill();
+});
+
+/* ---- décor : collines calcaires + nuages (lointain) ---- */
+function cloud(c,x,y,s){c.beginPath();c.ellipse(x,y,18*s,9*s,0,0,Math.PI*2);c.ellipse(x-12*s,y+3*s,11*s,7*s,0,0,Math.PI*2);c.ellipse(x+13*s,y+2*s,12*s,7*s,0,0,Math.PI*2);c.ellipse(x+2*s,y-6*s,12*s,8*s,0,0,Math.PI*2);c.fill();}
+var farTile=tile(576,180,function(c){
+  var B=180;
+  c.fillStyle='rgba(255,255,255,0.92)';cloud(c,60,34,1);cloud(c,210,18,0.8);cloud(c,340,44,1.2);cloud(c,480,24,0.9);
+  c.fillStyle='#d3dbd0';c.beginPath();c.moveTo(0,B);c.lineTo(0,B-46);
+  c.bezierCurveTo(60,B-74,120,B-50,180,B-66);c.bezierCurveTo(240,B-84,300,B-48,360,B-62);c.bezierCurveTo(420,B-76,500,B-36,576,B-46);c.lineTo(576,B);c.closePath();c.fill();
+  c.fillStyle='#c4d2bd';c.beginPath();c.moveTo(0,B);c.lineTo(0,B-28);
+  c.bezierCurveTo(80,B-50,160,B-20,260,B-38);c.bezierCurveTo(360,B-54,460,B-16,576,B-28);c.lineTo(576,B);c.closePath();c.fill();
+});
+
+/* ---- décor : Marseille (Notre-Dame de la Garde, immeubles, Fort Saint-Jean, MuCEM, la Major, grue) ---- */
+function stripedRect(c,x,y,w,h){c.fillStyle='#f1e9d6';c.fillRect(x,y,w,h);c.fillStyle='#a9b7a0';for(var sy=y+3;sy<y+h-1;sy+=5)c.fillRect(x,sy,w,2);c.strokeStyle='#8a927c';c.lineWidth=1;c.strokeRect(x+0.5,y+0.5,w-1,h-1);}
+function buildings(c,B,seed){
+  var r=rng(seed),pal=['#e9cba6','#f2dec4','#dcae80','#e8bfa9','#f5e6c8','#d4b08f','#f0d2b0'],x=0;
+  while(x<576){
+    var w=18+Math.floor(r()*22),h=26+Math.floor(r()*38),col=pal[Math.floor(r()*pal.length)];
+    c.fillStyle=col;c.fillRect(x,B-h,w,h);
+    c.fillStyle='rgba(0,0,0,0.07)';c.fillRect(x+w-5,B-h,5,h);
+    c.fillStyle='#c4613a';
+    if(r()<0.5){c.fillRect(x-1,B-h-3,w+2,3);}
+    else{c.beginPath();c.moveTo(x-1,B-h);c.lineTo(x+w/2,B-h-9);c.lineTo(x+w+1,B-h);c.closePath();c.fill();}
+    c.fillStyle='rgba(60,100,140,0.75)';
+    for(var wy=B-h+6;wy<B-8;wy+=9)for(var wx=x+4;wx<x+w-5;wx+=8)c.fillRect(wx,wy,4,5);
+    x+=w+1+Math.floor(r()*3);
+  }
+}
+var cityTile=tile(576,230,function(c){
+  var B=230,i,k;
+  /* Notre-Dame de la Garde sur sa colline */
+  c.save();
+  c.beginPath();c.moveTo(-10,B);c.bezierCurveTo(30,B-20,70,B-112,126,B-120);c.bezierCurveTo(185,B-122,225,B-45,275,B);c.closePath();
+  var hg=c.createLinearGradient(0,B-125,0,B);hg.addColorStop(0,'#a3c08a');hg.addColorStop(1,'#6d8c5a');c.fillStyle=hg;c.fill();
+  c.clip();
+  var r=rng(7);c.fillStyle='rgba(35,85,45,0.45)';
+  for(i=0;i<70;i++){var tx=r()*280,ty=B-r()*110;c.beginPath();c.arc(tx,ty,2+r()*3,0,Math.PI*2);c.fill();}
+  c.strokeStyle='rgba(255,250,235,0.5)';c.lineWidth=2;c.beginPath();c.moveTo(40,B);c.bezierCurveTo(90,B-30,60,B-70,120,B-95);c.stroke();
+  c.restore();
+  var cx=126;
+  c.fillStyle='#c9b58f';c.fillRect(cx-32,B-134,64,18);
+  c.fillStyle='#b09b75';for(k=-32;k<32;k+=8)c.fillRect(cx+k,B-138,4,4);
+  c.fillStyle='rgba(0,0,0,0.08)';c.fillRect(cx+10,B-134,22,18);
+  stripedRect(c,cx-10,B-160,38,26);
+  c.beginPath();c.arc(cx+9,B-160,13,Math.PI,0);c.closePath();c.fillStyle='#9fae95';c.fill();
+  c.fillStyle='#e8dfc8';c.fillRect(cx+7,B-178,4,6);
+  stripedRect(c,cx-28,B-194,16,60);
+  c.fillStyle='#e8dfc8';c.fillRect(cx-25,B-204,10,10);c.fillStyle='#bfb59a';c.fillRect(cx-26,B-205,12,2);
+  var gg=c.createRadialGradient(cx-20,B-212,1,cx-20,B-212,14);gg.addColorStop(0,'rgba(255,220,90,0.75)');gg.addColorStop(1,'rgba(255,220,90,0)');c.fillStyle=gg;c.fillRect(cx-36,B-228,32,32);
+  c.fillStyle='#f3c431';c.beginPath();c.moveTo(cx-24,B-205);c.lineTo(cx-16,B-205);c.lineTo(cx-20,B-217);c.closePath();c.fill();c.beginPath();c.arc(cx-20,B-219,2.6,0,Math.PI*2);c.fill();
+  /* immeubles */
+  buildings(c,B,42);
+  /* Fort Saint-Jean */
+  c.fillStyle='#cdb892';c.fillRect(318,B-26,66,26);
+  c.fillStyle='#d9c7a4';c.fillRect(322,B-52,28,52);c.fillStyle='rgba(0,0,0,0.1)';c.fillRect(340,B-52,10,52);
+  c.fillStyle='#d9c7a4';for(k=322;k<350;k+=7)c.fillRect(k,B-57,4,5);
+  c.fillStyle='#e3d3b2';c.fillRect(352,B-78,14,78);c.fillStyle='rgba(0,0,0,0.1)';c.fillRect(361,B-78,5,78);
+  c.fillStyle='#c9b48c';c.fillRect(350,B-80,18,3);c.fillStyle='#e3d3b2';c.fillRect(356,B-86,6,6);
+  c.fillStyle='#2f3b44';c.fillRect(366,B-42,22,2);
+  /* MuCEM */
+  c.fillStyle='#2f3b44';c.fillRect(386,B-40,56,40);
+  c.save();c.beginPath();c.rect(386,B-40,56,40);c.clip();c.strokeStyle='rgba(140,165,180,0.55)';c.lineWidth=1;
+  for(k=-40;k<100;k+=6){c.beginPath();c.moveTo(386+k,B-40);c.lineTo(386+k+40,B);c.stroke();c.beginPath();c.moveTo(386+k,B);c.lineTo(386+k+40,B-40);c.stroke();}
+  c.restore();
+  /* Cathédrale de la Major */
+  stripedRect(c,456,B-46,64,46);
+  c.beginPath();c.arc(488,B-46,20,Math.PI,0);c.closePath();c.fillStyle='#9fae95';c.fill();
+  c.beginPath();c.arc(488,B-46,14,Math.PI,0);c.closePath();c.fillStyle='#b4c2aa';c.fill();
+  c.fillStyle='#e8dfc8';c.fillRect(485,B-74,6,8);
+  stripedRect(c,448,B-62,14,62);c.beginPath();c.arc(455,B-62,7,Math.PI,0);c.closePath();c.fillStyle='#9fae95';c.fill();
+  stripedRect(c,514,B-62,14,62);c.beginPath();c.arc(521,B-62,7,Math.PI,0);c.closePath();c.fillStyle='#9fae95';c.fill();
+  /* grue du port */
+  c.strokeStyle='#e2572b';c.lineWidth=2;c.beginPath();c.moveTo(552,B);c.lineTo(552,B-72);c.lineTo(574,B-64);c.moveTo(552,B-72);c.lineTo(538,B-66);c.stroke();
+  c.strokeStyle='#5a5a5a';c.lineWidth=1;c.beginPath();c.moveTo(568,B-66);c.lineTo(568,B-40);c.stroke();
+});
+
+/* ---- décor : le Vieux-Port (mer + bateaux) ---- */
+function hull(c,x,y,w,stripe){c.fillStyle='#fbfbfb';c.beginPath();c.moveTo(x-w/2,y-3);c.lineTo(x+w/2,y-3);c.lineTo(x+w/2-4,y+4);c.lineTo(x-w/2+3,y+4);c.closePath();c.fill();
+  c.fillStyle=stripe;c.fillRect(x-w/2+1,y,w-3,1.5);c.fillStyle='rgba(0,0,0,0.12)';c.fillRect(x-w/2+3,y+3,w-7,1);}
+function sailboat(c,x,y,s){hull(c,x,y,24*s,'#1f5fa8');c.strokeStyle='#4b5560';c.lineWidth=1.5;c.beginPath();c.moveTo(x+1,y-3);c.lineTo(x+1,y-3-34*s);c.stroke();
+  c.fillStyle='#ffffff';c.beginPath();c.moveTo(x+2,y-4-32*s);c.lineTo(x+2,y-6);c.lineTo(x+2+15*s,y-6);c.closePath();c.fill();
+  c.fillStyle='#eef2f6';c.beginPath();c.moveTo(x,y-4-26*s);c.lineTo(x,y-6);c.lineTo(x-11*s,y-6);c.closePath();c.fill();}
+function mastboat(c,x,y){hull(c,x,y,16,'#c43d3d');c.strokeStyle='#4b5560';c.lineWidth=1.2;c.beginPath();c.moveTo(x,y-3);c.lineTo(x,y-28);c.stroke();
+  c.fillStyle='#e4572e';c.beginPath();c.moveTo(x,y-28);c.lineTo(x+5,y-26);c.lineTo(x,y-24);c.closePath();c.fill();}
+function ferry(c,x,y){hull(c,x,y,40,'#2a8f5a');c.fillStyle='#ffffff';c.fillRect(x-14,y-12,28,9);c.fillStyle='#2a8f5a';c.fillRect(x-16,y-14,32,2.5);
+  c.fillStyle='rgba(60,100,140,0.8)';for(var i=0;i<4;i++)c.fillRect(x-11+i*7,y-10,4,4);}
+var seaTile=tile(576,110,function(c){
+  var T=42;
+  var wg=c.createLinearGradient(0,T,0,110);wg.addColorStop(0,'#4db4e8');wg.addColorStop(1,'#1c6ca6');c.fillStyle=wg;c.fillRect(0,T,576,68);
+  c.fillStyle='#2f94d2';c.fillRect(0,T,576,1.5);
+  var r=rng(99);c.strokeStyle='rgba(255,255,255,0.45)';c.lineWidth=1;
+  for(var i=0;i<70;i++){var x=r()*576,y=T+6+r()*60,l=4+r()*10;c.beginPath();c.moveTo(x,y);c.lineTo(x+l,y);c.stroke();}
+  sailboat(c,60,56,1);mastboat(c,110,54);mastboat(c,124,55);sailboat(c,180,60,0.8);ferry(c,290,62);mastboat(c,360,53);
+  sailboat(c,400,57,1.1);mastboat(c,470,55);mastboat(c,484,54);sailboat(c,530,60,0.7);
+});
+
+/* ---- décor : le quai (sol) ---- */
+var quayTile=tile(96,112,function(c){
+  c.fillStyle='#d6c096';c.fillRect(0,0,96,112);
+  c.fillStyle='#ebdcb8';c.fillRect(0,0,96,14);
+  c.fillStyle='#cdb27f';for(var x=-12;x<108;x+=12){c.beginPath();c.moveTo(x,0);c.lineTo(x+6,0);c.lineTo(x-1,14);c.lineTo(x-7,14);c.closePath();c.fill();}
+  c.fillStyle='#8f7a57';c.fillRect(0,0,96,1.5);c.fillRect(0,14,96,2);
+  c.strokeStyle='#b89f74';c.lineWidth=1;
+  var rows=[[16,46],[46,78],[78,112]];
+  for(var i=0;i<rows.length;i++){var y0=rows[i][0],y1=rows[i][1];c.beginPath();c.moveTo(0,y1-0.5);c.lineTo(96,y1-0.5);c.stroke();
+    var off=i%2?24:0;for(var vx=off;vx<96;vx+=48){c.beginPath();c.moveTo(vx+0.5,y0);c.lineTo(vx+0.5,y1);c.stroke();}}
+  c.fillStyle='#3d444c';rrect(c,10,20,10,13,3);c.fill();c.fillStyle='#5f6872';c.beginPath();c.ellipse(15,20,5,2.5,0,0,Math.PI*2);c.fill();
+});
+
+/* ---- mouettes ---- */
+var gulls=[{x:60,y:72,s:1,v:0.012},{x:210,y:44,s:0.75,v:0.009},{x:150,y:104,s:0.55,v:0.016}];
+function drawGulls(now){ctx.strokeStyle='#34495e';ctx.lineCap='round';
+  for(var i=0;i<gulls.length;i++){var g=gulls[i],span=W+60,x=((g.x-now*g.v)%span+span)%span-30,y=g.y+Math.sin(now/900+i)*4,f=Math.sin(now/140+i*2)*2.5*g.s,s=g.s;
+    ctx.lineWidth=1.4*s+0.3;ctx.beginPath();ctx.moveTo(x-7*s,y+1);ctx.quadraticCurveTo(x-3.5*s,y-3*s-f,x,y);ctx.quadraticCurveTo(x+3.5*s,y-3*s-f,x+7*s,y+1);ctx.stroke();}}
+
+/* ---- sons (WebAudio, synthétisés) ---- */
+var sfx=(function(){
+  var ac=null,muted=false;
+  try{muted=localStorage.getItem('marsiens_mute')==='1';}catch(e){}
+  function get(){if(!ac){try{ac=new (window.AudioContext||window.webkitAudioContext)();}catch(e){}}if(ac&&ac.state==='suspended')ac.resume();return ac;}
+  function tone(f0,f1,dur,type,vol){var a=get();if(!a||muted)return;var o=a.createOscillator(),g=a.createGain(),t=a.currentTime;
+    o.type=type;o.frequency.setValueAtTime(f0,t);o.frequency.exponentialRampToValueAtTime(f1,t+dur);
+    g.gain.setValueAtTime(vol,t);g.gain.exponentialRampToValueAtTime(0.001,t+dur);o.connect(g);g.connect(a.destination);o.start(t);o.stop(t+dur);}
+  return{
+    unlock:get,
+    flap:function(){tone(500,900,0.09,'sine',0.25);},
+    point:function(){tone(1000,1000,0.06,'square',0.1);setTimeout(function(){tone(1500,1500,0.08,'square',0.1);},70);},
+    hit:function(){tone(200,60,0.18,'sawtooth',0.3);},
+    die:function(){tone(700,120,0.4,'triangle',0.25);},
+    isMuted:function(){return muted;},
+    toggle:function(){muted=!muted;try{localStorage.setItem('marsiens_mute',muted?'1':'0');}catch(e){}return muted;}
+  };
+})();
+
+/* ---- état du jeu ---- */
+var state,ship,pipes,score,best=0,newBest,scroll,frame,flash,overAt;
+try{best=parseInt(localStorage.getItem('marsiens_best')||'0',10)||0;}catch(e){}
+function reset(){state='ready';ship={y:H*0.46,vy:0,rot:0};pipes=[];score=0;newBest=false;scroll=0;frame=0;flash=0;}
+function newPipe(x){return{x:x,gapY:70+Math.random()*(FLOOR-140-GAP),passed:false};}
+function flap(){ship.vy=FLAP_V;sfx.flap();}
+function action(){
+  sfx.unlock();
+  if(state==='ready'){state='play';flap();}
+  else if(state==='play'){flap();}
+  else if(state==='over'){if(performance.now()-overAt>600)reset();}
+}
+function hit(){state='dead';flash=1;sfx.hit();setTimeout(sfx.die,250);if(ship.vy<0)ship.vy=0;}
+function finish(){state='over';overAt=performance.now();if(score>best){best=score;newBest=true;try{localStorage.setItem('marsiens_best',String(best));}catch(e){}}}
+function step(){
+  frame++;
+  if(state==='ready'){ship.y=H*0.46+Math.sin(frame/10)*4;scroll+=SPEED;return;}
+  if(state==='over')return;
+  ship.vy=Math.min(ship.vy+G,MAX_V);ship.y+=ship.vy;
+  if(ship.y<12){ship.y=12;ship.vy=0;}
+  var target=state==='dead'?1.5:(ship.vy<0?-0.4:Math.max(-0.1,Math.min(1.45,(ship.vy-2)*0.35)));
+  ship.rot+=(target-ship.rot)*(target<ship.rot?0.35:0.12);
+  var i,p;
+  if(state==='play'){
+    scroll+=SPEED;
+    for(i=0;i<pipes.length;i++){p=pipes[i];p.x-=SPEED;if(!p.passed&&p.x+PIPE_W/2<SHIP_X){p.passed=true;score++;sfx.point();}}
+    if(pipes.length&&pipes[0].x<-PIPE_W-4)pipes.shift();
+    var last=pipes[pipes.length-1];
+    if(!last)pipes.push(newPipe(W+60));else if(last.x<W-PIPE_DIST)pipes.push(newPipe(last.x+PIPE_DIST));
+    var hx=SHIP_X-HIT_W/2,hy=ship.y-HIT_H/2;
+    for(i=0;i<pipes.length;i++){p=pipes[i];if(hx+HIT_W>p.x&&hx<p.x+PIPE_W&&(hy<p.gapY||hy+HIT_H>p.gapY+GAP)){hit();break;}}
+  }
+  if(ship.y+HIT_H/2>=FLOOR){ship.y=FLOOR-HIT_H/2;if(state==='play'){flash=1;sfx.hit();}finish();}
+}
+
+/* ---- rendu ---- */
+function drawTile(t,speed,y){var off=-((scroll*speed)%t.w);off=Math.round(off*DPR)/DPR;for(var x=off;x<W;x+=t.w)ctx.drawImage(t.c,x,y,t.w,t.h);}
+function pipeGrad(x,w){var g=ctx.createLinearGradient(x,0,x+w,0);g.addColorStop(0,'#4f8f24');g.addColorStop(0.18,'#a4e45a');g.addColorStop(0.45,'#73bf2e');g.addColorStop(1,'#3f7a1c');return g;}
+function pipeBody(x,y,h){ctx.fillStyle=pipeGrad(x,PIPE_W-4);ctx.fillRect(x,y,PIPE_W-4,h);ctx.fillStyle='#2f5a14';ctx.fillRect(x,y,2,h);ctx.fillRect(x+PIPE_W-6,y,2,h);}
+function pipeCap(x,y){ctx.fillStyle=pipeGrad(x,PIPE_W);ctx.fillRect(x,y,PIPE_W,CAP_H);ctx.lineWidth=2;ctx.strokeStyle='#2f5a14';ctx.strokeRect(x+1,y+1,PIPE_W-2,CAP_H-2);}
+function drawPipe(p){var x=Math.round(p.x);
+  pipeBody(x+2,-10,p.gapY-CAP_H+10);pipeCap(x,p.gapY-CAP_H);
+  pipeCap(x,p.gapY+GAP);pipeBody(x+2,p.gapY+GAP+CAP_H,FLOOR-(p.gapY+GAP+CAP_H));}
+function drawReady(now){
+  drawAvatar(ctx,W/2,96,44);
+  text('FLAPPY',W/2,166,20,'#fff','#2b2b2b');
+  text('MARSIEN',W/2,192,20,'#feda75','#2b2b2b');
+  if(Math.floor(now/500)%2===0)text('TAPE POUR VOLER',W/2,292,9,'#fff','#2b2b2b',null,3);
+  if(best>0)text('RECORD '+best,W/2,332,8,'#feda75','#2b2b2b',null,3);
+  text('@les_marsiens_13',W/2,374,7,'#fff','rgba(0,0,0,0.55)',null,2);
+}
+function drawMedal(x,y,s,now){
+  var col=s>=40?['#f4f5f8','#b6bcc8']:s>=30?['#ffe066','#c9971d']:s>=20?['#e6e9ee','#9aa2ad']:s>=10?['#e0a86c','#9c5a2b']:null;
+  ctx.beginPath();ctx.arc(x,y,24,0,Math.PI*2);ctx.fillStyle='#cdc27f';ctx.fill();ctx.lineWidth=2;ctx.strokeStyle='#8d7f4d';ctx.stroke();
+  if(!col)return;
+  var g=ctx.createRadialGradient(x-8,y-8,2,x,y,24);g.addColorStop(0,col[0]);g.addColorStop(1,col[1]);
+  ctx.beginPath();ctx.arc(x,y,21,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
+  drawAlien(ctx,x,y+1,13,'rgba(0,0,0,0.35)','rgba(255,255,255,0.75)');
+  var t=(now/300)%(Math.PI*2),sx=x+Math.cos(t)*16,sy=y+Math.sin(t*1.3)*16;
+  ctx.fillStyle='#fff';ctx.beginPath();ctx.moveTo(sx,sy-4);ctx.lineTo(sx+1.5,sy);ctx.lineTo(sx,sy+4);ctx.lineTo(sx-1.5,sy);ctx.closePath();ctx.fill();
+}
+function drawOver(now){
+  var k=Math.min(1,(now-overAt)/400),e=1-Math.pow(1-k,3),dy=(1-e)*60;
+  ctx.globalAlpha=e;
+  text('GAME OVER',W/2,150,18,'#feda75','#2b2b2b');
+  var px=28,py=182+dy,pw=232,ph=122;
+  rrect(ctx,px,py,pw,ph,8);ctx.fillStyle='#e0d896';ctx.fill();ctx.lineWidth=3;ctx.strokeStyle='#5a3b2b';ctx.stroke();
+  text('SCORE',px+pw-18,py+24,9,'#e86a17','#5a3b2b','right',3);
+  text(String(score),px+pw-18,py+46,16,'#fff','#5a3b2b','right');
+  text('MEILLEUR',px+pw-18,py+76,9,'#e86a17','#5a3b2b','right',3);
+  text(String(best),px+pw-18,py+98,16,'#fff','#5a3b2b','right');
+  if(newBest){rrect(ctx,px+pw-86,py+58,34,13,3);ctx.fillStyle='#e23f3f';ctx.fill();text('NEW',px+pw-69,py+65,6,'#fff',null);}
+  text('MEDAILLE',px+62,py+17,7,'#e86a17','#5a3b2b',null,2.5);
+  drawMedal(px+62,py+ph/2+6,score,now);
+  var by=py+ph+18;rrect(ctx,W/2-62,by,124,38,8);ctx.fillStyle='#73bf2e';ctx.fill();ctx.lineWidth=3;ctx.strokeStyle='#3f6b15';ctx.stroke();
+  text('REJOUER',W/2,by+19,10,'#fff','#2f5a14',null,3);
+  ctx.globalAlpha=1;
+}
+function render(now){
+  ctx.drawImage(skyTile.c,0,0,W,SEA_Y);
+  drawGulls(now);
+  drawTile(farTile,0.12,SEA_Y-farTile.h);
+  drawTile(cityTile,0.3,SEA_Y-cityTile.h);
+  drawTile(seaTile,0.5,SEA_Y-42);
+  for(var i=0;i<pipes.length;i++)drawPipe(pipes[i]);
+  drawTile(quayTile,1,FLOOR);
+  drawShip(ctx,SHIP_X,ship.y,ship.rot,now,state==='play'&&ship.vy<-1.5);
+  if(state==='ready')drawReady(now);
+  else if(state==='play'||state==='dead')text(String(score),W/2,58,24,'#fff','#2b2b2b');
+  else if(state==='over')drawOver(now);
+  if(flash>0){ctx.fillStyle='rgba(255,255,255,'+flash+')';ctx.fillRect(0,0,W,H);flash=Math.max(0,flash-0.07);}
+}
+
+/* ---- entrées ---- */
+canvas.addEventListener('pointerdown',function(e){e.preventDefault();action();});
+canvas.addEventListener('contextmenu',function(e){e.preventDefault();});
+window.addEventListener('keydown',function(e){if(e.repeat)return;if(e.code==='Space'||e.code==='ArrowUp'||e.code==='KeyW'||e.code==='Enter'){e.preventDefault();action();}});
+var muteBtn=document.getElementById('mute');
+function syncMute(){muteBtn.textContent=sfx.isMuted()?'🔇':'🔊';muteBtn.setAttribute('aria-pressed',sfx.isMuted()?'true':'false');}
+muteBtn.addEventListener('click',function(e){e.stopPropagation();sfx.toggle();syncMute();});
+syncMute();
+if(document.fonts&&document.fonts.load){document.fonts.load('10px "Press Start 2P"').catch(function(){});}
+
+/* ---- boucle à pas fixe (60 Hz) ---- */
+var last=performance.now(),acc=0,STEP=1000/60;
+function loop(now){acc+=Math.min(100,now-last);last=now;while(acc>=STEP){step();acc-=STEP;}render(now);requestAnimationFrame(loop);}
+reset();requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
