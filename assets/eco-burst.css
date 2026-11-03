@@ -9,7 +9,7 @@
 .eb-cap{position:absolute;inset:0 0 auto 0;opacity:0;transform:translateY(26px);transition:opacity .5s ease,transform .6s cubic-bezier(.2,.8,.2,1);pointer-events:none}
 .eb-cap.on{opacity:1;transform:none;pointer-events:auto}
 .eb-cap .kicker{margin-bottom:18px}
-.eb-t{font-family:var(--display);font-weight:500;font-size:clamp(34px,4vw,60px);line-height:1.02;letter-spacing:-.01em;margin:0 0 16px;color:#fff;max-width:14ch}
+.eb-t{font-family:var(--display);font-weight:500;font-size:clamp(34px,4vw,60px);line-height:1.02;letter-spacing:-.01em;margin:0 0 16px;color:#fff;max-width:19ch}
 .eb-p{font-size:clamp(16px,1.3vw,19px);line-height:1.55;color:var(--text-2);max-width:40ch}
 .eb-ben{display:grid;gap:10px;margin:4px 0 22px}
 .eb-ben li{position:relative;padding-left:26px;color:var(--text-2);font-size:clamp(15px,1.15vw,17px);line-height:1.45}
@@ -62,9 +62,9 @@
   .eb-stage{order:-1;width:min(84vw,calc(100svh - 390px),420px)}
   .eb-copy{min-height:250px}
   /* animé : grand schéma en haut, textes calés en bas de l'écran ; à la dernière étape le schéma recule pour laisser la place */
-  .eb.eb-js .eb-grid{display:flex;flex-direction:column;padding-top:86px;padding-bottom:20px}
+  .eb.eb-js .eb-grid{display:flex;flex-direction:column;padding-top:112px;padding-bottom:20px}
   body.eb-in .totop{opacity:0;pointer-events:none}
-  .eb.eb-js .eb-stage{width:min(96vw,calc(100svh - 320px),480px);flex:none;transform-origin:50% 0;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+  .eb.eb-js .eb-stage{width:min(96vw,calc(100svh - 346px),480px);flex:none;transform-origin:50% 0;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
   .eb.eb-js.is-end .eb-stage{transform:scale(.62)}
   .eb.eb-js.is-net .eb-stage{transform:scale(.88)}
   .eb.eb-js .eb-copy{margin-top:auto;min-height:0;height:0;align-self:stretch}
@@ -106,3 +106,17 @@
 /* pas de trait devant les sur-titres (01, 02…) dans cette section */
 .eb .kicker i{display:none}
 .eb .kicker{gap:0}
+/* les trois arguments, visibles en permanence, qui s'allument au fil des étapes */
+.eb-argsw{position:absolute;top:100px;left:0;right:0;z-index:4;pointer-events:none}
+.eb-args{display:flex;flex-wrap:wrap;gap:8px}
+.eb-args li{display:inline-flex;align-items:center;gap:8px;padding:7px 14px 7px 7px;border-radius:99px;border:1px solid rgba(255,255,255,.18);color:var(--text-2);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:background .4s,border-color .4s,color .4s}
+.eb-args span{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.1);font-size:11px;letter-spacing:0;transition:background .4s,color .4s}
+.eb-args li.on,.eb:not(.eb-js) .eb-args li{border-color:#7fd6a3;color:#fff;background:rgba(47,163,107,.22)}
+.eb-args li.on span,.eb:not(.eb-js) .eb-args span{background:#7fd6a3;color:#151e33}
+.eb:not(.eb-js) .eb-argsw{position:relative;top:0;margin-bottom:28px}
+@media (max-width:860px){
+  .eb-argsw{top:74px}
+  .eb-args{gap:6px;flex-wrap:nowrap}
+  .eb-args li{padding:5px 10px 5px 5px;font-size:10.5px;letter-spacing:.03em;gap:6px;white-space:nowrap}
+  .eb-args span{width:17px;height:17px;font-size:10px}
+}
