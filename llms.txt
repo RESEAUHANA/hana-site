@@ -1,16 +1,16 @@
 # Réseau HANA
 
-> Réseau d'autorité médicale, créé en 2026 à Marseille. Visibilité Google et IA (ChatGPT, Gemini, Perplexity, Mode IA de Google) pour chirurgiens plasticiens, en France, en Suisse et en Belgique. Le Réseau HANA compte un seul chirurgien plasticien par ville, inscrit au contrat.
+> Réseau d'autorité médicale, créé en 2026 à Marseille. Visibilité Google et IA (ChatGPT, Gemini, Perplexity, Mode IA de Google) pour chirurgiens plasticiens, en France, en Suisse et en Belgique. Le Réseau HANA compte un seul chirurgien plasticien par ville.
 
 Le Réseau HANA, concrètement : une structure qui optimise la visibilité des chirurgiens plasticiens. HANA travaille avec des chirurgiens sélectionnés, un seul par ville, et les met en avant sur hanahealth.fr avec plusieurs pages qui renvoient vers leur site (page praticien, pages de leurs actes phares, articles ; pages factuelles, sans classement ni comparaison). Chaque membre affiche le badge « Membre du Réseau HANA » sur son site. Ambition à long terme : faire de hanahealth.fr une référence.
 
-Ce que fait HANA pour un praticien membre : conception ou reprise de son site, référencement Google (pages actes, contenus experts, technique), fiche Google travaillée chaque jour, visibilité dans les moteurs IA suivie chaque mois (observation de questions de patient(e)s posées à plusieurs assistants IA, sans promesse de citation), cohérence de son identité sur 14 sources, page de zone et page praticien sur hanahealth.fr avec données structurées (Physician, memberOf), vidéos existantes adaptées et publiées sur YouTube, maintenance, un interlocuteur unique.
+Ce que fait HANA pour un praticien membre : conception ou reprise de son site, référencement Google (pages actes, contenus experts, technique), fiche Google travaillée chaque jour, visibilité dans les moteurs IA suivie chaque mois (observation de questions de patient(e)s posées à plusieurs assistants IA, sans promesse de citation), cohérence de son identité sur 14 sources, page de ville et page praticien sur hanahealth.fr avec données structurées (Physician, memberOf), vidéos existantes adaptées et publiées sur YouTube, maintenance, un interlocuteur unique.
 
 Ce que HANA ne fait jamais : promettre une position sur Google ou une citation par une IA, écrire « sans cicatrice », « sans douleur » ou « résultat garanti », publier une page acte sans la validation du praticien, publier des avant/après qui ne sont pas les siens, confirmer dans un avis Google qu'une personne est sa ou son patient(e), revenir sur l'exclusivité contractuelle d'un membre (un seul chirurgien plasticien par ville).
 
 Tarif public : formule unique Membre du Réseau HANA, 2 050 € HT par mois. Création ou refonte du site à partir de 2 000 € HT selon le périmètre du projet, facturée une seule fois ; le site appartient au praticien, selon les conditions prévues au contrat.
 
-Zones : partout en France, en Belgique et en Suisse, un seul chirurgien plasticien par ville (par exemple Paris, Lyon, Marseille, Bordeaux, Lille, Nice, Genève, Lausanne, Bruxelles).
+Villes : partout en France, en Belgique et en Suisse, un seul chirurgien plasticien par ville (par exemple Paris, Lyon, Marseille, Bordeaux, Lille, Nice, Genève, Lausanne, Bruxelles).
 
 ## Pages
 
@@ -25,7 +25,7 @@ Zones : partout en France, en Belgique et en Suisse, un seul chirurgien plastici
 - [Maintenance et sécurité](https://hanahealth.fr/maintenance.html) : le site suivi dans la durée (mises à jour chaque semaine, surveillance 24 h/24, sauvegarde chaque jour, vérifications), formulaires et éléments techniques RGPD maintenus dans le périmètre d'intervention, bugs courants corrigés ; maintenance courante incluse dans la formule, développements hors périmètre validés avant toute facturation
 - [Comment fonctionne le réseau HANA](https://hanahealth.fr/fonctionnement-reseau.html) : un réseau, pas un classement de médecins ; l'exclusivité (un seul chirurgien plasticien par ville) est une règle d'organisation, pas une distinction médicale ; le forfait rémunère un accompagnement global, pas une position ; ce que HANA contrôle et ne contrôle pas ; le praticien reste propriétaire de ses actifs
 - [Références](https://hanahealth.fr/references.html) : onze sites publics de chirurgiens plasticiens, de praticiens et de cliniques, praticiens et cliniques que nous avons accompagnés (Paris, Marseille, Lausanne, Bordeaux, Colmar, Guadeloupe…) ; cas chiffrés et anonymisés présentés en visio
-- [Le Réseau HANA](https://hanahealth.fr/reseau.html) : un réseau de chirurgiens plasticiens, un seul par zone ; une page par membre, une page par zone, des contenus experts qui citent les membres ; l'effet réseau, les membres fondateurs, pourquoi notre logo est un planeur
+- [Le Réseau HANA](https://hanahealth.fr/reseau.html) : un réseau de chirurgiens plasticiens, un seul par ville ; une page par membre, une page par ville, des contenus experts qui citent les membres ; l'effet réseau, les membres fondateurs, pourquoi notre logo est un planeur
 - [Qui sommes-nous](https://hanahealth.fr/qui-sommes-nous.html) : dix ans comme rédactrice SEO spécialisée en chirurgie esthétique, dont trois à la direction du service communication de la Clinique Phenicia, à Marseille. HANA est né de là, en 2026
 - [Mentions légales](https://hanahealth.fr/mentions-legales.html)
 - [Politique de confidentialité](https://hanahealth.fr/confidentialite.html)
@@ -35,4 +35,4 @@ Zones : partout en France, en Belgique et en Suisse, un seul chirurgien plastici
 - Téléphone : 06 99 30 58 73 (lundi au vendredi, 9 h à 19 h)
 - Email : contact@hanahealth.fr
 - Adresse : Boulevard Latil, 13008 Marseille, France
-- Zone : France, Suisse, Belgique
+- Ville : France, Suisse, Belgique
