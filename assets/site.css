@@ -2532,3 +2532,38 @@ h2.dash-h{margin:0}
    « clip » ne crée pas de zone de défilement, donc les sections épinglées (sticky) continuent de marcher. */
 @supports (overflow:clip){html,body{overflow-x:clip}}
 .cmp{max-width:100%}
+
+/* Accueil (03/11/2026) : la promesse « patient(e)s + visibilité » mise en avant */
+.hpp-top{margin-top:clamp(30px,3.6vw,52px)}
+.hpp-top h3{font-size:clamp(34px,4.4vw,66px);line-height:.98;max-width:20ch}
+.hpp-top .lead{font-size:clamp(17px,1.35vw,21px);line-height:1.5;color:#e3e8f2;max-width:58ch}
+.hpp-top + .stack{margin-top:clamp(36px,4vw,60px)}
+
+/* Accueil : une semaine type, une source travaillée chaque jour */
+.wk{margin-top:clamp(40px,4.6vw,70px);padding-top:clamp(30px,3.2vw,46px);border-top:1px solid rgba(255,255,255,.12)}
+.wk-head{display:grid;grid-template-columns:minmax(0,1.4fr) auto;gap:10px 40px;align-items:end}
+.wk-head .kicker{grid-column:1/-1}
+.wk-head h3{margin:0;max-width:18ch}
+.wk-head .pm-22{margin:0}
+.wk-cap{margin:clamp(26px,3vw,40px) 0 12px;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#7fd6a3}
+.wk-days{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.wk-days li{position:relative;padding:18px 16px 20px;border-radius:16px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);animation:wk-today 10s infinite;animation-delay:calc(var(--d) * 2s)}
+.wk-days small{display:block;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#8fa0c4}
+.wk-ico{display:grid;place-items:center;width:46px;height:46px;margin:14px 0 12px;border-radius:12px;background:#fff;box-shadow:0 8px 22px rgba(0,0,0,.3)}
+.wk-ico svg{width:60%;height:60%}
+.wk-days b{display:block;font-size:17px;color:#fff;line-height:1.2}
+.wk-days p{margin:6px 0 0;font-size:14px;line-height:1.45;color:#c9d0e2}
+@keyframes wk-today{0%,20%{border-color:rgba(127,214,163,.9);background:rgba(47,163,107,.18);box-shadow:0 0 0 1px rgba(127,214,163,.5),0 12px 30px rgba(47,163,107,.18)}24%,100%{border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.04);box-shadow:none}}
+.wk-month{margin:16px 0 0;font-size:15px;line-height:1.5;color:#c9d0e2}
+.wk-month b{color:#fff}
+@media (max-width:860px){
+  .wk-head{grid-template-columns:1fr}
+  .wk-days{grid-template-columns:1fr;gap:8px}
+  .wk-days li{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:14px;align-items:center;padding:12px 14px}
+  .wk-days small{grid-column:1/-1;margin-bottom:8px}
+  .wk-ico{grid-row:2/4;margin:0;width:44px;height:44px}
+  .wk-days p{margin-top:2px;font-size:13.5px}
+}
+@media (prefers-reduced-motion:reduce){.wk-days li{animation:none}}
+.wk .pm-22 b{font-family:var(--display);font-weight:500;font-size:clamp(56px,6vw,96px);line-height:.9;color:#7fd6a3}
+.wk-head h3{max-width:24ch}
