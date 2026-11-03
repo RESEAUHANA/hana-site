@@ -2643,3 +2643,4 @@ h2.dash-h{margin:0}
 
 /* Maquette du téléphone : plus de bulles par-dessus l'écran (elles cachaient le texte) */
 .phone-wrap .toast{display:none}
+.wk-solo{margin-top:clamp(20px,2.4vw,32px);padding-top:0;border-top:0}
