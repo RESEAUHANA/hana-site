@@ -150,3 +150,8 @@
 .eb:not(.is-end) .eb-halo .hr{animation-play-state:paused}
 @keyframes eb-spin{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.eb-halo{display:none}}
+/* confrères du réseau : un point lumineux et le nom de la ville, sans « Dr A, B… » */
+.eb-doc:not(.me){width:16px;background:#1b2640;border:2px solid #7fd6a3;box-shadow:0 0 12px rgba(127,214,163,.55)}
+.eb-doc:not(.me) small{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:5px;white-space:nowrap;font-size:11px;font-weight:600;color:#c9cfdb;letter-spacing:.02em}
+@media (max-width:860px){.eb-doc:not(.me){width:12px}.eb-doc:not(.me) small{font-size:9.5px;margin-top:3px}}
+.eb-doc.me b{font-size:clamp(14px,1.3vw,18px)}
