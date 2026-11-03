@@ -2588,3 +2588,49 @@ h2.dash-h{margin:0}
 @media (max-width:900px){.stack .sc-fact{display:none} body.stack-in .totop{opacity:0;pointer-events:none}}
 /* Comparaison agence / HANA : la grille ne doit jamais dépasser l'écran (cause du décalage à 360 px) */
 @media (max-width:900px){.compare{grid-template-columns:minmax(0,1fr)}.cmp{min-width:0;padding-inline:20px}.cmp .sites{gap:8px}.cmp .sites>*{flex:1 1 0;min-width:0}}
+
+/* Page Le Réseau HANA (03/11/2026) : trois raisons, le réseau en clair, les zones */
+.rz-cards{list-style:none;margin:clamp(24px,3vw,40px) 0 0;padding:0;display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:16px}
+.rz-cards li{padding:clamp(22px,2.6vw,34px);border-radius:22px;background:#fff;border:1px solid var(--line-2);box-shadow:0 18px 50px rgba(21,30,51,.06)}
+.rz-cards li:first-child{background:linear-gradient(135deg,#2c3a5b,#151e33);border-color:transparent;color:#fff}
+.rz-n{font-family:var(--display);font-size:15px;letter-spacing:.1em;color:var(--accent)}
+.rz-cards li:first-child .rz-n{color:#7fd6a3}
+.rz-cards h3{margin:10px 0 12px;font-family:var(--display);font-weight:500;text-transform:uppercase;font-size:clamp(26px,2.4vw,36px);line-height:1;color:var(--navy)}
+.rz-cards li:first-child h3{color:#fff}
+.rz-cards p{margin:0;font-size:clamp(15px,1.1vw,17px);line-height:1.6;color:var(--text-2)}
+.rz-cards li:first-child p{color:#d6dcea}
+.rz-cards li:first-child b{color:#7fd6a3}
+.rz-net-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,5vw,80px);align-items:center}
+.rz-net .lead{color:#c9d0e2;margin-top:14px}
+.rz-flow{display:grid;grid-template-columns:minmax(0,1.3fr) 54px minmax(0,1fr);align-items:center;gap:0}
+.rz-src{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.rz-src li{padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(127,214,163,.35);animation:rz-glow 6s infinite;animation-delay:calc(var(--d) * 2s)}
+.rz-src em,.rz-target em{display:block;font-style:normal;font-size:12px;color:#7fd6a3;letter-spacing:.02em;overflow-wrap:anywhere}
+.rz-src b{display:block;margin-top:4px;font-size:16px;color:#fff}
+.rz-arrow{position:relative;height:2px;margin:0 8px;background:linear-gradient(90deg,rgba(127,214,163,.2),#7fd6a3)}
+.rz-arrow i{position:absolute;right:-2px;top:-5px;width:12px;height:12px;border-top:2px solid #7fd6a3;border-right:2px solid #7fd6a3;transform:rotate(45deg)}
+.rz-target{padding:20px;border-radius:18px;background:#2fa36b;color:#fff;box-shadow:0 0 0 6px rgba(127,214,163,.18),0 20px 50px rgba(0,0,0,.3)}
+.rz-target em{color:#eafff3}
+.rz-target b{display:block;margin-top:4px;font-family:var(--display);font-weight:500;text-transform:uppercase;font-size:28px;line-height:1}
+.rz-target small{display:block;margin-top:8px;font-size:13px;line-height:1.4;color:#eafff3}
+.rz-note{grid-column:1/-1;margin:14px 0 0;font-size:12px;color:#8fa0c4}
+@keyframes rz-glow{0%,30%{box-shadow:0 0 0 1px rgba(127,214,163,.6),0 0 24px rgba(127,214,163,.25)}36%,100%{box-shadow:none}}
+.rz-pick .rn-criteria{margin-top:clamp(20px,2.6vw,32px)}
+.rz-zones{list-style:none;margin:clamp(20px,2.4vw,30px) 0 18px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.rz-zones li{padding:8px 14px;border-radius:99px;border:1px solid rgba(127,214,163,.45);color:#fff;font-size:14px;font-weight:600;background:rgba(255,255,255,.04)}
+.rz-why .team-head h2{max-width:22ch}
+@media (max-width:900px){
+  .rz-cards{grid-template-columns:1fr}
+  .rz-net-grid{grid-template-columns:1fr}
+  .rz-flow{grid-template-columns:1fr}
+  .rz-arrow{width:2px;height:34px;margin:8px auto;background:linear-gradient(180deg,rgba(127,214,163,.2),#7fd6a3)}
+  .rz-arrow i{right:-5px;top:auto;bottom:-2px;transform:rotate(135deg)}
+  .rz-zones li{font-size:13px;padding:7px 12px}
+}
+@media (prefers-reduced-motion:reduce){.rz-src li{animation:none}}
+.rz-net h2,.rz-zsec h2{margin:14px 0 0;font-family:var(--display);font-weight:500;text-transform:uppercase;font-size:clamp(32px,3.8vw,58px);line-height:1;letter-spacing:.005em;text-wrap:balance}
+.rz-net h2{color:#fff}
+.rz-zsec{background:var(--bg-2)}
+.rz-zsec h2{color:var(--navy);max-width:20ch}
+.rz-zsec .rz-zones li{color:var(--navy);background:#fff;border-color:rgba(47,163,107,.45)}
+.rz-zsec .lead{max-width:62ch}
