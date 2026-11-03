@@ -66,6 +66,7 @@
   body.eb-in .totop{opacity:0;pointer-events:none}
   .eb.eb-js .eb-stage{width:min(96vw,calc(100svh - 320px),480px);flex:none;transform-origin:50% 0;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
   .eb.eb-js.is-end .eb-stage{transform:scale(.62)}
+  .eb.eb-js.is-net .eb-stage{transform:scale(.88)}
   .eb.eb-js .eb-copy{margin-top:auto;min-height:0;height:0;align-self:stretch}
   .eb.eb-js .eb-cap{inset:auto 0 0 0}
   .eb.eb-js .eb-hint{display:none}

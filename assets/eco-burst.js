@@ -60,7 +60,7 @@
     let s=0; STEPS.forEach((b,i)=>{ if(t>=b) s=i; });
     if(s!==cur){
       cur=s; caps.forEach((c,i)=>c.classList.toggle('on',i===s)); dots.forEach((x,i)=>x.classList.toggle('on',i<=s));
-      sub.textContent=subs[s]; sec.classList.toggle('is-end',s===4);
+      sub.textContent=subs[s]; sec.classList.toggle('is-end',s===4); sec.classList.toggle('is-net',s===3);
       if(s===2) orbs.forEach((o,i)=>setTimeout(()=>{ o.classList.remove('ping'); void o.offsetWidth; o.classList.add('ping'); },i*90));
     }
   }
