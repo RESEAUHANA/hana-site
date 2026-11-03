@@ -102,3 +102,6 @@
 .eb-zone svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .eb-zone:hover{color:#fff;border-color:#fff;gap:12px}
 @media (max-width:860px){.eb-zone{margin-top:10px;font-size:15px}}
+/* pas de trait devant les sur-titres (01, 02…) dans cette section */
+.eb .kicker i{display:none}
+.eb .kicker{gap:0}
