@@ -120,3 +120,22 @@
   .eb-args li{padding:5px 10px 5px 5px;font-size:10.5px;letter-spacing:.03em;gap:6px;white-space:nowrap}
   .eb-args span{width:17px;height:17px;font-size:10px}
 }
+/* téléphone (finition) : schéma en haut, les 3 arguments juste dessous en boutons égaux, texte en bas */
+@media (max-width:860px){
+  .eb{--S:min(90vw,calc(100svh - 366px),460px)}
+  .eb.eb-js .eb-grid{padding-top:100px}
+  .eb.eb-js .eb-stage{width:var(--S)}
+  .eb.eb-js .eb-argsw{top:calc(100px + var(--S) + 10px);transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+  .eb.eb-js.is-net .eb-argsw{transform:translateY(calc(var(--S) * -.12))}
+  .eb.eb-js.is-end .eb-argsw{transform:translateY(calc(var(--S) * -.38))}
+  .eb-args{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+  .eb-args li{justify-content:center;padding:7px 4px;border-radius:12px;font-size:10.5px;letter-spacing:.04em;background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.12)}
+  .eb-args li.on{background:rgba(47,163,107,.28);border-color:rgba(127,214,163,.8);box-shadow:0 6px 18px rgba(47,163,107,.18)}
+  .eb-args span{width:16px;height:16px;font-size:9.5px}
+  .eb-cap .kicker{margin-bottom:10px;font-size:11px}
+  .eb-t{font-size:clamp(26px,7.2vw,31px);line-height:1.04;margin-bottom:10px}
+  .eb-p{font-size:14.5px;line-height:1.5;color:#c9cfdb}
+  .eb-zone{margin-top:10px;font-size:14px}
+}
+/* très petits téléphones : on garde les logos, sans leurs noms */
+@media (max-width:860px) and (max-height:600px){.eb-lab,.eb-doc small{display:none}}
