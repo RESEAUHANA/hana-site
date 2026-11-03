@@ -13,7 +13,7 @@
   const outBack=x=>{ const c=1.5; return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2); };
   const outCubic=x=>1-Math.pow(1-x,3);
   const rad=d=>d*Math.PI/180;
-  const subs=['','vos 8 sources','une seule identité','hanahealth.fr','travaille pour vous'];
+  const subs=['','vos sources','une seule identité','hanahealth.fr','travaille pour vous'];
   // bornes des étapes (part du défilement de la section)
   const STEPS=[0,.13,.36,.56,.78];
 
