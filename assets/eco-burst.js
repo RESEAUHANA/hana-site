@@ -60,7 +60,7 @@
     let s=0; STEPS.forEach((b,i)=>{ if(t>=b) s=i; });
     if(s!==cur){
       cur=s; caps.forEach((c,i)=>c.classList.toggle('on',i===s)); dots.forEach((x,i)=>x.classList.toggle('on',i<=s));
-      sub.textContent=subs[s];
+      sub.textContent=subs[s]; sec.classList.toggle('is-end',s===4);
       if(s===2) orbs.forEach((o,i)=>setTimeout(()=>{ o.classList.remove('ping'); void o.offsetWidth; o.classList.add('ping'); },i*90));
     }
   }
@@ -72,6 +72,7 @@
   const update=()=>{
     ticking=false;
     const r=sec.getBoundingClientRect(), span=r.height-innerHeight;
+    document.body.classList.toggle('eb-in',r.top<=1&&r.bottom>=innerHeight-1); // masque le bouton « haut de page » sur mobile pendant la section
     render(span>0?clamp(-r.top/span):0);
   };
   const ask=()=>{ if(!ticking){ ticking=true; requestAnimationFrame(update); } };
