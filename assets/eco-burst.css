@@ -139,3 +139,14 @@
 }
 /* très petits téléphones : on garde les logos, sans leurs noms */
 @media (max-width:860px) and (max-height:600px){.eb-lab,.eb-doc small{display:none}}
+/* fin : petits cercles lumineux qui tournent autour de HANA pendant qu'il grossit */
+.eb-stage{container-type:inline-size}
+.eb-halo{position:absolute;left:50%;top:50%;width:0;height:0;z-index:2;pointer-events:none;opacity:var(--hq,0);transform:scale(var(--hs,1))}
+.eb-halo .hr{position:absolute;left:0;top:0;animation:eb-spin 16s linear infinite}
+.eb-halo .r1{--R:25cqw}
+.eb-halo .r2{--R:31cqw;animation-duration:26s;animation-direction:reverse}
+.eb-halo b{position:absolute;left:0;top:0;width:var(--z);height:var(--z);margin:calc(var(--z) / -2);border-radius:50%;background:#9fe8bd;box-shadow:0 0 12px 3px rgba(127,214,163,.55);transform:rotate(var(--a)) translateX(var(--R))}
+.eb-halo .r2 b{background:#dfffee;opacity:.75}
+.eb:not(.is-end) .eb-halo .hr{animation-play-state:paused}
+@keyframes eb-spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.eb-halo{display:none}}

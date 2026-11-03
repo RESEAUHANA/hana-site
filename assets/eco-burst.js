@@ -6,7 +6,7 @@
   const lines=[...sec.querySelectorAll('.eb-l')], dlines=[...sec.querySelectorAll('.eb-dl')];
   const bits=[...sec.querySelectorAll('.eb-debris i')], caps=[...sec.querySelectorAll('.eb-cap')], dots=[...sec.querySelectorAll('.eb-dots i')];
   const args=[...sec.querySelectorAll('.eb-args li')], LIT=[[],[0],[0],[0,1,2],[0,1,2]]; // arguments allumés à chaque étape
-  const ring=sec.querySelector('.eb-ring'), ring2=sec.querySelector('.eb-ring2'), wave=sec.querySelector('.eb-wave'), glow=sec.querySelector('.eb-glow'), hint=sec.querySelector('.eb-hint');
+  const halo=sec.querySelector('.eb-halo'), ring=sec.querySelector('.eb-ring'), ring2=sec.querySelector('.eb-ring2'), wave=sec.querySelector('.eb-wave'), glow=sec.querySelector('.eb-glow'), hint=sec.querySelector('.eb-hint');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const clamp=v=>v<0?0:v>1?1:v;
@@ -25,6 +25,7 @@
     const L=outCubic(seg(t,.37,.52));              // liens centre → sources
     const N=outCubic(seg(t,.57,.73));              // réseau des chirurgiens
     const Q=outCubic(seg(t,.79,.9));               // fin : tout revient dans HANA
+    const G=seg(t,.9,1);                           // puis HANA grossit au ralenti
     const spin=t*38;                               // l'orbite tourne doucement
     const R1=38-11*N, R2=42;
 
@@ -57,7 +58,8 @@
     glow.style.setProperty('--glow',(.6+.5*clamp(p)+.3*N-.3*Q).toFixed(2));
     // le cœur se contracte juste avant l'éclatement, puis respire
     const pre=seg(t,.04,.11);
-    core.style.setProperty('--cs',(1.25-.2*pre+(d>0?.08*Math.sin(d*Math.PI):0)-.12*N+.45*Q).toFixed(3));
+    core.style.setProperty('--cs',(1.25-.2*pre+(d>0?.08*Math.sin(d*Math.PI):0)-.12*N+.45*Q+.4*G).toFixed(3));
+    halo.style.setProperty('--hq',seg(t,.86,.95).toFixed(2)); halo.style.setProperty('--hs',(1+.4*G).toFixed(3));
     hint.style.setProperty('--ho',t<.06?1:0);
 
     let s=0; STEPS.forEach((b,i)=>{ if(t>=b) s=i; });
