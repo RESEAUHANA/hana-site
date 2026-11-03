@@ -2640,3 +2640,6 @@ h2.dash-h{margin:0}
 @media (min-width:901px){#espace-hana .dash-wrap{align-items:start}#espace-hana .dash-wrap>.copy{position:sticky;top:120px}#espace-hana .espace-more{width:auto;display:inline-flex}}
 #espace-hana .espace-more{max-width:max-content}
 @media (max-width:900px){#espace-hana .toast{display:none}#espace-hana .espace-more{max-width:none}}
+
+/* Maquette du téléphone : plus de bulles par-dessus l'écran (elles cachaient le texte) */
+.phone-wrap .toast{display:none}
