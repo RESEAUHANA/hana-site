@@ -5,7 +5,7 @@
   const orbs=[...sec.querySelectorAll('.eb-orb')], docs=[...sec.querySelectorAll('.eb-doc')];
   const lines=[...sec.querySelectorAll('.eb-l')], dlines=[...sec.querySelectorAll('.eb-dl')];
   const bits=[...sec.querySelectorAll('.eb-debris i')], caps=[...sec.querySelectorAll('.eb-cap')], dots=[...sec.querySelectorAll('.eb-dots i')];
-  const args=[...sec.querySelectorAll('.eb-args li')], LIT=[[],[0],[0],[0,1,2],[0,1,2]]; // arguments allumés à chaque étape
+  const args=[...sec.querySelectorAll('.eb-args li')], LIT=[[],[0],[0,1],[0,1,2],[0,1,2]]; // arguments allumés à chaque étape
   const halo=sec.querySelector('.eb-halo'), ring=sec.querySelector('.eb-ring'), ring2=sec.querySelector('.eb-ring2'), wave=sec.querySelector('.eb-wave'), glow=sec.querySelector('.eb-glow'), hint=sec.querySelector('.eb-hint');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -14,7 +14,7 @@
   const outBack=x=>{ const c=1.5; return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2); };
   const outCubic=x=>1-Math.pow(1-x,3);
   const rad=d=>d*Math.PI/180;
-  const subs=['','vos sources','une seule identité','notre réseau',''];
+  const subs=['','vos sources','notre réseau','notre réseau',''];
   // bornes des étapes (part du défilement de la section)
   const STEPS=[0,.13,.36,.56,.78];
 
@@ -65,7 +65,7 @@
     let s=0; STEPS.forEach((b,i)=>{ if(t>=b) s=i; });
     if(s!==cur){
       cur=s; caps.forEach((c,i)=>c.classList.toggle('on',i===s)); dots.forEach((x,i)=>x.classList.toggle('on',i<=s));
-      sub.textContent=subs[s]; args.forEach((a,i)=>a.classList.toggle('on',LIT[s].includes(i))); sec.classList.toggle('is-end',s===4); sec.classList.toggle('is-net',s===3);
+      sub.textContent=subs[s]; args.forEach((a,i)=>a.classList.toggle('on',LIT[s].includes(i))); sec.classList.toggle('is-end',s===4); sec.classList.toggle('is-net',s===2||s===3);
       if(s===2) orbs.forEach((o,i)=>setTimeout(()=>{ o.classList.remove('ping'); void o.offsetWidth; o.classList.add('ping'); },i*90));
     }
   }
