@@ -2716,3 +2716,8 @@ body .pm-22 span strong{display:block;margin-bottom:2px;color:#fff;font-weight:7
   .ho p{font-size:13.5px}
 }
 @media (max-width:900px){#heroContent{opacity:1!important}.hero-veil{background:linear-gradient(180deg,rgba(var(--veil),.35) 0%,rgba(var(--veil),.05) 25%,rgba(var(--veil),.55) 70%,rgba(var(--veil),.85) 100%)}}
+.hero .hero-lead{font-size:clamp(15.5px,1.2vw,18px);line-height:1.55;color:var(--text-2);max-width:58ch}
+.hero .hero-lead strong{color:var(--navy);font-weight:700}
+/* haut de l'accueil : cartes sur ordinateur, petit paragraphe sur téléphone */
+@media (min-width:901px){.hero .hero-lead{display:none}}
+@media (max-width:900px){.hero .hero-offers{display:none}}
