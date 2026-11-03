@@ -155,3 +155,15 @@
 .eb-doc:not(.me) small{position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:5px;white-space:nowrap;font-size:11px;font-weight:600;color:#c9cfdb;letter-spacing:.02em}
 @media (max-width:860px){.eb-doc:not(.me){width:12px}.eb-doc:not(.me) small{font-size:9.5px;margin-top:3px}}
 .eb-doc.me b{font-size:clamp(14px,1.3vw,18px)}
+/* confrères : Dr A, Dr B, Dr C dans des ronds discrets ; « Vous » en vert */
+.eb-doc:not(.me){width:clamp(40px,4.2vw,52px);background:#1b2640;border:1px solid rgba(255,255,255,.26);box-shadow:none}
+.eb-doc:not(.me) b{font-size:clamp(12px,1.05vw,14px);color:#dfe5ef}
+.eb-doc.me{width:clamp(52px,5.4vw,68px)}
+@media (max-width:860px){.eb-doc:not(.me){width:36px}.eb-doc:not(.me) b{font-size:11px}.eb-doc.me{width:46px}}
+
+/* défilement plus calme : section plus longue + une pause (point d'arrêt) sur chaque argument */
+.eb{height:660vh;height:660svh}
+@media (max-width:860px){.eb{height:720vh;height:720svh}}
+html{scroll-snap-type:y proximity}
+.eb-snap{position:absolute;left:0;width:1px;height:1px;top:calc(var(--t) * (100% - 100svh));scroll-snap-align:start;pointer-events:none}
+.eb:not(.eb-js) .eb-snap{display:none}

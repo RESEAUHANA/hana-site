@@ -2527,3 +2527,8 @@ h2.dash-h{margin:0}
 .orbit-sweep{display:none}
 .orbit-center .ring,.orbit-center small{display:none}
 .orbit-center{box-shadow:none}
+
+/* Jamais de décalage horizontal sur téléphone (03/11/2026) : rien ne peut dépasser à droite.
+   « clip » ne crée pas de zone de défilement, donc les sections épinglées (sticky) continuent de marcher. */
+@supports (overflow:clip){html,body{overflow-x:clip}}
+.cmp{max-width:100%}
