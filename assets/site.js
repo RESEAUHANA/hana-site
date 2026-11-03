@@ -178,12 +178,6 @@
       location.href=`mailto:contact@hanahealth.fr?subject=${encodeURIComponent('Demande de diagnostic · '+data.ville)}&body=${body}`;
     }
   });
-  const b=document.getElementById('mapLoad'); if(!b) return;
-  b.addEventListener('click',()=>{
-    const m=document.getElementById('map'); const i=document.createElement('iframe');
-    i.src='https://www.google.com/maps?q=Boulevard+Latil,+13008+Marseille&z=15&hl=fr&output=embed'; i.loading='lazy'; i.referrerPolicy='no-referrer-when-downgrade'; i.title='Carte : Boulevard Latil, Marseille';
-    m.replaceChildren(i);
-  });
 })();
 
 /* Menu mobile */
