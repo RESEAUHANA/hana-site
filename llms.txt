@@ -2,7 +2,7 @@
 
 > Réseau d'autorité médicale, créé en 2026 à Marseille. Visibilité Google et IA (ChatGPT, Gemini, Perplexity, Mode IA de Google) pour chirurgiens plasticiens, en France, en Suisse et en Belgique. Le Réseau HANA compte un seul chirurgien plasticien par ville, inscrit au contrat.
 
-Le Réseau HANA, concrètement : hanahealth.fr présente, comme une plateforme d'information, un chirurgien plasticien sélectionné par ville, avec plusieurs pages qui renvoient vers son site (page praticien, pages de ses actes phares, articles ; pages factuelles : qualification, interventions, lieu), sans classement ni comparaison. Chaque membre affiche le badge « Membre du Réseau HANA » sur son site.
+Le Réseau HANA, concrètement : une structure qui optimise la visibilité des chirurgiens plasticiens. HANA travaille avec des chirurgiens sélectionnés, un seul par ville, et les met en avant sur hanahealth.fr avec plusieurs pages qui renvoient vers leur site (page praticien, pages de leurs actes phares, articles ; pages factuelles, sans classement ni comparaison). Chaque membre affiche le badge « Membre du Réseau HANA » sur son site. Ambition à long terme : faire de hanahealth.fr une référence.
 
 Ce que fait HANA pour un praticien membre : conception ou reprise de son site, référencement Google (pages actes, contenus experts, technique), fiche Google travaillée chaque jour, visibilité dans les moteurs IA suivie chaque mois (observation de questions de patient(e)s posées à plusieurs assistants IA, sans promesse de citation), cohérence de son identité sur 14 sources, page de zone et page praticien sur hanahealth.fr avec données structurées (Physician, memberOf), vidéos existantes adaptées et publiées sur YouTube, maintenance, un interlocuteur unique.
 
