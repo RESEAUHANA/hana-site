@@ -2695,3 +2695,24 @@ body .pm-22 span strong{display:block;margin-bottom:2px;color:#fff;font-weight:7
 .rz-links b{grid-column:1;font-size:14px;color:#2c3a5b;line-height:1.3}
 .rz-links svg{grid-column:2;grid-row:1/3;width:18px;height:18px;fill:none;stroke:#2fa36b;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .rz-links li:nth-child(2),.rz-links li:nth-child(3){background:rgba(47,163,107,.08);border-color:rgba(47,163,107,.3)}
+
+/* Accueil : les trois offres en cartes, dès le haut de page (remplace la liste .hero-3) */
+.hero-offers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0 6px;max-width:760px}
+.ho{position:relative;display:flex;flex-direction:column;gap:6px;padding:18px 18px 20px;border-radius:20px;background:rgba(255,255,255,.86);border:1px solid rgba(44,58,91,.1);box-shadow:0 18px 44px rgba(21,30,51,.08);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s}
+.ho:hover{transform:translateY(-4px);border-color:rgba(47,163,107,.5);box-shadow:0 24px 54px rgba(21,30,51,.12)}
+.ho::before{content:"";position:absolute;left:18px;right:18px;top:0;height:3px;border-radius:0 0 3px 3px;background:linear-gradient(90deg,#2fa36b,#7fd6a3)}
+.ho-ico{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:#2c3a5b;margin-bottom:6px}
+.ho-ico svg{width:22px;height:22px;fill:none;stroke:#7fd6a3;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ho-ico svg.fill{fill:#7fd6a3;stroke:none}
+.ho small{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#1f8a58}
+.ho b{font-family:var(--display);font-weight:500;text-transform:uppercase;font-size:clamp(21px,1.7vw,26px);line-height:1.02;color:#2c3a5b}
+.ho p{margin:2px 0 0;font-size:14px;line-height:1.45;color:#55627f}
+@media (max-width:900px){
+  .hero-offers{grid-template-columns:1fr;gap:10px;margin-top:16px}
+  .ho{display:grid;grid-template-columns:40px minmax(0,1fr);column-gap:14px;row-gap:3px;padding:14px 16px 16px}
+  .ho::before{left:16px;right:16px}
+  .ho-ico{grid-row:1/4;margin:2px 0 0}
+  .ho b{font-size:21px}
+  .ho p{font-size:13.5px}
+}
+@media (max-width:900px){#heroContent{opacity:1!important}.hero-veil{background:linear-gradient(180deg,rgba(var(--veil),.35) 0%,rgba(var(--veil),.05) 25%,rgba(var(--veil),.55) 70%,rgba(var(--veil),.85) 100%)}}
