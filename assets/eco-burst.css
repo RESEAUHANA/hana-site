@@ -97,3 +97,8 @@
 .eb .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff}
 .eb .btn.secondary:hover{border-color:#7fd6a3;color:#7fd6a3}
 .eb-sub:empty{display:none}
+/* lien « Ma zone est-elle encore libre ? » sous les étapes 1 à 3 */
+.eb-zone{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-weight:600;font-size:clamp(15px,1.15vw,17px);color:#7fd6a3;border-bottom:1px solid rgba(127,214,163,.45);padding-bottom:2px;transition:color .2s,border-color .2s,gap .2s}
+.eb-zone svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.eb-zone:hover{color:#fff;border-color:#fff;gap:12px}
+@media (max-width:860px){.eb-zone{margin-top:10px;font-size:15px}}
