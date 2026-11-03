@@ -18,7 +18,7 @@
   // bornes des étapes (part du défilement de la section)
   const STEPS=[0,.13,.36,.56,.78];
 
-  let cur=-1;
+  let cur=-1, rot=0; // rot : rotation continue (en degrés) pendant l'étape 03
   function render(t){
     const p=outBack(seg(t,.11,.33));             // éclatement des 8 sources
     const d=seg(t,.1,.3);                          // éclats et onde de choc
@@ -30,7 +30,7 @@
     const R1=38-11*N, R2=42;
 
     orbs.forEach((o,i)=>{
-      const a=rad(+o.style.getPropertyValue('--a')+spin), r=R1*p*(1-Q);
+      const a=rad(+o.style.getPropertyValue('--a')+spin+rot), r=R1*p*(1-Q);
       o.style.left=(50+Math.cos(a)*r)+'%'; o.style.top=(50+Math.sin(a)*r)+'%';
       o.style.setProperty('--os',((.35+.65*Math.min(p,1.05))*(1-.65*Q)).toFixed(3));
       o.style.setProperty('--or',((1-clamp(p))*(i%2?140:-140)).toFixed(1)+'deg');
@@ -40,7 +40,7 @@
       l.style.strokeDashoffset=(1-L*(1-Q)).toFixed(3);
     });
     docs.forEach((o,i)=>{
-      const a=rad(+o.style.getPropertyValue('--a')+spin), k=clamp(N*1.4-i*.06), r=R2*(.7+.3*outCubic(k))*(1-Q);
+      const a=rad(+o.style.getPropertyValue('--a')+spin-rot*1.4), k=clamp(N*1.4-i*.06), r=R2*(.7+.3*outCubic(k))*(1-Q);
       const x=50+Math.cos(a)*r, y=50+Math.sin(a)*r;
       o.style.left=x+'%'; o.style.top=y+'%';
       o.style.setProperty('--do',(k*(1-Q)).toFixed(2)); o.style.setProperty('--ds',(.5+.5*outBack(k)).toFixed(3));
@@ -65,21 +65,31 @@
     let s=0; STEPS.forEach((b,i)=>{ if(t>=b) s=i; });
     if(s!==cur){
       cur=s; caps.forEach((c,i)=>c.classList.toggle('on',i===s)); dots.forEach((x,i)=>x.classList.toggle('on',i<=s));
-      sub.textContent=subs[s]; args.forEach((a,i)=>a.classList.toggle('on',LIT[s].includes(i))); sec.classList.toggle('is-end',s===4); sec.classList.toggle('is-net',s===2||s===3);
+      sub.textContent=subs[s]; args.forEach((a,i)=>a.classList.toggle('on',LIT[s].includes(i))); sec.classList.toggle('is-end',s===4); sec.classList.toggle('is-net',s===2||s===3); sec.classList.toggle('is-orbit',s===3);
       if(s===2) orbs.forEach((o,i)=>setTimeout(()=>{ o.classList.remove('ping'); void o.offsetWidth; o.classList.add('ping'); },i*90));
     }
   }
 
   if(reduce){ render(.76); return; } // version posée : le schéma complet
   sec.classList.add('eb-js');
+  sec.querySelectorAll('.eb-logo').forEach((l,i)=>l.style.animationDelay=(i*.35)+'s');
 
   let ticking=false;
   const update=()=>{
     ticking=false;
     const r=sec.getBoundingClientRect(), span=r.height-innerHeight;
     document.body.classList.toggle('eb-in',r.top<=1&&r.bottom>=innerHeight-1); // masque le bouton « haut de page » sur mobile pendant la section
-    render(span>0?clamp(-r.top/span):0);
+    tNow=span>0?clamp(-r.top/span):0; inView=r.top<innerHeight&&r.bottom>0;
+    render(tNow);
+    if(cur===3&&inView&&!spinning){ spinning=true; last=performance.now(); requestAnimationFrame(orbit); }
   };
+  // étape 03 : les sources tournent autour de HANA, les docteurs en sens inverse, même sans défiler
+  let tNow=0, inView=false, spinning=false, last=0;
+  function orbit(ts){
+    if(cur!==3||!inView){ spinning=false; return; }
+    rot+=Math.min(ts-last,50)*.012; last=ts; render(tNow);
+    requestAnimationFrame(orbit);
+  }
   const ask=()=>{ if(!ticking){ ticking=true; requestAnimationFrame(update); } };
   addEventListener('scroll',ask,{passive:true}); addEventListener('resize',ask);
   update();

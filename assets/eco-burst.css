@@ -167,3 +167,8 @@
 html{scroll-snap-type:y proximity}
 .eb-snap{position:absolute;left:0;width:1px;height:1px;top:calc(var(--t) * (100% - 100svh));scroll-snap-align:start;pointer-events:none}
 .eb:not(.eb-js) .eb-snap{display:none}
+/* étape 03 : chaque source devient lumineuse et pulse doucement */
+.eb.is-orbit .eb-logo,.eb.is-end .eb-logo{animation:eb-glow 2.6s ease-in-out infinite;box-shadow:0 0 0 1px rgba(127,214,163,.55),0 0 22px 3px rgba(127,214,163,.4),0 10px 30px rgba(0,0,0,.35)}
+@keyframes eb-glow{50%{box-shadow:0 0 0 2px rgba(127,214,163,.85),0 0 34px 8px rgba(127,214,163,.6),0 10px 30px rgba(0,0,0,.35)}}
+.eb.is-orbit .eb-doc:not(.me){border-color:rgba(127,214,163,.5)}
+@media (prefers-reduced-motion:reduce){.eb .eb-logo{animation:none!important}}
