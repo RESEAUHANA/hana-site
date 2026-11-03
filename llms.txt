@@ -14,9 +14,9 @@ Villes : partout en France, en Belgique et en Suisse, un seul chirurgien plastic
 
 ## Pages
 
+- [Accueil](https://hanahealth.fr/) : le réseau, ce que nous faisons, réalisations, engagements, tarifs, diagnostic offert
 - [L'écosystème](https://hanahealth.fr/ce-que-nous-faisons.html) : pourquoi les six prestations (site, référencement Google, fiche Google, visibilité IA, YouTube et LinkedIn, maintenance) ne sont jamais vendus séparément
 - [Tarifs](https://hanahealth.fr/tarifs.html) : la formule unique à 2 050 € HT par mois, ce qu'elle comprend, le contrat, la création ou refonte de site à partir de 2 000 € HT selon le périmètre
-- [Accueil](https://hanahealth.fr/) : le réseau, ce que nous faisons, réalisations, engagements, tarifs, diagnostic offert
 - [Création et refonte de site internet](https://hanahealth.fr/site-internet.html) : architecture d'un site de chirurgie plastique (8 à 15 pages d'intervention), anatomie d'une page d'intervention (augmentation mammaire, ptôse mammaire : voies d'abord, plateau technique, suites opératoires et éviction sociale, honoraires et délai de réflexion), cadre déontologique, WordPress et autres CMS, création ou refonte sans perte de positions
 - [Référencement Google](https://hanahealth.fr/referencement-google.html) : le SEO d'un chirurgien plasticien : les intentions de recherche des patient(e)s, une page par intervention réellement pratiquée, l'architecture du site (pages d'intervention, contenus experts, pages de confiance, pages pratiques), le contenu médical, le maillage interne, le SEO technique, le lien avec la fiche Google et le Réseau HANA, ce qui est fait au lancement puis chaque mois (2 pages stratégiques, 2 contenus experts), sans promesse de position
 - [Fiche Google](https://hanahealth.fr/fiche-google.html) : la fiche Google d'un chirurgien plasticien, travaillée chaque jour : informations, catégories, services, photos, 8 publications par mois, avis répondus sous 24 h dans le respect du secret médical, cohérence avec le site et les autres sources (Doctolib, annuaires), une personne dédiée, sans promesse de position sur Maps
@@ -29,6 +29,41 @@ Villes : partout en France, en Belgique et en Suisse, un seul chirurgien plastic
 - [Qui sommes-nous](https://hanahealth.fr/qui-sommes-nous.html) : dix ans comme rédactrice SEO spécialisée en chirurgie esthétique, dont trois à la direction du service communication de la Clinique Phenicia, à Marseille. HANA est né de là, en 2026
 - [Mentions légales](https://hanahealth.fr/mentions-legales.html)
 - [Politique de confidentialité](https://hanahealth.fr/confidentialite.html)
+
+## Guides
+
+- [Tous les guides](https://hanahealth.fr/guides.html) : les guides de visibilité pour chirurgiens plasticiens et médecins esthétiques, classés par sujet
+- [Agence SEO pour chirurgiens esthétiques : comment choisir](https://hanahealth.fr/agence-seo-chirurgien-esthetique.html) : Comment choisir une agence SEO quand on est chirurgien esthétique : spécialisation, exclusivité, prix, promesses à fuir et 8 questions à poser avant de signer.
+- [Agence de communication pour chirurgiens esthétiques : tout tenir, avec un seul interlocuteur](https://hanahealth.fr/agence-communication-chirurgien-esthetique.html) : Agence de communication pour chirurgien esthétique : tout ce qu'il faut tenir en ligne, un interlocuteur unique, une semaine type et ce que nous ne faisons pas.
+- [Comment être premier sur Google quand on est chirurgien esthétique ?](https://hanahealth.fr/etre-premier-sur-google-chirurgien-esthetique.html) : Comment être premier sur Google quand on est chirurgien esthétique : ce qui décide du classement, la bonne recherche à viser, ce qui ne marche pas, les délais.
+- [Création de site internet pour chirurgien esthétique : comment le réussir](https://hanahealth.fr/creation-site-chirurgien-esthetique.html) : Création de site internet pour chirurgien esthétique : contenu indispensable, page d'intervention type, WordPress ou sur-mesure, délais, prix et propriété.
+- [Refonte de site de chirurgien esthétique : changer sans perdre ses positions](https://hanahealth.fr/refonte-site-chirurgien-esthetique.html) : Refonte de site pour chirurgien esthétique : quand refondre, audit de l'existant, redirections 301, récupération des accès et check-list avant mise en ligne.
+- [Ce qu'un chirurgien esthétique a le droit de mettre sur son site](https://hanahealth.fr/deontologie-site-chirurgien-esthetique.html) : Déontologie et site de chirurgien esthétique : ce que vous pouvez publier, ce qui est interdit ou risqué, avant-après, honoraires, devis et délai de réflexion.
+- [Pourquoi mon cabinet n'apparaît pas sur Google Maps ?](https://hanahealth.fr/cabinet-absent-google-maps.html) : Cabinet absent de Google Maps ? Les causes fréquentes pour une fiche Google de chirurgien, ce que vous pouvez corriger et une check-list en 10 points.
+- [Avis négatif Google pour un médecin ou un chirurgien : que faire](https://hanahealth.fr/avis-negatifs-google-medecin.html) : Avis négatif Google sur un médecin ou un chirurgien : répondre sans trahir le secret médical, savoir quand signaler l'avis et obtenir des avis réels.
+- [Doctolib suffit-il pour être visible quand on est chirurgien esthétique ?](https://hanahealth.fr/doctolib-suffit-il-chirurgien-esthetique.html) : Doctolib suffit-il pour être visible quand on est chirurgien esthétique ? Ce que la plateforme apporte, ses limites, et comment la compléter par un site.
+- [Référencement ChatGPT pour chirurgiens esthétiques : être compris par les IA](https://hanahealth.fr/referencement-chatgpt-chirurgien-esthetique.html) : Référencement ChatGPT pour chirurgien esthétique : comment les IA choisissent les praticiens cités, les sources qu'elles recoupent et comment le mesurer.
+- [Référencement d'un médecin esthétique : ce qui change](https://hanahealth.fr/referencement-medecin-esthetique.html) : SEO d'un médecin esthétique : recherches par soin et par zone du visage, pages soins, fiche Google, cadre sans promotion, et face aux centres et instituts.
+- [Agence SEO pour chirurgien esthétique à Marseille](https://hanahealth.fr/agence-seo-chirurgien-esthetique-marseille.html) : Agence SEO pour chirurgien esthétique à Marseille : ce que Google affiche, ce que tapent vos patientes (13008, rue Paradis, tarif) et nos références locales.
+- [Agence SEO pour chirurgien esthétique à Paris : sortir du lot là où tout le monde est](https://hanahealth.fr/agence-seo-chirurgien-esthetique-paris.html) : Agence SEO pour chirurgien esthétique à Paris : recherches par arrondissement, poids des avis, aperçu IA. Ce qui marche dans la ville la plus disputée.
+- [Agence SEO chirurgien esthétique à Lyon : être trouvé arrondissement par arrondissement](https://hanahealth.fr/agence-seo-chirurgien-esthetique-lyon.html) : Agence SEO chirurgien esthétique à Lyon : recherches par arrondissement (Lyon 6), Lyon sud, pôles médicaux, tarifs et avis. Ce que Google montre vraiment.
+- [Agence SEO chirurgien esthétique à Bordeaux : répondre aux recherches de vos patientes](https://hanahealth.fr/agence-seo-chirurgien-esthetique-bordeaux.html) : Agence SEO chirurgien esthétique à Bordeaux : recherches par quartier et par hôpital, rhinoplastie médicale, avis. Un plasticien accompagné à Bordeaux et Royan.
+- [Agence SEO chirurgien esthétique à Nice : être trouvé en français et en anglais](https://hanahealth.fr/agence-seo-chirurgien-esthetique-nice.html) : Agence SEO pour chirurgien esthétique à Nice : patients étrangers qui cherchent en anglais, quartiers Pasteur, Cimiez, Saint-George, fiche Google et IA.
+- [Agence SEO chirurgien esthétique à Toulouse : répondre à ce que tapent vos patientes](https://hanahealth.fr/agence-seo-chirurgien-esthetique-toulouse.html) : Agence SEO pour chirurgien esthétique à Toulouse : recherches par Purpan, Rangueil, rive gauche, confusion « secteur 1 », injections et avis Google.
+- [Référencement d'un chirurgien esthétique en Suisse : ce qui change](https://hanahealth.fr/referencement-chirurgien-esthetique-suisse.html) : Référencement d'un chirurgien esthétique en Suisse, à Genève ou Lausanne : Google.ch, langues, titre FMH, plateformes locales, cadre de communication et prix.
+- [Référencement d'un chirurgien esthétique en Belgique : ce qui change](https://hanahealth.fr/referencement-chirurgien-esthetique-belgique.html) : Référencement d'un chirurgien esthétique en Belgique et à Bruxelles : Google.be, français et néerlandais, cadre strict sur la publicité, plateformes et prix.
+
+## Faits clés
+
+- Réseau HANA accompagne uniquement des chirurgiens plasticiens et des médecins esthétiques, en France, en Suisse et en Belgique.
+- Exclusivité : un seul chirurgien plasticien par ville ; à Paris, l'exclusivité se fait par arrondissement. Un seul médecin esthétique par ville.
+- Prix public, identique pour tous : 2 050 € HT par mois. Création ou refonte de site à partir de 2 000 € HT, facturée une fois.
+- Après six mois, arrêt possible avec un mois de préavis ; site, nom de domaine, textes et fiche Google appartiennent au praticien, accès remis sous 15 jours. En cas de changement d'agence, HANA récupère les accès auprès de l'ancienne.
+- Aucune position garantie sur Google, aucune citation garantie par une IA : HANA s'engage sur un travail daté et mesuré chaque mois.
+- Premiers effets du référencement en général entre le 4e et le 6e mois. Création d'un site : 6 à 10 semaines ; une refonte est plus rapide.
+- Pages en anglais, en allemand ou en néerlandais : traduites par une traductrice spécialisée à partir des pages françaises validées par le praticien.
+- À Marseille, où HANA est basé, l'équipe se déplace au cabinet du praticien ; ailleurs, les échanges se font en visio.
+- Contenus rédigés dans le respect du cadre déontologique : pas de promesse de résultat, pas d'avant-après comme argument, pas de superlatifs, rien n'est publié sans la validation du praticien.
 
 ## Contact
 
