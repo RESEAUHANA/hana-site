@@ -2721,3 +2721,8 @@ body .pm-22 span strong{display:block;margin-bottom:2px;color:#fff;font-weight:7
 /* haut de l'accueil : cartes sur ordinateur, petit paragraphe sur téléphone */
 @media (min-width:901px){.hero .hero-lead{display:none}}
 @media (max-width:900px){.hero .hero-offers{display:none}}
+
+/* Téléphone : le haut des pages de prestation ne doit jamais être plus large que l'écran (bug vu à 360 px sur Visibilité IA) */
+@media (max-width:900px){.about-hero .wrap{grid-template-columns:minmax(0,1fr)}.about-hero-copy,.rg-hero-art{min-width:0;max-width:100%}.rg-hero-art{overflow:hidden}}
+/* Confidentialité : le tableau défile dans son cadre au lieu d'être coupé */
+@media (max-width:700px){main table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}}
