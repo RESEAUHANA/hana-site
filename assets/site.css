@@ -2635,3 +2635,8 @@ h2.dash-h{margin:0}
 .rz-zsec .rz-zones li{color:var(--navy);background:#fff;border-color:rgba(47,163,107,.45)}
 .rz-zsec .lead{max-width:62ch}
 .rz-zsec .lead{margin-top:16px}.rz-zsec .hero-actions{margin-top:24px}
+.espace-more{margin-top:22px}
+@media (max-width:900px){.espace-more{width:100%;justify-content:center}}
+@media (min-width:901px){#espace-hana .dash-wrap{align-items:start}#espace-hana .dash-wrap>.copy{position:sticky;top:120px}#espace-hana .espace-more{width:auto;display:inline-flex}}
+#espace-hana .espace-more{max-width:max-content}
+@media (max-width:900px){#espace-hana .toast{display:none}#espace-hana .espace-more{max-width:none}}
