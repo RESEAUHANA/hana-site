@@ -89,7 +89,8 @@
 
 /* sans JavaScript ou mouvement réduit : tout est posé, textes les uns sous les autres */
 .eb:not(.eb-js){height:auto}
-.eb:not(.eb-js) .eb-pin{position:relative;height:auto;padding-block:clamp(70px,8vw,120px)}
+.eb:not(.eb-js) .eb-pin{position:relative;height:auto;padding-block:clamp(70px,8vw,120px);flex-direction:column;align-items:stretch}
+.eb:not(.eb-js) .eb-argsw{width:100%}
 .eb:not(.eb-js) .eb-cap{position:relative;opacity:1;transform:none;margin-bottom:34px}
 .eb:not(.eb-js) .eb-cap:first-of-type .eb-p,.eb:not(.eb-js) .eb-hint,.eb:not(.eb-js) .eb-dots{display:none}
 .eb:not(.eb-js) .eb-grid{align-items:start}
