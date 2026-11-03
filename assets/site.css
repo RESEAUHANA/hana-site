@@ -2681,3 +2681,10 @@ body .pm-22 span strong{display:block;margin-bottom:2px;color:#fff;font-weight:7
 .rz-badge{display:inline-flex;align-items:center;gap:8px;margin-top:8px;padding:7px 12px;border-radius:10px;background:#fff;color:#2c3a5b;font-size:12.5px;font-weight:700;box-shadow:0 6px 16px rgba(0,0,0,.18)}
 .rz-badge svg{width:14px;height:14px;fill:#2fa36b}
 .rz-demo .rz-note{margin:12px 0 0;font-size:12px;color:#8fa0c4;text-align:center}
+
+/* Accueil : les trois offres dites tout de suite, sous le titre */
+.hero-3{list-style:none;margin:16px 0 4px;padding:0;display:grid;gap:10px;max-width:60ch}
+.hero-3 li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;align-items:baseline;font-size:clamp(15px,1.1vw,17px);line-height:1.45;color:var(--text-2)}
+.hero-3 b{font-family:var(--display);font-weight:500;font-size:18px;letter-spacing:.06em;color:var(--accent)}
+.hero-3 strong{color:var(--navy);font-weight:700}
+@media (max-width:600px){.hero-3{gap:8px;margin-top:12px}.hero-3 li{font-size:14.5px;grid-template-columns:28px minmax(0,1fr)}.hero-3 b{font-size:16px}}
