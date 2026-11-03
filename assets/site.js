@@ -9,10 +9,12 @@
      le sigle HANA apparaît, puis l'accroche et le bouton. « Passer » saute à l'état final. */
   function reveal(){
     timers.forEach(clearTimeout);
+    try{ sessionStorage.setItem('hana-intro','1'); }catch(e){}
     body.classList.remove('is-intro'); body.classList.add('is-reveal'); body.classList.add('is-ready');
     dispatchEvent(new Event('hana:reveal'));
   }
-  if(reduce){ reveal(); } else { later(reveal,700); }
+  let seen=false; try{ seen=!!sessionStorage.getItem('hana-intro'); }catch(e){}
+  if(reduce||seen){ reveal(); } else { later(reveal,700); }
   const skip=document.getElementById('skip'); skip&&skip.addEventListener('click',reveal);
   document.addEventListener('keydown',e=>{ if(e.key==='Escape') reveal(); });
   const ready=()=>{}; // (nav et textes suivent is-reveal)
@@ -174,8 +176,8 @@
       f.classList.remove('busy'); f.classList.add('sent'); f.querySelector('.cf-ok').hidden=false;
     }catch(err){
       f.classList.remove('busy');
-      const body=encodeURIComponent(`Nom : ${data.nom}\nSpécialité : ${data.specialite}\nVille : ${data.ville}\nTéléphone : ${data.telephone}\nEmail : ${data.email}\n\n${data.message||''}`);
-      location.href=`mailto:contact@hanahealth.fr?subject=${encodeURIComponent('Demande de diagnostic · '+data.ville)}&body=${body}`;
+      const body=encodeURIComponent(`Ville : ${data.ville}\nNom : ${data.nom}\nTéléphone : ${data.telephone}`);
+      location.href=`mailto:contact@hanahealth.fr?subject=${encodeURIComponent('Ma ville est-elle libre ? · '+data.ville)}&body=${body}`;
     }
   });
 })();
