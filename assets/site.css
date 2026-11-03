@@ -2651,3 +2651,33 @@ body .pm-22 b{font-family:var(--display);font-weight:500;font-size:clamp(54px,5v
 body .pm-22 span{font-size:15px;line-height:1.35;color:#c9d0e2;padding:0;border:0;max-width:none}
 body .pm-22 span strong{display:block;margin-bottom:2px;color:#fff;font-weight:700;font-size:17px}
 @media (max-width:600px){body .pm-22{max-width:none;padding:12px 16px;gap:14px}body .pm-22 b{font-size:52px}body .pm-22 span{font-size:14px}body .pm-22 span strong{font-size:16px}}
+
+/* Page Réseau : « Deux sites qui travaillent pour vous » — page Docteur A sur hanahealth.fr → son site avec badge */
+.rz-pts{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:12px}
+.rz-pts li{display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:start;font-size:15.5px;line-height:1.5;color:#c9d0e2}
+.rz-pts li b{color:#fff}
+.rz-pts svg{width:24px;height:24px;padding:5px;border-radius:50%;background:#2fa36b;fill:none;stroke:#fff;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.rz-demo{display:flex;flex-direction:column;align-items:stretch;max-width:440px;justify-self:center;width:100%}
+.rz-win{border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.rz-bar{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#eef1f6}
+.rz-bar i{width:8px;height:8px;border-radius:50%;background:#c8cfdc}
+.rz-bar em{margin-left:8px;font-style:normal;font-size:12px;color:#55627f;overflow-wrap:anywhere}
+.rz-in{padding:18px 20px 20px;display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.rz-page{background:#fff}
+.rz-page .rz-name{font-family:var(--display);font-weight:500;text-transform:uppercase;font-size:30px;line-height:1;color:#2c3a5b}
+.rz-page small{font-size:13px;color:#55627f}
+.rz-sel{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:99px;background:rgba(47,163,107,.12);color:#1f8a58;font-size:12px;font-weight:700}
+.rz-sel svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.rz-acts{list-style:none;margin:6px 0 4px;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.rz-acts li{padding:4px 10px;border-radius:99px;border:1px solid rgba(44,58,91,.18);font-size:12px;color:#2c3a5b}
+.rz-go{display:inline-flex;align-items:center;gap:8px;margin-top:6px;padding:9px 14px;border-radius:99px;background:#2c3a5b;color:#fff;font-size:13px;font-weight:600}
+.rz-go svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rz-down{position:relative;align-self:center;width:2px;height:38px;margin:10px 0;background:linear-gradient(180deg,rgba(127,214,163,.2),#7fd6a3)}
+.rz-down i{position:absolute;left:-5px;bottom:-1px;width:12px;height:12px;border-right:2px solid #7fd6a3;border-bottom:2px solid #7fd6a3;transform:rotate(45deg)}
+.rz-site{background:#2fa36b}
+.rz-site .rz-bar{background:#e6f5ec}
+.rz-site .rz-name{font-family:var(--display);font-weight:500;text-transform:uppercase;font-size:28px;line-height:1;color:#fff}
+.rz-site small{font-size:13px;color:#eafff3}
+.rz-badge{display:inline-flex;align-items:center;gap:8px;margin-top:8px;padding:7px 12px;border-radius:10px;background:#fff;color:#2c3a5b;font-size:12.5px;font-weight:700;box-shadow:0 6px 16px rgba(0,0,0,.18)}
+.rz-badge svg{width:14px;height:14px;fill:#2fa36b}
+.rz-demo .rz-note{margin:12px 0 0;font-size:12px;color:#8fa0c4;text-align:center}
