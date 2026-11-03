@@ -94,3 +94,6 @@
   addEventListener('scroll',ask,{passive:true}); addEventListener('resize',ask);
   update();
 })();
+/* Accueil, smartphone : le bouton « haut de page » s'efface pendant les cartes empilées */
+(()=>{ const st=document.getElementById('stack'); if(!st) return;
+  new IntersectionObserver(es=>document.body.classList.toggle('stack-in',es[0].isIntersecting),{rootMargin:'-80px 0px 0px 0px'}).observe(st); })();

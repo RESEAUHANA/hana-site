@@ -2567,3 +2567,24 @@ h2.dash-h{margin:0}
 @media (prefers-reduced-motion:reduce){.wk-days li{animation:none}}
 .wk .pm-22 b{font-family:var(--display);font-weight:500;font-size:clamp(56px,6vw,96px);line-height:.9;color:#7fd6a3}
 .wk-head h3{max-width:24ch}
+
+/* Accueil (03/11/2026) : en-tête du bloc « Ce que nous faisons » */
+.faire-head{max-width:880px;margin-bottom:clamp(30px,3.6vw,52px)}
+.faire-head h2{color:#7fd6a3}
+.faire-head .lead{font-size:clamp(16px,1.25vw,19px);color:#e3e8f2;max-width:62ch;margin-top:14px}
+
+/* Smartphone : les cartes « ce que nous faisons » se superposent aussi, chacune tient dans l'écran */
+@media (max-width:900px){
+  .stack .sc{position:sticky;top:calc(78px + var(--i) * 9px);margin-bottom:22px;min-height:0}
+  .stack .sc:last-child{margin-bottom:0}
+  .stack .sc-img{height:118px;min-height:0}
+  .stack .sc-body{padding:16px 18px 20px;gap:7px}
+  .stack .sc-body h3{font-size:clamp(22px,6.4vw,27px);line-height:1.02;margin:0}
+  .stack .sc-body p{font-size:13.5px;line-height:1.5}
+  .stack .sc-link{display:none}
+  .stack .sc-more{height:38px;margin-top:4px}
+  .stack .sc-tag{top:12px;left:12px}
+}
+@media (max-width:900px){.stack .sc-fact{display:none} body.stack-in .totop{opacity:0;pointer-events:none}}
+/* Comparaison agence / HANA : la grille ne doit jamais dépasser l'écran (cause du décalage à 360 px) */
+@media (max-width:900px){.compare{grid-template-columns:minmax(0,1fr)}.cmp{min-width:0;padding-inline:20px}.cmp .sites{gap:8px}.cmp .sites>*{flex:1 1 0;min-width:0}}
