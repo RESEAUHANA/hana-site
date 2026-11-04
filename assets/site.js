@@ -173,6 +173,7 @@
       const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
       const res=await r.json().catch(()=>({}));
       if(!r.ok||!res.success) throw new Error(r.status);
+      if(window.hanaTrack) hanaTrack('generate_lead');
       f.classList.remove('busy'); f.classList.add('sent'); f.querySelector('.cf-ok').hidden=false;
     }catch(err){
       f.classList.remove('busy');
