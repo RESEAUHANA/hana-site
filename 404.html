@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<title>Page introuvable · Réseau HANA</title>
+<meta name="description" content="Cette page n'existe pas ou a changé d'adresse.">
+<meta name="robots" content="noindex">
+<base href="/">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@300..700&family=Archivo:wdth,wght@87.5..112.5,300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=239">
+
+<style>
+/* Page Maintenance : styles propres à la page */
+.mt-art{justify-self:end;width:min(460px,100%);position:relative;display:flex;flex-direction:column;gap:12px}
+.mt-panel{position:relative;z-index:1;background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 30px 80px rgba(21,30,51,.14)}
+.mt-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.mt-top em{font-style:normal;font-size:13px;color:var(--muted)}
+.mt-live{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:600;color:var(--navy)}
+.mt-live i{width:10px;height:10px;border-radius:50%;background:var(--accent);animation:mtPulse 2.2s ease-out infinite}
+@keyframes mtPulse{0%{box-shadow:0 0 0 0 rgba(47,163,107,.55)}70%{box-shadow:0 0 0 10px rgba(47,163,107,0)}100%{box-shadow:0 0 0 0 rgba(47,163,107,0)}}
+.mt-rows{list-style:none;margin:8px 0 16px;padding:0}
+.mt-rows li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line);font-size:14px;color:var(--text-2)}
+.mt-rows b{display:flex;align-items:center;gap:8px;color:var(--navy);font-weight:600}
+.mt-rows b::before{content:"✓";display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--accent);color:#fff;font-size:10px;font-weight:700;opacity:0;transform:scale(.3);transition:opacity .4s ease,transform .4s cubic-bezier(.2,.8,.2,1)}
+.mt-art.in .mt-rows b::before{opacity:1;transform:none}
+.mt-art.in .mt-rows li:nth-child(2) b::before{transition-delay:.15s}.mt-art.in .mt-rows li:nth-child(3) b::before{transition-delay:.3s}.mt-art.in .mt-rows li:nth-child(4) b::before{transition-delay:.45s}.mt-art.in .mt-rows li:nth-child(5) b::before{transition-delay:.6s}
+.mt-bars{display:grid;grid-template-columns:repeat(30,1fr);gap:3px;height:28px;align-items:end}
+.mt-bars i{display:block;height:100%;border-radius:3px;background:var(--accent);opacity:.85;transform:scaleY(0);transform-origin:bottom;transition:transform .5s ease}
+.mt-art.in .mt-bars i{transform:none}
+.mt-bars i:nth-child(3n){transition-delay:.1s}.mt-bars i:nth-child(3n+1){transition-delay:.2s}
+.mt-cap{display:block;margin-top:8px;font-size:12px;color:var(--muted)}
+.mt-tiles{list-style:none;margin:clamp(28px,4vw,44px) 0 20px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.mt-tiles li{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px;transition:transform .35s ease,box-shadow .35s ease}
+.mt-tiles li:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(21,30,51,.1)}
+.mt-tiles b{font-size:17px;font-weight:600;color:var(--navy)}
+.mt-tiles p{margin:0;font-size:14.5px;line-height:1.6;color:var(--text-2)}
+.mt-split{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(28px,5vw,72px);align-items:center}
+.mt-rgpd{list-style:none;margin:0;padding:24px;border-radius:var(--r);background:var(--navy);display:flex;flex-direction:column;gap:4px;box-shadow:0 24px 60px rgba(21,30,51,.18)}
+.mt-rgpd li{display:flex;align-items:center;gap:12px;padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.1);color:#fff;font-size:15px}
+.mt-rgpd li:last-child{border-bottom:0;color:#7fd6a3;font-weight:600}
+.mt-rgpd li::before{content:"";width:16px;height:16px;flex:none;border-radius:4px;border:2px solid #7fd6a3}
+.mt-bugs{list-style:none;margin:clamp(24px,3vw,36px) 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.mt-bugs li{display:flex;align-items:center;gap:10px;font-size:15px;color:#fff;padding:11px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05)}
+.mt-bugs li::before{content:"✓";display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--accent);color:#fff;font-size:11px;font-weight:700}
+.mt-scope{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:clamp(28px,4vw,44px)}
+.mt-sc{padding:26px;border-radius:var(--r);border:1px solid var(--line);background:#fff}
+.mt-sc b{display:block;font-family:var(--display);font-weight:500;font-size:26px;text-transform:uppercase;color:var(--navy);margin-bottom:14px}
+.mt-sc ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.mt-sc li{position:relative;padding-left:30px;font-size:15.5px;color:var(--text-2)}
+.mt-sc li::before{position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700}
+.in-scope{background:rgba(47,163,107,.07);border-color:rgba(47,163,107,.35)}
+.in-scope li::before{content:"✓";background:var(--accent);color:#fff}
+.out-scope li::before{content:"";border:2px solid var(--line-2)}
+.out-scope p{margin:16px 0 0;padding-top:14px;border-top:1px dashed var(--line-2);font-size:14.5px;line-height:1.6;color:var(--text-2)}
+.mt-price{margin-top:clamp(28px,4vw,44px)}
+.mt-price h3{margin:8px 0 10px;font-family:var(--display);font-weight:500;font-size:clamp(26px,3vw,40px);line-height:1;text-transform:uppercase;color:var(--navy)}
+.mt-page #visibilite .lead a{color:var(--accent-2);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:1000px){.mt-tiles{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){.mt-art{justify-self:start;width:100%}.mt-split,.mt-scope{grid-template-columns:1fr}}
+@media (max-width:480px){.mt-tiles{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.mt-live i{animation:none}.mt-rows b::before,.mt-bars i{transition:none;opacity:1;transform:none}}
+</style>
+</head>
+<body class="legal-page rg-page mt-page">
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="/#top" aria-label="HANA, accueil">
+      <svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="0" width="6" height="6" rx="1"/><rect x="16" y="8" width="6" height="6" rx="1"/><rect x="0" y="16" width="6" height="6" rx="1"/><rect x="8" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/></svg>
+      <span class="word">HANA</span>
+    </a>
+    <nav class="nav-links" aria-label="Navigation principale">
+      <a href="/reseau.html">Le Réseau HANA</a><div class="dd"><button type="button" class="dd-btn" aria-expanded="false" aria-haspopup="true">Ce que nous faisons <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><ul class="dd-menu" role="menu"><li><a href="/ce-que-nous-faisons.html"><b>L'écosystème</b><span>Pourquoi tout ensemble</span></a></li><li><a href="/site-internet.html"><b>Site internet</b><span>Création et refonte</span></a></li><li><a href="/referencement-google.html"><b>Référencement Google</b><span>SEO médical</span></a></li><li><a href="/fiche-google.html"><b>Fiche Google</b><span>Travaillée chaque jour</span></a></li><li><a href="/visibilite-ia.html"><b>Visibilité dans les IA</b><span>GEO : ChatGPT, Gemini</span></a></li><li><a href="/youtube-linkedin.html"><b>YouTube et LinkedIn</b><span>Vos vidéos, adaptées et publiées</span></a></li><li><a href="/maintenance.html"><b>Maintenance et sécurité</b><span>Surveillé 24 h/24</span></a></li></ul></div><a href="/references.html">Références</a><a href="/tarifs.html">Tarifs</a><a href="/qui-sommes-nous.html">Qui sommes-nous</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn primary" href="#contact">Ma ville est-elle libre&nbsp;?</a>
+      <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<nav class="mnav" id="mnav" aria-label="Menu mobile" hidden>
+  <a href="/reseau.html">Le Réseau HANA</a><details class="mnav-group"><summary>Ce que nous faisons</summary><div class="mnav-sub"><a href="/ce-que-nous-faisons.html">L'écosystème</a><a href="/site-internet.html">Site internet</a><a href="/referencement-google.html">Référencement Google</a><a href="/fiche-google.html">Fiche Google</a><a href="/visibilite-ia.html">Visibilité dans les IA</a><a href="/youtube-linkedin.html">YouTube et LinkedIn</a><a href="/maintenance.html">Maintenance et sécurité</a></div></details><a href="/references.html">Références</a><a href="/tarifs.html">Tarifs</a><a href="/qui-sommes-nous.html">Qui sommes-nous</a><a href="#contact">Contact</a><a class="mnav-cta" href="#contact">Ma ville est-elle libre&nbsp;?</a>
+  <div class="mnav-foot"><a href="tel:+33699305873">06 99 30 58 73</a><a href="mailto:contact@hanahealth.fr">contact@hanahealth.fr</a></div>
+</nav>
+
+<main>
+<section class="sec si-sec" aria-labelledby="nf-h1" style="padding-top:clamp(130px,18vw,190px)">
+  <div class="wrap">
+    <p class="kicker"><i></i>Erreur 404</p>
+    <h1 id="nf-h1">Cette page n'existe pas.</h1>
+    <p style="margin-top:18px;max-width:60ch">Elle a peut-être changé d'adresse. Voici les pages les plus consultées.</p>
+    <ul style="margin-top:22px;display:grid;gap:10px;list-style:none;padding:0">
+      <li><a href="/">Accueil</a></li>
+      <li><a href="/referencement-google.html">Référencement Google</a></li>
+      <li><a href="/site-internet.html">Site internet</a></li>
+      <li><a href="/fiche-google.html">Fiche Google</a></li>
+      <li><a href="/visibilite-ia.html">Visibilité dans les IA</a></li>
+      <li><a href="/tarifs.html">Tarifs</a></li>
+      <li><a href="/guides.html">Tous nos guides</a></li>
+    </ul>
+  </div>
+</section>
+</main>
+<footer class="foot" id="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="/#top" aria-label="HANA, accueil"><svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="0" width="6" height="6" rx="1"/><rect x="16" y="8" width="6" height="6" rx="1"/><rect x="0" y="16" width="6" height="6" rx="1"/><rect x="8" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/></svg><span class="word">HANA</span></a>
+        <p class="foot-sig">Healthcare · Authority · Network · Architecture</p>
+        <p class="foot-tag">Réseau d'autorité médicale. Un seul chirurgien plasticien par ville, avec un travail de visibilité sur Google et dans les moteurs IA.</p>
+        <ul class="foot-proof"><li>Près de<b>10</b>ans dans les blocs, dans votre spécialité</li><li><b>15</b>praticiens accompagnés depuis 2019</li><li><b>3</b>pays francophones</li></ul>
+      </div>
+      <nav class="foot-col" aria-label="Plan du site">
+        <b>Le réseau</b>
+        <a href="/reseau.html">Le Réseau HANA</a><a href="/#faire">Ce qu'on fait pour vous</a><a href="/visibilite-ia.html">Visibilité dans les IA</a><a href="/qui-sommes-nous.html">Qui sommes-nous</a><a href="/tarifs.html">Tarifs</a><a href="/guides.html">Guides</a>
+      </nav>
+      <nav class="foot-col" aria-label="Villes">
+        <b>Par ville</b>
+        <a href="/agence-seo-chirurgien-esthetique-paris.html">Paris</a><a href="/agence-seo-chirurgien-esthetique-lyon.html">Lyon</a><a href="/agence-seo-chirurgien-esthetique-marseille.html">Marseille</a><a href="/agence-seo-chirurgien-esthetique-bordeaux.html">Bordeaux</a><a href="/agence-seo-chirurgien-esthetique-nice.html">Nice</a><a href="/agence-seo-chirurgien-esthetique-toulouse.html">Toulouse</a><a href="/referencement-chirurgien-esthetique-suisse.html">Suisse</a><a href="/referencement-chirurgien-esthetique-belgique.html">Belgique</a><a class="more" href="/#contact">Et votre ville&nbsp;?</a>
+      </nav>
+      <nav class="foot-col" aria-label="Ressources">
+        <b>Ressources</b>
+        <a href="/agence-seo-chirurgien-esthetique.html">Agence SEO chirurgien esthétique</a><a href="/creation-site-chirurgien-esthetique.html">Création de site</a><a href="/cabinet-absent-google-maps.html">Absent de Google Maps</a><a href="/referencement-chatgpt-chirurgien-esthetique.html">Référencement ChatGPT</a><a href="/guides.html">Tous les guides</a>
+      </nav>
+      <div class="foot-col">
+        <b>Contact</b>
+        <a href="tel:+33699305873">06 99 30 58 73</a><a href="mailto:contact@hanahealth.fr">contact@hanahealth.fr</a><span>France · Belgique · Suisse</span>
+        <a class="btn accent" href="#contact">Ma ville est-elle libre&nbsp;?</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Réseau HANA · Marseille</span>
+      <nav aria-label="Informations légales"><a href="/mentions-legales.html">Mentions légales</a><a href="/confidentialite.html">Confidentialité</a><a href="/#top">Haut de page ↑</a></nav>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js?v=188"></script>
+</body>
+</html>
