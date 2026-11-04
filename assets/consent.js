@@ -58,7 +58,7 @@
     box.className='ck';
     box.setAttribute('role','region');
     box.setAttribute('aria-label','Choix concernant les cookies');
-    box.innerHTML='<p>Nous mesurons l\'audience du site avec Google Analytics, seulement si vous l\'acceptez. <a href="/confidentialite.html#cookies">En savoir plus</a></p>'
+    box.innerHTML='<p>Nous utilisons des cookies pour mesurer l\'audience du site, seulement si vous l\'acceptez. <a href="/confidentialite.html#cookies">En savoir plus</a></p>'
       +'<div class="ck-btns"><button type="button" data-c="0">Refuser</button><button type="button" data-c="1">Accepter</button></div>';
     box.addEventListener('click',function(e){
       var b=e.target.closest('button');
