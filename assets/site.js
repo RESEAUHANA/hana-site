@@ -507,3 +507,17 @@
   }
   setTimeout(next,4200);
 })();
+
+/* Barre de contact : visible après le haut de page, masquée sur le formulaire */
+(function(){
+  const bar=document.querySelector('.lbar');
+  if(!bar) return;
+  const contact=document.getElementById('contact');
+  let onForm=false;
+  const set=()=>bar.classList.toggle('on',window.scrollY>500&&!onForm);
+  if(contact&&'IntersectionObserver' in window){
+    new IntersectionObserver(e=>{onForm=e[0].isIntersecting;set();}).observe(contact);
+  }
+  window.addEventListener('scroll',set,{passive:true});
+  set();
+})();
